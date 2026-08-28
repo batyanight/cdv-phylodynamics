@@ -1,0 +1,24 @@
+name: cdv-phylo
+channels: [conda-forge, bioconda, defaults]
+dependencies:
+  - python=3.11
+  - biopython=1.83
+  - pandas=2.2
+  - numpy
+  - matplotlib
+  - jupyterlab
+  - nbformat
+  # --- phase 2 onward, uncomment as you reach them ---
+  - mafft=7.520
+  - iqtree=2.2.2
+  - trimal
+  # - seqkit
+  # - hyphy=2.5
+  # - r-base=4.3
+  # - bioconductor-ggtree
+  # - r-ape
+  # - r-tidyverse
+  # BEAST2 and TempEst install separately — they are GUI/Java tools.
+  #   BEAST2:  https://www.beast2.org/
+  #   TempEst: https://beast.community/tempest
+  #   Tracer:  https://beast.community/tracer

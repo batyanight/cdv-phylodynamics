@@ -1,0 +1,13 @@
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+logs/*
+!logs/.gitkeep
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+# BEAST outputs are large; archive them separately (Zenodo), don't commit
+*.trees
+*.state
