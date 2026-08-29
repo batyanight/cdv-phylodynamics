@@ -310,10 +310,14 @@ def main() -> int:
     print(f"\nwrote {out_fasta}")
     print(f"wrote {out_meta}")
     print(f"wrote {out_dates}")
-    print("\nNext: rebuild an ML tree on the subset and re-check TempEst before BEAST —")
-    print("a subset with better temporal balance often has much stronger clock signal.")
-    print(f"    python scripts/03_align_and_tree.py --fasta {out_fasta} \\")
-    print(f"        --metadata {out_meta} --prefix {prefix}")
+    print("\nNOTE: this FASTA is already aligned and already has BEAST-style tip labels.")
+    print("Do NOT feed it back to 03_align_and_tree.py — that script expects unaligned")
+    print("sequences with bare accessions and would drop everything. Run IQ-TREE directly:")
+    print(f"\n    iqtree2 -s {out_fasta} -m MFP -B 1000 --alrt 1000 -T AUTO \\")
+    print(f"        --prefix {args.outdir / prefix}_ml -redo")
+    print("\nStrip all-gap columns first if the subset is much smaller than the original.")
+    print("Then re-check TempEst — a subset with better temporal balance often has")
+    print("markedly stronger clock signal than the full tree did.")
     return 0
 
 

@@ -1,0 +1,279 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.base.inference.CompoundDistribution">
+#    <distribution id="prior" spec="beast.base.inference.CompoundDistribution">
+#        <distribution id="CoalescentConstant.t:H_clade_3" spec="beast.base.evolution.tree.coalescent.Coalescent">
+#            <populationModel id="ConstantPopulation.t:H_clade_3" spec="beast.base.evolution.tree.coalescent.ConstantPopulation">
+#                <parameter id="popSize.t:H_clade_3" lower="0.0" name="popSize" spec="beast.base.inference.parameter.RealParameter">0.3</parameter>
+#            </populationModel>
+#            <treeIntervals id="TreeIntervals.t:H_clade_3" spec="beast.base.evolution.tree.TreeIntervals">
+#                <tree id="Tree.t:H_clade_3" spec="beast.base.evolution.tree.Tree">
+#                    <trait id="dateTrait.t:H_clade_3" spec="beast.base.evolution.tree.TraitSet" traitname="date" value="KU666057|procyonid|2012.896=2012.896,PX789676|procyonid|2019.312=2019.312,MT932511|wild_felid|1992.787=1992.787,MT932504|wild_felid|1992.667=1992.667,MT932505|procyonid|1992.000=1992.000,MT932510|procyonid|2013.268=2013.268,MT932509|procyonid|2013.230=2013.230,MT932507|wild_canid|2013.238=2013.238,MT932506|procyonid|2013.164=2013.164,MT932508|procyonid|2013.195=2013.195,EU716337|domestic_dog|2004.675=2004.675,PX789675|wild_canid|2019.304=2019.304,MW984532|wild_felid|2015.964=2015.964,MW984531|wild_felid|2015.989=2015.989,MW984530|wild_felid|2015.912=2015.912,MW984527|wild_felid|2015.951=2015.951,MW984533|procyonid|2016.322=2016.322,MW984534|mustelid|2016.336=2016.336,MW984536|mustelid|2016.301=2016.301,MH644852|mustelid|2017.660=2017.660,MH644855|mustelid|2016.973=2016.973,MH644853|mustelid|2016.973=2016.973,MH644854|mustelid|2017.301=2017.301,MH644851|procyonid|2017.167=2017.167,MH644849|wild_canid|2016.210=2016.210,PX789692|procyonid|2023.030=2023.030,PX789695|procyonid|2022.819=2022.819,PX789698|procyonid|2022.805=2022.805,PX789703|procyonid|2023.392=2023.392,MH644850|mustelid|2016.361=2016.361,PX789700|procyonid|2022.926=2022.926,MT943490|wild_felid|2013.748=2013.748,MH810099|domestic_dog|2017.970=2017.970,MW984535|procyonid|2015.951=2015.951,PX789678|domestic_dog|2021.041=2021.041,PX789674|domestic_dog|2023.622=2023.622,MK487379|procyonid|2016.500=2016.500,MK473365|wild_canid|2017.500=2017.500,MK473366|wild_canid|2017.500=2017.500,KJ123771|domestic_dog|2004.500=2004.500,KF430374|mustelid|2004.500=2004.500,KF430373|mustelid|2007.500=2007.500,KF430371|mustelid|2007.500=2007.500,KF430372|mustelid|2007.500=2007.500,MN824467|procyonid|2018.500=2018.500,MG797669|domestic_dog|2017.500=2017.500,JF283477|domestic_dog|2010.500=2010.500,OK667001|procyonid|2014.500=2014.500,OK666993|procyonid|2014.500=2014.500,OK666919|wild_canid|2013.500=2013.500,OK666870|wild_canid|2016.500=2016.500,OK666917|domestic_dog|2012.500=2012.500,OK667043|procyonid|2017.500=2017.500,OK666936|wild_canid|2017.500=2017.500,OK667038|procyonid|2017.500=2017.500,OK667026|procyonid|2016.500=2016.500,OK666884|mustelid|2016.500=2016.500,OK666997|procyonid|2014.500=2014.500,OK666983|procyonid|2014.500=2014.500,OK666886|mustelid|2016.500=2016.500,OK666974|procyonid|2014.500=2014.500,OK667009|procyonid|2015.500=2015.500,OK666928|wild_canid|2016.500=2016.500,OK666932|wild_canid|2017.500=2017.500,OK666909|wild_canid|2017.500=2017.500,OK666908|wild_canid|2017.500=2017.500,OK666912|wild_canid|2017.500=2017.500,OK667023|procyonid|2015.500=2015.500,OK666924|wild_canid|2015.500=2015.500,OK666994|procyonid|2014.500=2014.500,OK666926|wild_canid|2015.500=2015.500,OK666920|wild_canid|2015.500=2015.500,OK667030|procyonid|2016.500=2016.500,OK666872|mustelid|2015.500=2015.500,OK667039|procyonid|2017.500=2017.500,OK666905|wild_canid|2017.500=2017.500,OK666934|wild_canid|2017.500=2017.500,OK666906|wild_canid|2017.500=2017.500,OK666914|wild_canid|2017.500=2017.500,OK667025|procyonid|2016.500=2016.500,OK666904|wild_canid|2016.500=2016.500,OK666890|mustelid|2016.500=2016.500,OK666910|wild_canid|2017.500=2017.500,OK666880|mustelid|2016.500=2016.500,OK666885|mustelid|2016.500=2016.500,OK667020|procyonid|2015.500=2015.500,OK667021|procyonid|2015.500=2015.500,OK666971|procyonid|2014.500=2014.500,OK666970|procyonid|2014.500=2014.500,OK666963|procyonid|2014.500=2014.500,OK666959|procyonid|2014.500=2014.500,OK666955|procyonid|2013.500=2013.500,OK666952|procyonid|2013.500=2013.500,OK666958|procyonid|2014.500=2014.500,OK666973|procyonid|2014.500=2014.500,OK666986|procyonid|2014.500=2014.500,OK666985|procyonid|2014.500=2014.500,OK667005|procyonid|2015.500=2015.500,OK667004|procyonid|2015.500=2015.500,OK667003|procyonid|2014.500=2014.500,OK667007|procyonid|2015.500=2015.500,OK666999|procyonid|2014.500=2014.500,OK666978|procyonid|2014.500=2014.500,OK666925|wild_canid|2015.500=2015.500,OK666998|procyonid|2014.500=2014.500,OK666977|procyonid|2014.500=2014.500,OK666950|procyonid|2013.500=2013.500,OK666948|procyonid|2013.500=2013.500,OK666946|procyonid|2013.500=2013.500,OK666954|procyonid|2013.500=2013.500,OK666980|procyonid|2014.500=2014.500,OK666976|procyonid|2014.500=2014.500,OK666975|procyonid|2014.500=2014.500,OK666949|procyonid|2013.500=2013.500,OK666940|procyonid|2010.500=2010.500,OK666979|procyonid|2014.500=2014.500,OK666933|wild_canid|2017.500=2017.500,OK666911|wild_canid|2017.500=2017.500,OK666921|wild_canid|2015.500=2015.500,OK666960|procyonid|2014.500=2014.500,OK666951|procyonid|2013.500=2013.500,OK666945|procyonid|2013.500=2013.500,OK666984|procyonid|2014.500=2014.500,OK666939|mustelid|2014.500=2014.500,OK667000|procyonid|2014.500=2014.500,OK667036|procyonid|2016.500=2016.500,OK667031|procyonid|2016.500=2016.500,OK667035|procyonid|2016.500=2016.500,OK667002|procyonid|2014.500=2014.500,OK666992|procyonid|2014.500=2014.500,OK667010|procyonid|2015.500=2015.500,OK667042|procyonid|2017.500=2017.500,OK667034|procyonid|2016.500=2016.500,OK667033|procyonid|2016.500=2016.500,OK667019|procyonid|2015.500=2015.500,OK667041|procyonid|2017.500=2017.500,OK667044|procyonid|2017.500=2017.500,OK667032|procyonid|2016.500=2016.500,OK667024|procyonid|2016.500=2016.500,OK667018|procyonid|2015.500=2015.500,OK667006|procyonid|2015.500=2015.500,OK667013|procyonid|2015.500=2015.500,OK667028|procyonid|2016.500=2016.500,OK667012|procyonid|2015.500=2015.500,OK666931|wild_canid|2017.500=2017.500,OK667029|procyonid|2016.500=2016.500,OK667016|procyonid|2015.500=2015.500,OK666877|mustelid|2016.500=2016.500,OK666878|mustelid|2016.500=2016.500,OK666876|mustelid|2016.500=2016.500,OK667040|procyonid|2017.500=2017.500,OK667015|procyonid|2015.500=2015.500,OK666935|wild_canid|2017.500=2017.500,OK667037|procyonid|2016.500=2016.500,OK666927|wild_canid|2015.500=2015.500,OK666889|mustelid|2016.500=2016.500,OK667022|procyonid|2015.500=2015.500,OK666879|mustelid|2016.500=2016.500,OK666937|wild_canid|2017.500=2017.500,OK666907|wild_canid|2017.500=2017.500,MK487378|ailurid|2016.500=2016.500,OK666930|wild_canid|2017.500=2017.500">
+#                        <taxa id="TaxonSet.H_clade_3" spec="beast.base.evolution.alignment.TaxonSet">
+#                        </taxa>
+#                    </trait>
+#                    <taxonset idref="TaxonSet.H_clade_3"/>
+#                </tree>
+#            </treeIntervals>
+#        </distribution>
+#        <prior id="GammaShapePrior.s:H_clade_3" name="distribution">
+#            <parameter id="gammaShape.s:H_clade_3" lower="0.1" name="x" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#            <Exponential id="Exponential.0" name="distr">
+#                <parameter estimate="false" id="RealParameter.0" name="mean" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#            </Exponential>
+#        </prior>
+#        <prior id="KappaPrior.s:H_clade_3" name="distribution">
+#            <parameter id="kappa.s:H_clade_3" lower="0.0" name="x" spec="beast.base.inference.parameter.RealParameter">2.0</parameter>
+#            <LogNormal id="LogNormalDistributionModel.0" name="distr">
+#                <parameter estimate="false" id="RealParameter.10" name="M" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="RealParameter.11" name="S" spec="beast.base.inference.parameter.RealParameter">1.25</parameter>
+#            </LogNormal>
+#        </prior>
+#        <prior id="nonZeroRatePrior.s:Host" name="distribution">
+#            <x id="nonZeroRates.s:Host" spec="beast.base.evolution.Sum">
+#                <arg dimension="15" id="rateIndicator.s:Host" spec="beast.base.inference.parameter.BooleanParameter">true</arg>
+#            </x>
+#            <distr id="Poisson.0" offset="5.0" spec="beast.base.inference.distribution.Poisson">
+#                <parameter estimate="false" id="RealParameter.7" name="lambda" spec="beast.base.inference.parameter.RealParameter">0.693</parameter>
+#            </distr>
+#        </prior>
+#        <prior id="PopSizePrior.t:H_clade_3" name="distribution" x="@popSize.t:H_clade_3">
+#            <OneOnX id="OneOnX.1" name="distr"/>
+#        </prior>
+#        <prior id="relativeGeoRatesPrior.s:Host" name="distribution">
+#            <parameter dimension="15" id="relativeGeoRates.s:Host" name="x" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#            <Gamma id="Gamma.2" name="distr">
+#                <parameter estimate="false" id="RealParameter.5" name="alpha" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="RealParameter.6" name="beta" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#            </Gamma>
+#        </prior>
+#        <prior id="geoclockPrior.c:Host" name="distribution">
+#            <parameter id="traitClockRate.c:Host" name="x" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#            <Gamma id="Gamma.1" name="distr">
+#                <parameter estimate="false" id="RealParameter.3" name="alpha" spec="beast.base.inference.parameter.RealParameter">0.001</parameter>
+#                <parameter estimate="false" id="RealParameter.4" name="beta" spec="beast.base.inference.parameter.RealParameter">1000.0</parameter>
+#            </Gamma>
+#        </prior>
+#        <prior id="MeanRatePrior.c:H_clade_3" name="distribution">
+#            <parameter id="ucldMean.c:H_clade_3" lower="0.0" name="x" spec="beast.base.inference.parameter.RealParameter">7.46E-4</parameter>
+#            <LogNormal id="LogNormalDistributionModel.1" name="distr">
+#                <parameter estimate="false" id="RealParameter.18" name="M" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="RealParameter.19" lower="0.0" name="S" spec="beast.base.inference.parameter.RealParameter" upper="5.0">1.25</parameter>
+#            </LogNormal>
+#        </prior>
+#        <prior id="ucldStdevPrior.c:H_clade_3" name="distribution">
+#            <parameter id="ucldStdev.c:H_clade_3" lower="0.0" name="x" spec="beast.base.inference.parameter.RealParameter">0.1</parameter>
+#            <Gamma id="Gamma.4" name="distr">
+#                <parameter estimate="false" id="RealParameter.14" name="alpha" spec="beast.base.inference.parameter.RealParameter">0.5396</parameter>
+#                <parameter estimate="false" id="RealParameter.15" name="beta" spec="beast.base.inference.parameter.RealParameter">0.3819</parameter>
+#            </Gamma>
+#        </prior>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.base.inference.CompoundDistribution" useThreads="true">
+#        <distribution data="@H_clade_3" id="treeLikelihood.H_clade_3" spec="beast.base.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:H_clade_3">
+#            <siteModel gammaCategoryCount="4" id="SiteModel.s:H_clade_3" shape="@gammaShape.s:H_clade_3" spec="beast.base.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:H_clade_3" lower="0.0" name="mutationRate" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:H_clade_3" lower="0.0" name="proportionInvariant" spec="beast.base.inference.parameter.RealParameter" upper="1.0">0.0</parameter>
+#                <substModel id="hky.s:H_clade_3" kappa="@kappa.s:H_clade_3" spec="beast.base.evolution.substitutionmodel.HKY">
+#                    <frequencies data="@H_clade_3" id="empiricalFreqs.s:H_clade_3" spec="beast.base.evolution.substitutionmodel.Frequencies"/>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel clock.rate="@ucldMean.c:H_clade_3" id="RelaxedClock.c:H_clade_3" spec="beast.base.evolution.branchratemodel.UCRelaxedClockModel" tree="@Tree.t:H_clade_3">
+#                <LogNormal S="@ucldStdev.c:H_clade_3" id="LogNormalDistributionModel.c:H_clade_3" meanInRealSpace="true" name="distr">
+#                    <parameter estimate="false" id="RealParameter.13" lower="0.0" name="M" spec="beast.base.inference.parameter.RealParameter" upper="1.0">1.0</parameter>
+#                </LogNormal>
+#                <rateCategories dimension="322" id="rateCategories.c:H_clade_3" spec="beast.base.inference.parameter.IntegerParameter">1</rateCategories>
+#            </branchRateModel>
+#        </distribution>
+#        <distribution id="traitedtreeLikelihood.Host" spec="beastclassic.evolution.likelihood.AncestralStateTreeLikelihood" tag="location" tree="@Tree.t:H_clade_3">
+#            <data id="Host" spec="beastclassic.evolution.alignment.AlignmentFromTrait">
+#                <traitSet id="traitSet.Host" spec="beast.base.evolution.tree.TraitSet" taxa="@TaxonSet.H_clade_3" traitname="discrete">KU666057|procyonid|2012.896=procyonid,
+#PX789676|procyonid|2019.312=procyonid,
+#MT932511|wild_felid|1992.787=wild_felid,
+#MT932504|wild_felid|1992.667=wild_felid,
+#MT932505|procyonid|1992.000=procyonid,
+#MT932510|procyonid|2013.268=procyonid,
+#MT932509|procyonid|2013.230=procyonid,
+#MT932507|wild_canid|2013.238=wild_canid,
+#MT932506|procyonid|2013.164=procyonid,
+#MT932508|procyonid|2013.195=procyonid,
+#EU716337|domestic_dog|2004.675=domestic_dog,
+#PX789675|wild_canid|2019.304=wild_canid,
+#MW984532|wild_felid|2015.964=wild_felid,
+#MW984531|wild_felid|2015.989=wild_felid,
+#MW984530|wild_felid|2015.912=wild_felid,
+#MW984527|wild_felid|2015.951=wild_felid,
+#MW984533|procyonid|2016.322=procyonid,
+#MW984534|mustelid|2016.336=mustelid,
+#MW984536|mustelid|2016.301=mustelid,
+#MH644852|mustelid|2017.660=mustelid,
+#MH644855|mustelid|2016.973=mustelid,
+#MH644853|mustelid|2016.973=mustelid,
+#MH644854|mustelid|2017.301=mustelid,
+#MH644851|procyonid|2017.167=procyonid,
+#MH644849|wild_canid|2016.210=wild_canid,
+#PX789692|procyonid|2023.030=procyonid,
+#PX789695|procyonid|2022.819=procyonid,
+#PX789698|procyonid|2022.805=procyonid,
+#PX789703|procyonid|2023.392=procyonid,
+#MH644850|mustelid|2016.361=mustelid,
+#PX789700|procyonid|2022.926=procyonid,
+#MT943490|wild_felid|2013.748=wild_felid,
+#MH810099|domestic_dog|2017.970=domestic_dog,
+#MW984535|procyonid|2015.951=procyonid,
+#PX789678|domestic_dog|2021.041=domestic_dog,
+#PX789674|domestic_dog|2023.622=domestic_dog,
+#MK487379|procyonid|2016.500=procyonid,
+#MK473365|wild_canid|2017.500=wild_canid,
+#MK473366|wild_canid|2017.500=wild_canid,
+#KJ123771|domestic_dog|2004.500=domestic_dog,
+#KF430374|mustelid|2004.500=mustelid,
+#KF430373|mustelid|2007.500=mustelid,
+#KF430371|mustelid|2007.500=mustelid,
+#KF430372|mustelid|2007.500=mustelid,
+#MN824467|procyonid|2018.500=procyonid,
+#MG797669|domestic_dog|2017.500=domestic_dog,
+#JF283477|domestic_dog|2010.500=domestic_dog,
+#OK667001|procyonid|2014.500=procyonid,
+#OK666993|procyonid|2014.500=procyonid,
+#OK666919|wild_canid|2013.500=wild_canid,
+#OK666870|wild_canid|2016.500=wild_canid,
+#OK666917|domestic_dog|2012.500=domestic_dog,
+#OK667043|procyonid|2017.500=procyonid,
+#OK666936|wild_canid|2017.500=wild_canid,
+#OK667038|procyonid|2017.500=procyonid,
+#OK667026|procyonid|2016.500=procyonid,
+#OK666884|mustelid|2016.500=mustelid,
+#OK666997|procyonid|2014.500=procyonid,
+#OK666983|procyonid|2014.500=procyonid,
+#OK666886|mustelid|2016.500=mustelid,
+#OK666974|procyonid|2014.500=procyonid,
+#OK667009|procyonid|2015.500=procyonid,
+#OK666928|wild_canid|2016.500=wild_canid,
+#OK666932|wild_canid|2017.500=wild_canid,
+#OK666909|wild_canid|2017.500=wild_canid,
+#OK666908|wild_canid|2017.500=wild_canid,
+#OK666912|wild_canid|2017.500=wild_canid,
+#OK667023|procyonid|2015.500=procyonid,
+#OK666924|wild_canid|2015.500=wild_canid,
+#OK666994|procyonid|2014.500=procyonid,
+#OK666926|wild_canid|2015.500=wild_canid,
+#OK666920|wild_canid|2015.500=wild_canid,
+#OK667030|procyonid|2016.500=procyonid,
+#OK666872|mustelid|2015.500=mustelid,
+#OK667039|procyonid|2017.500=procyonid,
+#OK666905|wild_canid|2017.500=wild_canid,
+#OK666934|wild_canid|2017.500=wild_canid,
+#OK666906|wild_canid|2017.500=wild_canid,
+#OK666914|wild_canid|2017.500=wild_canid,
+#OK667025|procyonid|2016.500=procyonid,
+#OK666904|wild_canid|2016.500=wild_canid,
+#OK666890|mustelid|2016.500=mustelid,
+#OK666910|wild_canid|2017.500=wild_canid,
+#OK666880|mustelid|2016.500=mustelid,
+#OK666885|mustelid|2016.500=mustelid,
+#OK667020|procyonid|2015.500=procyonid,
+#OK667021|procyonid|2015.500=procyonid,
+#OK666971|procyonid|2014.500=procyonid,
+#OK666970|procyonid|2014.500=procyonid,
+#OK666963|procyonid|2014.500=procyonid,
+#OK666959|procyonid|2014.500=procyonid,
+#OK666955|procyonid|2013.500=procyonid,
+#OK666952|procyonid|2013.500=procyonid,
+#OK666958|procyonid|2014.500=procyonid,
+#OK666973|procyonid|2014.500=procyonid,
+#OK666986|procyonid|2014.500=procyonid,
+#OK666985|procyonid|2014.500=procyonid,
+#OK667005|procyonid|2015.500=procyonid,
+#OK667004|procyonid|2015.500=procyonid,
+#OK667003|procyonid|2014.500=procyonid,
+#OK667007|procyonid|2015.500=procyonid,
+#OK666999|procyonid|2014.500=procyonid,
+#OK666978|procyonid|2014.500=procyonid,
+#OK666925|wild_canid|2015.500=wild_canid,
+#OK666998|procyonid|2014.500=procyonid,
+#OK666977|procyonid|2014.500=procyonid,
+#OK666950|procyonid|2013.500=procyonid,
+#OK666948|procyonid|2013.500=procyonid,
+#OK666946|procyonid|2013.500=procyonid,
+#OK666954|procyonid|2013.500=procyonid,
+#OK666980|procyonid|2014.500=procyonid,
+#OK666976|procyonid|2014.500=procyonid,
+#OK666975|procyonid|2014.500=procyonid,
+#OK666949|procyonid|2013.500=procyonid,
+#OK666940|procyonid|2010.500=procyonid,
+#OK666979|procyonid|2014.500=procyonid,
+#OK666933|wild_canid|2017.500=wild_canid,
+#OK666911|wild_canid|2017.500=wild_canid,
+#OK666921|wild_canid|2015.500=wild_canid,
+#OK666960|procyonid|2014.500=procyonid,
+#OK666951|procyonid|2013.500=procyonid,
+#OK666945|procyonid|2013.500=procyonid,
+#OK666984|procyonid|2014.500=procyonid,
+#OK666939|mustelid|2014.500=mustelid,
+#OK667000|procyonid|2014.500=procyonid,
+#OK667036|procyonid|2016.500=procyonid,
+#OK667031|procyonid|2016.500=procyonid,
+#OK667035|procyonid|2016.500=procyonid,
+#OK667002|procyonid|2014.500=procyonid,
+#OK666992|procyonid|2014.500=procyonid,
+#OK667010|procyonid|2015.500=procyonid,
+#OK667042|procyonid|2017.500=procyonid,
+#OK667034|procyonid|2016.500=procyonid,
+#OK667033|procyonid|2016.500=procyonid,
+#OK667019|procyonid|2015.500=procyonid,
+#OK667041|procyonid|2017.500=procyonid,
+#OK667044|procyonid|2017.500=procyonid,
+#OK667032|procyonid|2016.500=procyonid,
+#OK667024|procyonid|2016.500=procyonid,
+#OK667018|procyonid|2015.500=procyonid,
+#OK667006|procyonid|2015.500=procyonid,
+#OK667013|procyonid|2015.500=procyonid,
+#OK667028|procyonid|2016.500=procyonid,
+#OK667012|procyonid|2015.500=procyonid,
+#OK666931|wild_canid|2017.500=wild_canid,
+#OK667029|procyonid|2016.500=procyonid,
+#OK667016|procyonid|2015.500=procyonid,
+#OK666877|mustelid|2016.500=mustelid,
+#OK666878|mustelid|2016.500=mustelid,
+#OK666876|mustelid|2016.500=mustelid,
+#OK667040|procyonid|2017.500=procyonid,
+#OK667015|procyonid|2015.500=procyonid,
+#OK666935|wild_canid|2017.500=wild_canid,
+#OK667037|procyonid|2016.500=procyonid,
+#OK666927|wild_canid|2015.500=wild_canid,
+#OK666889|mustelid|2016.500=mustelid,
+#OK667022|procyonid|2015.500=procyonid,
+#OK666879|mustelid|2016.500=mustelid,
+#OK666937|wild_canid|2017.500=wild_canid,
+#OK666907|wild_canid|2017.500=wild_canid,
+#MK487378|ailurid|2016.500=wild_felid,
+#OK666930|wild_canid|2017.500=wild_canid</traitSet>
+#                <userDataType codeMap="ailurid=0,domestic_dog=1,mustelid=2,procyonid=3,wild_canid=4,wild_felid=5,? = 0 1 2 3 4 5 " codelength="-1" id="traitDataType.Host" spec="beast.base.evolution.datatype.UserDataType" states="6"/>
+#            </data>
+#            <siteModel gammaCategoryCount="1" id="geoSiteModel.s:Host" spec="beast.base.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:Host" name="mutationRate" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="gammaShape.s:Host" name="shape" spec="beast.base.inference.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:Host" lower="0.0" name="proportionInvariant" spec="beast.base.inference.parameter.RealParameter" upper="1.0">0.0</parameter>
+#                <substModel id="svs.s:Host" rateIndicator="@rateIndicator.s:Host" rates="@relativeGeoRates.s:Host" spec="beastclassic.evolution.substitutionmodel.SVSGeneralSubstitutionModel">
+#                    <frequencies id="traitfreqs.s:Host" spec="beast.base.evolution.substitutionmodel.Frequencies">
+#                        <parameter dimension="6" id="traitfrequencies.s:Host" name="frequencies" spec="beast.base.inference.parameter.RealParameter">0.16666666666666666</parameter>
+#                    </frequencies>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel clock.rate="@traitClockRate.c:Host" id="StrictClockModel.c:Host" spec="beast.base.evolution.branchratemodel.StrictClockModel"/>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	treeLikelihood	Tree.height	Tree.treeLength	rateIndicator.ost.1	rateIndicator.ost.2	rateIndicator.ost.3	rateIndicator.ost.4	rateIndicator.ost.5	rateIndicator.ost.6	rateIndicator.ost.7	rateIndicator.ost.8	rateIndicator.ost.9	rateIndicator.ost.10	rateIndicator.ost.11	rateIndicator.ost.12	rateIndicator.ost.13	rateIndicator.ost.14	rateIndicator.ost.15	relativeGeoRates.ost.1	relativeGeoRates.ost.2	relativeGeoRates.ost.3	relativeGeoRates.ost.4	relativeGeoRates.ost.5	relativeGeoRates.ost.6	relativeGeoRates.ost.7	relativeGeoRates.ost.8	relativeGeoRates.ost.9	relativeGeoRates.ost.10	relativeGeoRates.ost.11	relativeGeoRates.ost.12	relativeGeoRates.ost.13	relativeGeoRates.ost.14	relativeGeoRates.ost.15	traitClockRate.ost	geoSubstModelLogger.ost.relGeoRate_ailurid_domestic_dog	geoSubstModelLogger.ost.relGeoRate_ailurid_mustelid	geoSubstModelLogger.ost.relGeoRate_ailurid_procyonid	geoSubstModelLogger.ost.relGeoRate_ailurid_wild_canid	geoSubstModelLogger.ost.relGeoRate_ailurid_wild_felid	geoSubstModelLogger.ost.relGeoRate_domestic_dog_mustelid	geoSubstModelLogger.ost.relGeoRate_domestic_dog_procyonid	geoSubstModelLogger.ost.relGeoRate_domestic_dog_wild_canid	geoSubstModelLogger.ost.relGeoRate_domestic_dog_wild_felid	geoSubstModelLogger.ost.relGeoRate_mustelid_procyonid	geoSubstModelLogger.ost.relGeoRate_mustelid_wild_canid	geoSubstModelLogger.ost.relGeoRate_mustelid_wild_felid	geoSubstModelLogger.ost.relGeoRate_procyonid_wild_canid	geoSubstModelLogger.ost.relGeoRate_procyonid_wild_felid	geoSubstModelLogger.ost.relGeoRate_wild_canid_wild_felid	kappa._clade_3	gammaShape._clade_3	ucldMean._clade_3	ucldStdev._clade_3	rate._clade_3.mean	rate._clade_3.variance	rate._clade_3.coefficientOfVariation	popSize	CoalescentConstant
+0	-38953.15944036815	-38527.713437141865	-425.4460032262844	-38296.62286614429	32.7621356184346	75.10779404696213	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	2.0	1.0	7.46E-4	0.1	7.333944070395844E-4	5.058438505152923E-9	0.09521180502651526	0.3	-367.7620113478398
+10000	-17646.686800569598	-16654.84141051115	-991.845390058446	-16466.224848865873	44.27642648055685	716.3563236323048	0	0	0	0	0	0	0	1	0	1	1	1	1	0	1	0.7616024052519847	0.9711377206068651	1.0247036501838824	0.8604405597358792	1.4237045639553159	0.8525180013029935	0.9385386787625943	0.8539379581474829	1.308029928474283	1.0291062600295517	1.280253950753	1.0190496962693698	1.1042202766975642	0.8881958501393767	1.0223726626319174	0.08389115999664305	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.8539379581474829	0.0	1.0291062600295517	1.280253950753	1.0190496962693698	1.1042202766975642	0.0	1.0223726626319174	2.0	1.0	0.003911371284150462	0.9494054108067611	0.0029946070258218983	1.427071392224374E-5	1.1132265633809006	164.21931328454343	-951.3005586771001
+20000	-14528.07433613664	-13578.364561272927	-949.7097748637137	-13399.39082031343	43.941228957396156	636.058069809038	0	0	0	0	0	0	0	1	0	1	1	1	1	0	0	0.5131803043448495	0.8877698687258004	1.3028064655995673	0.7821255039434681	1.7134126656995492	0.8379066203168989	0.8198523682743504	0.7041773610892738	1.3426348220206246	1.0205522263392879	1.4206374901981202	1.179722099909304	1.3722618074836404	0.8348594742814284	0.8818180159351877	0.12891334026423967	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.7041773610892738	0.0	1.0205522263392879	1.4206374901981202	1.179722099909304	1.3722618074836404	0.0	0.0	7.046547099578616	0.3324249298571996	0.0064211730263628725	1.3241789686126213	0.004540633841530594	4.610696666700079E-5	1.2971398939470913	102.62495958712005	-908.8118357037085
+30000	-13326.239417685581	-12419.959656335704	-906.2797613498775	-12242.841574540022	42.55931107902299	624.2111030744717	0	0	0	0	0	1	0	0	0	1	1	1	1	0	0	1.3678896051347667	0.6508903322400738	0.44426527855083586	1.8984931334434925	0.3562157504418054	0.7521591752265453	0.04312577670554255	0.4785859490035372	0.03872674447385733	0.2706356049850461	1.7000721752919938	1.1020810470121367	0.6155363578361015	1.0064138843718289	1.0014308103083356	0.2045850212370652	0.0	0.0	0.0	0.0	0.0	0.7521591752265453	0.0	0.0	0.0	0.2706356049850461	1.7000721752919938	1.1020810470121367	0.6155363578361015	0.0	0.0	6.463102959668609	0.1624802629892658	0.005160843053732237	1.2536462676407505	0.003304528868262821	4.678247185163311E-5	1.867584778977958	87.10606632378031	-868.8455219193975
+40000	-12536.573519594951	-11659.304423240448	-877.269096354502	-11482.297210569208	40.88235189223852	550.1925464868411	0	0	0	0	0	0	0	1	0	1	1	0	1	1	1	0.5861155164408448	1.95123147830655	0.8628871907862122	2.3295111036836924	0.529737492809326	1.583871632315584	0.23416016532810288	1.8881326922050437	0.9526343828875692	1.0909847136634327	2.5740718457581626	0.3968457828761685	4.312771008700019	0.03307380320642703	0.8024593902218226	0.1196005327533902	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.8881326922050437	0.0	1.0909847136634327	2.5740718457581626	0.0	4.312771008700019	0.03307380320642703	0.8024593902218226	6.463102959668609	0.1624802629892658	0.0037863489179367233	1.2257394456713995	0.0024561188610695895	2.617272615056605E-5	1.816905298142792	65.18864928981259	-831.0127324372912
+50000	-11886.594688644513	-11022.444433860303	-864.1502547842102	-10857.5422602375	43.01298478789891	549.2568991526377	1	0	0	0	0	0	0	1	0	0	1	1	1	1	0	0.17003524293098674	1.6571114041905894	1.341634824526922	0.8939425626511771	4.748431575835603	2.0738834289185775	0.5525180124801401	1.1021436711271704	0.5636532192034972	1.4628754282958882	4.306975757084492	0.28726095815251457	2.066406982129436	0.19510907388730503	0.8579964928308891	0.21622816482797363	0.17003524293098674	0.0	0.0	0.0	0.0	0.0	0.0	1.1021436711271704	0.0	0.0	4.306975757084492	0.28726095815251457	2.066406982129436	0.19510907388730503	0.0	6.463102959668609	0.1624802629892658	0.002711358525542694	1.0467956350166818	0.002043839316276442	8.272902456992285E-6	1.3158989240257755	58.58850659401091	-814.6913876380086
+60000	-11218.124226100113	-10361.639875533761	-856.4843505663512	-10193.25535355642	38.34180679848316	559.9356798440552	0	0	0	0	0	0	1	0	1	1	1	1	1	0	0	0.044236980976944826	2.4409653153646858	0.696386737002365	0.4686196991855792	0.46759532540215465	0.339369528284066	0.18507717031541956	1.1826055665502317	0.5408068668833899	0.2654660147734797	0.6868372533632587	0.27950057525018207	0.35055808453502707	0.10524780215804332	0.36364785193528665	0.11837927057762224	0.0	0.0	0.0	0.0	0.0	0.0	0.18507717031541956	0.0	0.5408068668833899	0.2654660147734797	0.6868372533632587	0.27950057525018207	0.35055808453502707	0.0	0.0	6.463102959668609	0.1624802629892658	0.0018554717580123064	1.0124183172743122	0.0015238643240456284	3.338776111341754E-6	1.1835605214945804	64.96409870572454	-820.1483030667791
+70000	-10818.821538660395	-9943.238809096809	-875.5827295635856	-9783.294175402296	38.37619919949425	562.0240048783504	0	0	0	0	0	1	0	1	0	1	1	0	1	0	1	0.5785567253779663	3.2604090374375345	1.6533678695818617	2.7388448800836773	0.5008134274266816	1.144673777510886	0.18818138207692744	0.7966446472313252	1.0954766461133498	0.3858625476088034	3.1857031671220972	0.2605483956128713	2.690176987139424	0.7802055781733096	0.43632910511405215	0.11784967256027999	0.0	0.0	0.0	0.0	0.0	1.144673777510886	0.0	0.7966446472313252	0.0	0.3858625476088034	3.1857031671220972	0.0	2.690176987139424	0.0	0.43632910511405215	6.327328840628107	0.1624802629892658	0.001528447617635486	0.6904395464213477	0.0013939869027958175	7.183045019678594E-7	0.6382541500208601	60.79111430830206	-828.3681675601125
+80000	-10136.649263675008	-9273.839552837844	-862.8097108371645	-9105.842289695292	37.51358557659644	569.5729419437412	0	0	0	1	0	1	0	0	0	1	1	1	1	0	0	0.0776979462022907	2.8094143214025893	1.3379200395724589	0.712176645330395	0.39901526455376296	2.006759161385365	1.3905187004546582	0.543759395553193	0.14327594227401524	0.9407159737591284	1.0983989190780479	0.5041582901401378	1.746887691708496	0.0991106238770704	0.12492203336534387	0.1437125922364778	0.0	0.0	0.0	0.712176645330395	0.0	2.006759161385365	0.0	0.0	0.0	0.9407159737591284	1.0983989190780479	0.5041582901401378	1.746887691708496	0.0	0.0	6.327328840628107	0.2797011496926689	0.0011423056353013729	0.5596812133466856	0.0011054642115473187	3.099767457293085E-7	0.5291683402640033	61.560347603475506	-820.3366027746025

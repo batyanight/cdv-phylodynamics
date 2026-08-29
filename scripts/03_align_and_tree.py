@@ -44,8 +44,14 @@ from pathlib import Path
 
 try:
     import pandas as pd
-except ImportError:
-    sys.exit("pandas is required:  pip install pandas")
+except ImportError as exc:                       # noqa: F401
+    # Raise rather than sys.exit: this module gets imported by the notebook,
+    # and SystemExit inside a notebook produces a confusing traceback.
+    raise ImportError(
+        "pandas is required.\n"
+        "  terminal: pip install pandas\n"
+        "  notebook: %pip install pandas   (then restart the kernel)"
+    ) from exc
 
 
 def have(tool: str) -> bool:

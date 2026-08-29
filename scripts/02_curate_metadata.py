@@ -41,13 +41,25 @@ from pathlib import Path
 
 try:
     from Bio import SeqIO
-except ImportError:
-    sys.exit("Biopython is required:  pip install biopython")
+except ImportError as exc:                       # noqa: F401
+    # Raise rather than sys.exit: this module gets imported by the notebook,
+    # and SystemExit inside a notebook produces a confusing traceback.
+    raise ImportError(
+        "Biopython is required.\n"
+        "  terminal: pip install biopython\n"
+        "  notebook: %pip install biopython   (then restart the kernel)"
+    ) from exc
 
 try:
     import pandas as pd
-except ImportError:
-    sys.exit("pandas is required:  pip install pandas")
+except ImportError as exc:                       # noqa: F401
+    # Raise rather than sys.exit: this module gets imported by the notebook,
+    # and SystemExit inside a notebook produces a confusing traceback.
+    raise ImportError(
+        "pandas is required.\n"
+        "  terminal: pip install pandas\n"
+        "  notebook: %pip install pandas   (then restart the kernel)"
+    ) from exc
 
 
 # CDV H gene is ~1824 nt (607 aa). Allow generous slack for partials.

@@ -34,8 +34,14 @@ from pathlib import Path
 
 try:
     from Bio import Entrez
-except ImportError:
-    sys.exit("Biopython is required:  pip install biopython")
+except ImportError as exc:                       # noqa: F401
+    # Raise rather than sys.exit: this module gets imported by the notebook,
+    # and SystemExit inside a notebook produces a confusing traceback.
+    raise ImportError(
+        "Biopython is required.\n"
+        "  terminal: pip install biopython\n"
+        "  notebook: %pip install biopython   (then restart the kernel)"
+    ) from exc
 
 # --- CDV in NCBI Taxonomy ------------------------------------------------
 # 11232 = Canine distemper virus, now formally Morbillivirus canis.

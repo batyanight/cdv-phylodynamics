@@ -11,3 +11,7 @@ __pycache__/
 # BEAST outputs are large; archive them separately (Zenodo), don't commit
 *.trees
 *.state
+.ipynb_checkpoints/
+.ipynb_checkpoints/
+beast/**/*.trees
+!beast/**/*.log
