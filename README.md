@@ -7,6 +7,8 @@ hemagglutinin gene sequences from GenBank: curation, alignment QC, maximum likel
 phylogeny, clade delineation, temporal signal assessment, stratified subsampling, and
 Bayesian phylodynamic inference with discrete host-state reconstruction.
 
+**[View the interactive phylogeny →](https://nextstrain.org/community/batyanight/cdv-phylodynamics)**
+
 > **Status: core analysis complete.** Date-randomisation test, directional rate model
 > and Nextstrain build outstanding — see [Outstanding work](#outstanding-work).
 
