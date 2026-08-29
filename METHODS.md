@@ -730,3 +730,104 @@ tip labels and metadata line up before running the pipeline.
 - [ ] Auspice build rendering correctly
 - [ ] Software versions recorded exactly
 - [ ] Repository archived on Zenodo
+
+---
+
+## 14. Software references
+
+Cite the software used, not only the versions. Entries marked **[verified]** were checked
+against the publisher record; the remainder were compiled from memory and **must be
+verified before publication**.
+
+### Phylogenetics and phylodynamics
+
+- **BEAST 2** — Bouckaert R, Vaughan TG, Barido-Sottani J, Duchêne S, Fourment M,
+  Gavryushkina A, et al. (2019) BEAST 2.5: An advanced software platform for Bayesian
+  evolutionary analysis. *PLoS Computational Biology* 15(4):e1006650.
+  doi:10.1371/journal.pcbi.1006650 **[verified]**
+
+- **Discrete trait / ancestral state reconstruction** — Lemey P, Rambaut A, Drummond AJ,
+  Suchard MA (2009) Bayesian phylogeography finds its roots. *PLoS Computational Biology*
+  5(9):e1000520. doi:10.1371/journal.pcbi.1000520 **[verified]**
+  *(the method underlying BEAST_CLASSIC's `AncestralStateTreeLikelihood`; cite even though
+  BSSVS was disabled here)*
+
+- **IQ-TREE 2** — Minh BQ, Schmidt HA, Chernomor O, Schrempf D, Woodhams MD,
+  von Haeseler A, Lanfear R (2020) IQ-TREE 2: New models and efficient methods for
+  phylogenetic inference in the genomic era. *Molecular Biology and Evolution*
+  37(5):1530–1534. doi:10.1093/molbev/msaa015 **[verified]**
+
+- **Tracer** — Rambaut A, Drummond AJ, Xie D, Baele G, Suchard MA (2018) Posterior
+  summarization in Bayesian phylogenetics using Tracer 1.7. *Systematic Biology*
+  67(5):901–904. doi:10.1093/sysbio/syy032 **[verified]**
+
+- **ModelFinder** — Kalyaanamoorthy S, Minh BQ, Wong TKF, von Haeseler A, Jermiin LS
+  (2017) ModelFinder: fast model selection for accurate phylogenetic estimates.
+  *Nature Methods* 14:587–589. *[verify]*
+
+- **UFBoot2** — Hoang DT, Chernomor O, von Haeseler A, Minh BQ, Vinh LS (2018)
+  UFBoot2: improving the ultrafast bootstrap approximation. *Molecular Biology and
+  Evolution* 35(2):518–522. *[verify]*
+
+- **TempEst** — Rambaut A, Lam TT, Max Carvalho L, Pybus OG (2016) Exploring the
+  temporal structure of heterochronous sequences using TempEst. *Virus Evolution*
+  2(1):vew007. *[verify]*
+
+- **MAFFT** — Katoh K, Standley DM (2013) MAFFT multiple sequence alignment software
+  version 7: improvements in performance and usability. *Molecular Biology and Evolution*
+  30(4):772–780. *[verify]*
+
+- **FigTree** — Rambaut A. FigTree. http://tree.bio.ed.ac.uk/software/figtree/
+  *(software, no publication)*
+
+### Visualisation
+
+- **Nextstrain / Auspice** — Hadfield J, Megill C, Bell SM, Huddleston J, Potter B,
+  Callender C, Sagulenko P, Bedford T, Neher RA (2018) Nextstrain: real-time tracking of
+  pathogen evolution. *Bioinformatics* 34(23):4121–4123. *[verify]*
+
+  **Scope note:** Auspice was used for visualisation only. Augur was **not** used; the
+  MCC tree was converted to Auspice v2 JSON directly by `scripts/09_make_auspice.py`.
+  Do not describe this as a Nextstrain pipeline build.
+
+### Data handling
+
+- **Biopython** — Cock PJA, Antao T, Chang JT, Chapman BA, Cox CJ, Dalke A, et al. (2009)
+  Biopython: freely available Python tools for computational molecular biology and
+  bioinformatics. *Bioinformatics* 25(11):1422–1423. *[verify]*
+
+- **pandas** — McKinney W (2010) Data structures for statistical computing in Python.
+  *Proceedings of the 9th Python in Science Conference*, 56–61. *[verify]*
+
+- **matplotlib** — Hunter JD (2007) Matplotlib: a 2D graphics environment.
+  *Computing in Science & Engineering* 9(3):90–95. *[verify]*
+
+- **NCBI GenBank** — Sayers EW, Cavanaugh M, Clark K, Pruitt KD, Schoch CL, Sherry ST,
+  Karsch-Mizrachi I. GenBank. *Nucleic Acids Research*. *[verify — cite the current
+  annual database issue]*
+
+### Subject literature cited in this document
+
+- Batista Linhares M, Whiteley HE, Samuelson JP, Hsiao SH, Stern AW, Sprandel IT,
+  Roady PJ, Coleman DA, Rizzo R, Froderman SF, Terio KA (2021) Sylvatic canine
+  morbillivirus in captive *Panthera* highlights viral promiscuity and the need for better
+  prevention strategies. *Pathogens* 10(5):544. doi:10.3390/pathogens10050544
+
+- Weckworth JK, Davis BW, Roelke-Parker ME, Wilkes RP, Packer C, Eblate E, Schwartz MK,
+  et al. (2020) Identifying candidate genetic markers of CDV cross-species pathogenicity
+  in African lions. *Pathogens* 9(11):872.
+
+- Appel MJG, Yates RA, Foley GL, Bernstein JJ, Santinelli S, Spelman LH, Miller LD,
+  Arp LH, Anderson M, Barr M, Pearce-Kelling S, Summers BA (1994) Canine distemper
+  epizootic in lions, tigers, and leopards in North America. *Journal of Veterinary
+  Diagnostic Investigation* 6(3):277–288. *[verify]*
+
+- Martella V, Cirone F, Elia G, Lorusso E, Decaro N, Campolo M, et al. (2006)
+  Heterogeneity within the haemagglutinin genes of canine distemper virus (CDV) strains
+  detected in Italy. *Veterinary Microbiology* 116:301–309. *[verify — lineage
+  nomenclature]*
+
+- Nikolin VM, Wibbelt G, Michler FUF, Wolf P, East ML (2012) Susceptibility of carnivore
+  hosts to strains of canine distemper virus from distinct genetic lineages.
+  *Veterinary Microbiology*. *[verify — lineage nomenclature]*
+
