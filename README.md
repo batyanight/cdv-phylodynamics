@@ -1,5 +1,7 @@
 # CDV Phylodynamics
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22182061.svg)](https://doi.org/10.5281/zenodo.22182061)
+
 **Phylodynamics of a wildlife-maintained canine distemper virus lineage in North American carnivores.**
 
 A reproducible pipeline for analysing canine distemper virus (*Morbillivirus canis*)

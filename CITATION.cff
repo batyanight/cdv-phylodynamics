@@ -14,6 +14,7 @@ authors:
   - family-names: Nightingale
     given-names: Batya
     orcid: "https://orcid.org/0000-0002-0706-8951"
+doi: "10.5281/zenodo.22182061"
 version: 1.0.0
 date-released: 2026-08-30
 repository-code: "https://github.com/batyanight/cdv-phylodynamics"
