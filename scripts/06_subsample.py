@@ -82,6 +82,25 @@ def write_fasta(path: Path, seqs: dict[str, str], width: int = 60) -> None:
                 fh.write(seq[i:i + width] + "\n")
 
 
+def strip_all_gap_columns(seqs: dict[str, str]) -> tuple[dict[str, str], int]:
+    """Drop columns that are gaps in every remaining sequence.
+
+    A subset of an alignment keeps the full column count of the original, so any
+    column that only ever held bases belonging to dropped sequences survives as
+    an all-gap column. These are not harmless. Anything that treats an alignment
+    column span as a coordinate — a CDS annotation, a codon partition, a site
+    index quoted in a figure — is thrown off by them, and the offset is invisible
+    because the columns look like ordinary gaps.
+    """
+    if not seqs:
+        return seqs, 0
+    L = len(next(iter(seqs.values())))
+    keep = [i for i in range(L) if any(s[i] not in GAP for s in seqs.values())]
+    if len(keep) == L:
+        return seqs, 0
+    return {n: "".join(s[i] for i in keep) for n, s in seqs.items()}, L - len(keep)
+
+
 def parse_label(label: str):
     parts = str(label).split("|")
     if len(parts) < 3:
@@ -219,6 +238,10 @@ def main() -> int:
     ap.add_argument("--year-bin", type=int, default=5, help="Time bin width in years")
     ap.add_argument("--seed", type=int, default=20260819)
     ap.add_argument("--keep-duplicates", action="store_true")
+    ap.add_argument("--keep-all-gap-columns", action="store_true",
+                    help="Keep columns that are all-gap in the subset. Off by default: "
+                         "such columns shift every downstream column coordinate and are "
+                         "invisible when you look at the alignment.")
     ap.add_argument("--outdir", type=Path, default=Path("data/processed"))
     ap.add_argument("--prefix", default=None)
     args = ap.parse_args()
@@ -295,8 +318,16 @@ def main() -> int:
     prefix = args.prefix or (f"H_{args.clade}" if args.mode == "clade" else f"H_global{len(pool)}")
 
     keep_labels = list(pool["label"])
+    subset = {lbl: seqs[lbl] for lbl in keep_labels}
+    if not args.keep_all_gap_columns:
+        subset, n_stripped = strip_all_gap_columns(subset)
+        if n_stripped:
+            L_before = len(next(iter(seqs.values())))
+            print(f"\nStripped {n_stripped} all-gap columns "
+                  f"({L_before} -> {L_before - n_stripped}); they held only bases from "
+                  "sequences this subset dropped")
     out_fasta = args.outdir / f"{prefix}.fasta"
-    write_fasta(out_fasta, {lbl: seqs[lbl] for lbl in keep_labels})
+    write_fasta(out_fasta, subset)
 
     out_meta = args.outdir / f"{prefix}_metadata.tsv"
     pool.drop(columns=["seq_key"]).to_csv(out_meta, sep="\t", index=False)
@@ -315,8 +346,8 @@ def main() -> int:
     print("sequences with bare accessions and would drop everything. Run IQ-TREE directly:")
     print(f"\n    iqtree2 -s {out_fasta} -m MFP -B 1000 --alrt 1000 -T AUTO \\")
     print(f"        --prefix {args.outdir / prefix}_ml -redo")
-    print("\nStrip all-gap columns first if the subset is much smaller than the original.")
-    print("Then re-check TempEst — a subset with better temporal balance often has")
+    print("\nAll-gap columns have already been stripped (--keep-all-gap-columns to keep them).")
+    print("Re-check TempEst — a subset with better temporal balance often has")
     print("markedly stronger clock signal than the full tree did.")
     return 0
 

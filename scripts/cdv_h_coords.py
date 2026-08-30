@@ -2,6 +2,10 @@
 """
 cdv_h_coords.py — shared H-gene coordinate handling for scripts 10 and 11.
 
+NOT A PIPELINE STEP. This is a module imported by 10_add_entropy.py and
+11_annotate_H.py. It has no main() and does nothing if run directly. It sits
+unnumbered among the 00-11 scripts for that reason.
+
 WHY THIS EXISTS
 ---------------
 Scripts 10 and 11 must agree exactly on three things: which sequence defines the
@@ -307,3 +311,9 @@ def annotation_feature_spans(ann: dict) -> list[tuple[str, int, int]]:
             out.append((name, int(f["start"]), int(f["end"])))
     out.sort(key=lambda r: (r[1], r[2]))
     return out
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit("cdv_h_coords.py is a module imported by 10_add_entropy.py and "
+             "11_annotate_H.py, not a pipeline step. Run those instead.")

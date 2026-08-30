@@ -13,6 +13,8 @@ What it checks
   * identity of each sequence to the consensus (catches misaligned or wrong-gene entries)
   * in-frame stop codons (catches frameshifts and wrong reading frames)
   * exact duplicate sequences
+  * all-gap columns, which shift every downstream column coordinate
+  * tip labels against the metadata table, so a stale host group cannot survive
   * host-group composition of what survives
 
 Usage
@@ -114,6 +116,10 @@ def main() -> int:
     ap.add_argument("--trim-to", nargs=2, type=int, metavar=("START", "END"),
                     help="Trim to these 1-based column positions (inclusive)")
     ap.add_argument("--write-trimmed", action="store_true")
+    ap.add_argument("--strip-all-gap", action="store_true",
+                    help="Remove columns that are gaps in every sequence")
+    ap.add_argument("--write-stripped", action="store_true",
+                    help="Save the result of --strip-all-gap")
     ap.add_argument("--plot", type=Path, default=None,
                     help="Write a coverage plot PNG (default: alongside the alignment)")
     args = ap.parse_args()
@@ -157,7 +163,37 @@ def main() -> int:
         if first > 0 or last < L - 1:
             print(f"  ragged: {first} leading and {L - 1 - last} trailing columns are sparse")
             print(f"  suggested:  --trim-to {first + 1} {last + 1} --write-trimmed")
-    print(f"Mean column coverage: {sum(cov) / L:.1%}\n")
+    print(f"Mean column coverage: {sum(cov) / L:.1%}")
+
+    # ---- all-gap columns -------------------------------------------------
+    # A column that is a gap in every sequence carries no data but still
+    # occupies a position. Anything that treats a column span as a coordinate —
+    # a CDS annotation, a codon partition, a site index in a figure caption — is
+    # silently shifted by it. These usually appear when an alignment is subset
+    # without re-stripping, so the columns held bases from sequences now gone.
+    empty = [i for i, c in enumerate(cov) if c == 0]
+    if empty:
+        runs, start, prev = [], empty[0], empty[0]
+        for i in empty[1:]:
+            if i != prev + 1:
+                runs.append((start, prev)); start = i
+            prev = i
+        runs.append((start, prev))
+        interior = [(a, b) for a, b in runs if a > (good[0] if good else 0)
+                    and b < (good[-1] if good else L - 1)]
+        print(f"\n{len(empty)} all-gap columns in {len(runs)} run(s)"
+              + (f", {sum(b - a + 1 for a, b in interior)} of them interior"
+                 if interior else ""))
+        for a, b in runs[:8]:
+            print(f"    columns {a + 1}-{b + 1}  ({b - a + 1} nt)")
+        if len(runs) > 8:
+            print(f"    ... and {len(runs) - 8} more")
+        print("  These shift every column coordinate after them. Remove with")
+        print("  --strip-all-gap --write-stripped, or re-run 06_subsample.py, which")
+        print("  now strips them when it writes a subset.")
+    else:
+        print("No all-gap columns.")
+    print()
 
     # ---- per-sequence stats --------------------------------------------
     cons = consensus(seqs)
@@ -228,6 +264,50 @@ def main() -> int:
         print("  contribute no phylogenetic signal and slow BEAST down. Consider")
         print("  keeping one per host/year/country combination.\n")
 
+    # ---- labels vs metadata ----------------------------------------------
+    # Tip labels encode host group and date, so they are a copy of the metadata
+    # that can go stale independently of it. A label that disagrees with the
+    # table is a real error: it will silently propagate into the tree, the BEAST
+    # run and every figure, and nothing downstream re-derives it.
+    if args.metadata and args.metadata.is_file():
+        meta_df = pd.read_csv(args.metadata, sep="\t", dtype=str)
+        if "accession" in meta_df.columns:
+            by_acc = {str(a).split(".")[0]: r
+                      for a, r in zip(meta_df["accession"], meta_df.to_dict("records"))}
+            unknown, host_bad, date_bad = [], [], []
+            for name in seqs:
+                parts = name.split("|")
+                if len(parts) < 3:
+                    continue
+                acc, host, year = parts[0].split(".")[0], parts[1], parts[-1]
+                row = by_acc.get(acc)
+                if row is None:
+                    unknown.append(name); continue
+                m_host = (row.get("host_group") or "").strip()
+                if m_host and m_host != host:
+                    host_bad.append((name, host, m_host))
+                m_year = (row.get("decimal_year") or "").strip()
+                try:
+                    if m_year and abs(float(m_year) - float(year)) > 0.01:
+                        date_bad.append((name, year, m_year))
+                except ValueError:
+                    pass
+
+            print("Labels vs metadata")
+            print(f"  accession not in metadata          : {len(unknown)}")
+            print(f"  host group disagrees with metadata : {len(host_bad)}")
+            print(f"  date disagrees with metadata       : {len(date_bad)}")
+            for name, in_label, in_meta in (host_bad + date_bad)[:10]:
+                print(f"    {name}")
+                print(f"      label says {in_label!r}, metadata says {in_meta!r}")
+            for name in unknown[:5]:
+                print(f"    {name}  (no metadata row)")
+            if host_bad or date_bad:
+                print("  Fix the label, not the metadata, unless the table is the stale one.")
+                print("  Relabelling changes tip names, so anything built from these labels")
+                print("  — trees, BEAST XML, exported datasets — has to be regenerated.")
+            print()
+
     # ---- host composition ------------------------------------------------
     if args.metadata and args.metadata.is_file():
         groups = Counter(n.split("|")[1] for n in seqs if "|" in n)
@@ -264,6 +344,21 @@ def main() -> int:
         print(f"coverage plot          -> {png}")
     except ImportError:
         print("(matplotlib not installed — skipping the plot)")
+
+    # ---- optional strip --------------------------------------------------
+    if args.strip_all_gap:
+        keep = [i for i in range(L) if cov[i] > 0]
+        if len(keep) == L:
+            print("\nNo all-gap columns to strip.")
+        else:
+            stripped = {n: "".join(s[i] for i in keep) for n, s in seqs.items()}
+            print(f"\nStripped {L - len(keep)} all-gap columns ({L} -> {len(keep)})")
+            if args.write_stripped:
+                out = args.outdir / (args.aln.stem + "_stripped.fasta")
+                write_fasta(out, stripped)
+                print(f"wrote {out}")
+            else:
+                print("(add --write-stripped to save it)")
 
     # ---- optional trim ---------------------------------------------------
     if args.trim_to:
