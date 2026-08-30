@@ -16,7 +16,6 @@ authors:
     orcid: "https://orcid.org/0000-0002-0706-8951"
 version: 1.0.0
 date-released: 2026-08-30
-license: MIT
 repository-code: "https://github.com/batyanight/cdv-phylodynamics"
 url: "https://nextstrain.org/community/batyanight/cdv-phylodynamics"
 keywords:
