@@ -197,7 +197,7 @@ def main() -> int:
                     help="Annotation key in the MCC tree (BEAST_CLASSIC writes 'location')")
     ap.add_argument("--trait-name", default="host",
                     help="What to call it in Auspice")
-    ap.add_argument("--title", default="CDV clade 3")
+    ap.add_argument("--title", default="CDV clade 3 — America-2 lineage in North American carnivores")
     ap.add_argument("--maintainer", default="")
     ap.add_argument("--output", required=True, type=Path)
     args = ap.parse_args()
@@ -252,7 +252,8 @@ def main() -> int:
             "description": (
                 "Phylodynamics of an America-2 canine distemper virus lineage in North "
                 "American carnivores. Branches coloured by reconstructed host state; "
-                "deep nodes are poorly resolved and should not be over-interpreted."),
+                "deep nodes are poorly resolved and should not be over-interpreted. "
+                "Amino acid positions follow the H CDS of A75/17 (AF164967)."),
         },
         "tree": tree,
     }
