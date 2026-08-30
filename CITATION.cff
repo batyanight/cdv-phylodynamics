@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or dataset, please cite it as below."
+title: "cdv-phylodynamics: a reproducible pipeline for canine distemper virus phylodynamics"
+abstract: >-
+  A reproducible pipeline for analysing canine distemper virus (Morbillivirus
+  canis) hemagglutinin gene sequences from GenBank: metadata curation,
+  alignment QC, maximum likelihood phylogeny, clade delineation, stratified
+  subsampling, Bayesian phylodynamic inference with discrete host-state
+  reconstruction, and export to an annotated Auspice dataset. Applied to an
+  America-2 lineage circulating in North American carnivores. Amino acid
+  coordinates follow the H CDS of A75/17 (AF164967).
+type: software
+authors:
+  - family-names: Nightingale
+    given-names: Batya
+    orcid: "https://orcid.org/0000-0002-0706-8951"
+version: 1.0.0
+date-released: 2026-08-30
+license: MIT
+repository-code: "https://github.com/batyanight/cdv-phylodynamics"
+url: "https://nextstrain.org/community/batyanight/cdv-phylodynamics"
+keywords:
+  - canine distemper virus
+  - Morbillivirus canis
+  - phylodynamics
+  - wildlife disease
+  - carnivores
+  - BEAST
+  - Nextstrain
