@@ -9,8 +9,8 @@ Bayesian phylodynamic inference with discrete host-state reconstruction.
 
 **[View the interactive phylogeny →](https://nextstrain.org/community/batyanight/cdv-phylodynamics)**
 
-> **Status: core analysis complete.** Date-randomisation test, directional rate model
-> and Nextstrain build outstanding — see [Outstanding work](#outstanding-work).
+> **Status: core analysis complete.** Date-randomisation test and directional rate
+> model outstanding — see [Outstanding work](#outstanding-work).
 
 ---
 
@@ -112,8 +112,13 @@ are Java applications installed separately.
 ## Data
 
 All sequence data are public, from GenBank. No restricted or unpublished material is used.
-Sequence and BEAST output files are excluded from version control by `.gitignore`; the
-pipeline regenerates them from the accession list.
+Most sequence and BEAST output files are excluded from version control by `.gitignore`;
+the pipeline regenerates them from the accession list. Three are tracked deliberately,
+because the published dataset cannot be reproduced without them:
+`data/processed/H_clade_3.fasta` (the analysed alignment),
+`data/processed/H_clade_3_ref.fasta` (the same alignment with A75/17 added, which
+defines every coordinate in the annotation), and `data/processed/metadata_clean.tsv`
+(host assignments as used, since these are the field most prone to going stale).
 
 ## Outstanding work
 
@@ -125,7 +130,7 @@ pipeline regenerates them from the accession list.
 - [ ] Asymmetric trait model without BSSVS, for directional transition rates
 - [ ] Investigation of the 4 Danish sequences and one *Meles meles* record
 - [ ] Verification of every lineage reference accession against its primary source
-- [ ] Nextstrain/Auspice build
+- [x] Nextstrain/Auspice build, with H domain annotation in A75/17 coordinates
 
 ## Known limitations
 
