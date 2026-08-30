@@ -49,13 +49,13 @@
   "genome_annotations": {
    "nuc": {
     "start": 1,
-    "end": 1946,
+    "end": 1824,
     "strand": "+",
     "type": "source"
    },
    "H": {
-    "start": 21,
-    "end": 1841,
+    "start": 1,
+    "end": 1821,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -64,8 +64,8 @@
     "description": "Hemagglutinin (attachment) glycoprotein, full CDS"
    },
    "cytoplasmic": {
-    "start": 21,
-    "end": 125,
+    "start": 1,
+    "end": 105,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -74,8 +74,8 @@
     "description": "H protein cytoplasmic tail"
    },
    "transmembrane": {
-    "start": 126,
-    "end": 194,
+    "start": 106,
+    "end": 174,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -84,8 +84,8 @@
     "description": "H protein transmembrane anchor"
    },
    "stalk": {
-    "start": 195,
-    "end": 482,
+    "start": 175,
+    "end": 462,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -94,8 +94,8 @@
     "description": "H protein stalk"
    },
    "connector": {
-    "start": 483,
-    "end": 581,
+    "start": 463,
+    "end": 561,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -104,8 +104,8 @@
     "description": "H protein connecting region"
    },
    "head": {
-    "start": 582,
-    "end": 1841,
+    "start": 562,
+    "end": 1821,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -114,8 +114,8 @@
     "description": "H protein receptor-binding head (beta-propeller)"
    },
    "SLAM_526_529": {
-    "start": 1596,
-    "end": 1607,
+    "start": 1576,
+    "end": 1587,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -124,8 +124,8 @@
     "description": "SLAM/CD150 contact residues 526-529"
    },
    "SLAM_547_548": {
-    "start": 1659,
-    "end": 1664,
+    "start": 1639,
+    "end": 1644,
     "strand": "+",
     "type": "CDS",
     "gene": "H",
@@ -292,10 +292,10 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "A745G",
-               "A878G",
-               "A945G",
-               "C1121A"
+               "A725G",
+               "A858G",
+               "A925G",
+               "C1101A"
               ],
               "H": [
                "E242G",
@@ -335,20 +335,20 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "T737G",
-               "G848T",
-               "A913G",
-               "C920T",
-               "G924A",
-               "A953G",
-               "G980A",
-               "C1037T",
-               "A1065G",
-               "T1067A",
-               "A1147G",
-               "T1176C",
-               "C1177T",
-               "C1178T"
+               "T717G",
+               "G828T",
+               "A893G",
+               "C900T",
+               "G904A",
+               "A933G",
+               "G960A",
+               "C1017T",
+               "A1045G",
+               "T1047A",
+               "A1127G",
+               "T1156C",
+               "C1157T",
+               "C1158T"
               ],
               "H": [
                "I239M",
@@ -375,21 +375,21 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "T94C",
-             "G217A",
-             "A260G",
-             "G493A",
-             "C514T",
-             "A551T",
-             "A581T",
-             "C620T",
-             "G655A",
-             "A698G",
-             "T1379C",
-             "G1433A",
-             "A1650G",
-             "C1665T",
-             "C1829T"
+             "T74C",
+             "G197A",
+             "A240G",
+             "G473A",
+             "C494T",
+             "A531T",
+             "A561T",
+             "C600T",
+             "G635A",
+             "A678G",
+             "T1359C",
+             "G1413A",
+             "A1630G",
+             "C1645T",
+             "C1809T"
             ],
             "cytoplasmic": [
              "L25S"
@@ -473,47 +473,47 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "T93C",
-               "G113A",
-               "A191T",
-               "T194C",
-               "A256T",
-               "G296A",
-               "G407A",
-               "T535C",
-               "C543T",
-               "A572G",
-               "T644C",
-               "A653G",
-               "A664G",
-               "T736C",
-               "A751G",
-               "A760G",
-               "C826G",
-               "T950C",
-               "G1004A",
-               "C1037T",
-               "A1051G",
-               "A1094C",
-               "G1127T",
-               "T1166C",
-               "A1217G",
-               "A1223G",
-               "A1232T",
-               "C1254T",
-               "C1268T",
-               "A1343G",
-               "G1428T",
-               "A1442G",
-               "C1445T",
-               "G1483A",
-               "T1493C",
-               "T1719C",
-               "C1757T",
-               "A1787C",
-               "T1795C",
-               "T1796C",
-               "A1838G"
+               "T73C",
+               "G93A",
+               "A171T",
+               "T174C",
+               "A236T",
+               "G276A",
+               "G387A",
+               "T515C",
+               "C523T",
+               "A552G",
+               "T624C",
+               "A633G",
+               "A644G",
+               "T716C",
+               "A731G",
+               "A740G",
+               "C806G",
+               "T930C",
+               "G984A",
+               "C1017T",
+               "A1031G",
+               "A1074C",
+               "G1107T",
+               "T1146C",
+               "A1197G",
+               "A1203G",
+               "A1212T",
+               "C1234T",
+               "C1248T",
+               "A1323G",
+               "G1408T",
+               "A1422G",
+               "C1425T",
+               "G1463A",
+               "T1473C",
+               "T1699C",
+               "C1737T",
+               "A1767C",
+               "T1775C",
+               "T1776C",
+               "A1818G"
               ],
               "H": [
                "E79V",
@@ -849,8 +849,8 @@
                                   "branch_attrs": {
                                    "mutations": {
                                     "nuc": [
-                                     "C1000A",
-                                     "A1308G"
+                                     "C980A",
+                                     "A1288G"
                                     ],
                                     "H": [
                                      "P327H",
@@ -1010,7 +1010,7 @@
                                             "branch_attrs": {
                                              "mutations": {
                                               "nuc": [
-                                               "C1360T"
+                                               "C1340T"
                                               ],
                                               "H": [
                                                "S447F"
@@ -1048,7 +1048,7 @@
                                             "branch_attrs": {
                                              "mutations": {
                                               "nuc": [
-                                               "T1184C"
+                                               "T1164C"
                                               ]
                                              }
                                             }
@@ -1162,8 +1162,8 @@
                                               "branch_attrs": {
                                                "mutations": {
                                                 "nuc": [
-                                                 "T314C",
-                                                 "G1118A"
+                                                 "T294C",
+                                                 "G1098A"
                                                 ]
                                                }
                                               }
@@ -1257,7 +1257,7 @@
                                             "branch_attrs": {
                                              "mutations": {
                                               "nuc": [
-                                               "T633C"
+                                               "T613C"
                                               ]
                                              }
                                             }
@@ -1266,7 +1266,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "C1640T"
+                                             "C1620T"
                                             ]
                                            }
                                           }
@@ -1354,7 +1354,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "A551G"
+                                             "A531G"
                                             ]
                                            }
                                           }
@@ -1517,7 +1517,7 @@
                                               "branch_attrs": {
                                                "mutations": {
                                                 "nuc": [
-                                                 "G499C"
+                                                 "G479C"
                                                 ],
                                                 "H": [
                                                  "R160T"
@@ -1588,7 +1588,7 @@
                                             "branch_attrs": {
                                              "mutations": {
                                               "nuc": [
-                                               "A1458T"
+                                               "A1438T"
                                               ],
                                               "H": [
                                                "T480S"
@@ -1603,7 +1603,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "T731C"
+                                             "T711C"
                                             ]
                                            }
                                           }
@@ -1612,8 +1612,8 @@
                                         "branch_attrs": {
                                          "mutations": {
                                           "nuc": [
-                                           "C422A",
-                                           "A572G"
+                                           "C402A",
+                                           "A552G"
                                           ]
                                          }
                                         }
@@ -1824,7 +1824,7 @@
                                                 "branch_attrs": {
                                                  "mutations": {
                                                   "nuc": [
-                                                   "C1430T"
+                                                   "C1410T"
                                                   ]
                                                  }
                                                 }
@@ -1889,8 +1889,8 @@
                                               "branch_attrs": {
                                                "mutations": {
                                                 "nuc": [
-                                                 "A745G",
-                                                 "A1115C"
+                                                 "A725G",
+                                                 "A1095C"
                                                 ],
                                                 "H": [
                                                  "E242G"
@@ -1905,7 +1905,7 @@
                                             "branch_attrs": {
                                              "mutations": {
                                               "nuc": [
-                                               "A1432T"
+                                               "A1412T"
                                               ],
                                               "H": [
                                                "Q471L"
@@ -2005,7 +2005,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "A1144T"
+                                             "A1124T"
                                             ],
                                             "H": [
                                              "K375I"
@@ -2030,7 +2030,7 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "A1118G"
+                                       "A1098G"
                                       ]
                                      }
                                     }
@@ -2164,8 +2164,8 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "G612A",
-                                             "A1010G"
+                                             "G592A",
+                                             "A990G"
                                             ],
                                             "H": [
                                              "V198I"
@@ -2180,7 +2180,7 @@
                                         "branch_attrs": {
                                          "mutations": {
                                           "nuc": [
-                                           "C1350A"
+                                           "C1330A"
                                           ],
                                           "H": [
                                            "L444I"
@@ -2270,7 +2270,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "T732G"
+                                             "T712G"
                                             ],
                                             "H": [
                                              "Y238D"
@@ -2285,7 +2285,7 @@
                                         "branch_attrs": {
                                          "mutations": {
                                           "nuc": [
-                                           "T1078A"
+                                           "T1058A"
                                           ],
                                           "H": [
                                            "F353Y"
@@ -2427,7 +2427,7 @@
                                             "branch_attrs": {
                                              "mutations": {
                                               "nuc": [
-                                               "T633C"
+                                               "T613C"
                                               ]
                                              }
                                             }
@@ -2436,7 +2436,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "A936C"
+                                             "A916C"
                                             ],
                                             "H": [
                                              "N306H"
@@ -2474,7 +2474,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "A1577T"
+                                             "A1557T"
                                             ]
                                            }
                                           }
@@ -2483,9 +2483,9 @@
                                         "branch_attrs": {
                                          "mutations": {
                                           "nuc": [
-                                           "T1226G",
-                                           "A1296G",
-                                           "A1308G"
+                                           "T1206G",
+                                           "A1276G",
+                                           "A1288G"
                                           ],
                                           "H": [
                                            "H402Q",
@@ -2532,8 +2532,8 @@
                                       "branch_attrs": {
                                        "mutations": {
                                         "nuc": [
-                                         "A1147T",
-                                         "A1550G"
+                                         "A1127T",
+                                         "A1530G"
                                         ],
                                         "H": [
                                          "N376I"
@@ -2688,8 +2688,8 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "T731C",
-                                       "C1358A"
+                                       "T711C",
+                                       "C1338A"
                                       ],
                                       "H": [
                                        "D446E"
@@ -2727,8 +2727,8 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "A623G",
-                                       "A1139G"
+                                       "A603G",
+                                       "A1119G"
                                       ]
                                      }
                                     }
@@ -2788,8 +2788,8 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "G755T",
-                                       "A1474G"
+                                       "G735T",
+                                       "A1454G"
                                       ],
                                       "H": [
                                        "E485G"
@@ -2827,8 +2827,8 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "A523G",
-                                       "G1568T"
+                                       "A503G",
+                                       "G1548T"
                                       ],
                                       "H": [
                                        "N168S",
@@ -2927,7 +2927,7 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "C374T"
+                                       "C354T"
                                       ]
                                      }
                                     }
@@ -2964,8 +2964,8 @@
                                   "branch_attrs": {
                                    "mutations": {
                                     "nuc": [
-                                     "A347G",
-                                     "C1350T"
+                                     "A327G",
+                                     "C1330T"
                                     ],
                                     "H": [
                                      "L444F"
@@ -3013,7 +3013,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "A1518G"
+                                 "A1498G"
                                 ],
                                 "H": [
                                  "M500V"
@@ -3028,7 +3028,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "C936A"
+                               "C916A"
                               ],
                               "H": [
                                "H306N"
@@ -3091,7 +3091,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "A1384G"
+                                 "A1364G"
                                 ],
                                 "H": [
                                  "K455R"
@@ -3134,7 +3134,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "T764C"
+                               "T744C"
                               ]
                              }
                             }
@@ -3143,7 +3143,7 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "C584T"
+                             "C564T"
                             ]
                            }
                           }
@@ -3175,9 +3175,9 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "T329A",
-                             "A1144T",
-                             "A1147T"
+                             "T309A",
+                             "A1124T",
+                             "A1127T"
                             ],
                             "H": [
                              "K375I",
@@ -3194,10 +3194,10 @@
                         "branch_attrs": {
                          "mutations": {
                           "nuc": [
-                           "A446G",
-                           "C720T",
-                           "G1226T",
-                           "G1308A"
+                           "A426G",
+                           "C700T",
+                           "G1206T",
+                           "G1288A"
                           ],
                           "H": [
                            "Q402H",
@@ -3263,9 +3263,9 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "A523G",
-                             "G915A",
-                             "G1556A"
+                             "A503G",
+                             "G895A",
+                             "G1536A"
                             ],
                             "H": [
                              "N168S",
@@ -3312,10 +3312,10 @@
                         "branch_attrs": {
                          "mutations": {
                           "nuc": [
-                           "C620T",
-                           "A913G",
-                           "C923A",
-                           "C1532T"
+                           "C600T",
+                           "A893G",
+                           "C903A",
+                           "C1512T"
                           ],
                           "H": [
                            "E298G"
@@ -3404,10 +3404,10 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "A344T",
-                             "C356T",
-                             "A692G",
-                             "A1010G"
+                             "A324T",
+                             "C336T",
+                             "A672G",
+                             "A990G"
                             ]
                            }
                           }
@@ -3439,8 +3439,8 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "G914A",
-                             "G1222A"
+                             "G894A",
+                             "G1202A"
                             ],
                             "H": [
                              "R401K"
@@ -3690,7 +3690,7 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "A986G"
+                                             "A966G"
                                             ],
                                             "H": [
                                              "I322M"
@@ -3728,8 +3728,8 @@
                                           "branch_attrs": {
                                            "mutations": {
                                             "nuc": [
-                                             "T473C",
-                                             "A1144T"
+                                             "T453C",
+                                             "A1124T"
                                             ],
                                             "H": [
                                              "K375I"
@@ -3805,7 +3805,7 @@
                                       "branch_attrs": {
                                        "mutations": {
                                         "nuc": [
-                                         "G1355A"
+                                         "G1335A"
                                         ]
                                        }
                                       }
@@ -3865,7 +3865,7 @@
                                       "branch_attrs": {
                                        "mutations": {
                                         "nuc": [
-                                         "A955G"
+                                         "A935G"
                                         ],
                                         "H": [
                                          "Q312R"
@@ -3903,8 +3903,8 @@
                                       "branch_attrs": {
                                        "mutations": {
                                         "nuc": [
-                                         "T329C",
-                                         "T1112G"
+                                         "T309C",
+                                         "T1092G"
                                         ]
                                        }
                                       }
@@ -3913,7 +3913,7 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "C1350T"
+                                       "C1330T"
                                       ],
                                       "H": [
                                        "L444F"
@@ -3928,7 +3928,7 @@
                                   "branch_attrs": {
                                    "mutations": {
                                     "nuc": [
-                                     "C1000A"
+                                     "C980A"
                                     ],
                                     "H": [
                                      "P327H"
@@ -4016,7 +4016,7 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "A365G"
+                                       "A345G"
                                       ]
                                      }
                                     }
@@ -4030,7 +4030,7 @@
                                 "branch_attrs": {
                                  "mutations": {
                                   "nuc": [
-                                   "G846A"
+                                   "G826A"
                                   ],
                                   "H": [
                                    "E276K"
@@ -4119,8 +4119,8 @@
                                   "branch_attrs": {
                                    "mutations": {
                                     "nuc": [
-                                     "T852C",
-                                     "C1100T"
+                                     "T832C",
+                                     "C1080T"
                                     ],
                                     "H": [
                                      "S278P"
@@ -4168,7 +4168,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "G1222A"
+                                 "G1202A"
                                 ],
                                 "H": [
                                  "R401K"
@@ -4183,7 +4183,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "C816T"
+                               "C796T"
                               ],
                               "H": [
                                "L266F"
@@ -4221,8 +4221,8 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "A512C",
-                               "A551G"
+                               "A492C",
+                               "A531G"
                               ]
                              }
                             }
@@ -4305,7 +4305,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "A703T"
+                                 "A683T"
                                 ],
                                 "H": [
                                  "Y228F"
@@ -4343,7 +4343,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "A1092G"
+                                 "A1072G"
                                 ],
                                 "H": [
                                  "I358V"
@@ -4358,7 +4358,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "C1511T"
+                               "C1491T"
                               ]
                              }
                             }
@@ -4390,7 +4390,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "G510A"
+                               "G490A"
                               ],
                               "H": [
                                "A164T"
@@ -4405,7 +4405,7 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "A1524G"
+                             "A1504G"
                             ],
                             "H": [
                              "K502E"
@@ -4722,7 +4722,7 @@
                                         "branch_attrs": {
                                          "mutations": {
                                           "nuc": [
-                                           "A932G"
+                                           "A912G"
                                           ]
                                          }
                                         }
@@ -4847,7 +4847,7 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "A1343G"
+                                       "A1323G"
                                       ]
                                      }
                                     }
@@ -4889,7 +4889,7 @@
                                 "branch_attrs": {
                                  "mutations": {
                                   "nuc": [
-                                   "A733T"
+                                   "A713T"
                                   ],
                                   "H": [
                                    "Y238F"
@@ -4995,7 +4995,7 @@
                                       "branch_attrs": {
                                        "mutations": {
                                         "nuc": [
-                                         "A539G"
+                                         "A519G"
                                         ]
                                        }
                                       }
@@ -5084,7 +5084,7 @@
                                       "branch_attrs": {
                                        "mutations": {
                                         "nuc": [
-                                         "A1146T"
+                                         "A1126T"
                                         ],
                                         "H": [
                                          "I376F"
@@ -5099,7 +5099,7 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "C392T"
+                                       "C372T"
                                       ]
                                      }
                                     }
@@ -5182,8 +5182,8 @@
                                       "branch_attrs": {
                                        "mutations": {
                                         "nuc": [
-                                         "T548C",
-                                         "G977A"
+                                         "T528C",
+                                         "G957A"
                                         ]
                                        }
                                       }
@@ -5375,15 +5375,15 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "G493A",
-                                 "C1162A",
-                                 "A1232T",
-                                 "C1275T",
-                                 "G1420T",
-                                 "C1498T",
-                                 "A1592C",
-                                 "T1593G",
-                                 "A1594C"
+                                 "G473A",
+                                 "C1142A",
+                                 "A1212T",
+                                 "C1255T",
+                                 "G1400T",
+                                 "C1478T",
+                                 "A1572C",
+                                 "T1573G",
+                                 "A1574C"
                                 ],
                                 "H": [
                                  "G158E",
@@ -5410,7 +5410,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "A1147T"
+                               "A1127T"
                               ],
                               "H": [
                                "N376I"
@@ -5499,7 +5499,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "T838C"
+                                 "T818C"
                                 ],
                                 "H": [
                                  "V273A"
@@ -5514,7 +5514,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "C1469T"
+                               "C1449T"
                               ]
                              }
                             }
@@ -5551,9 +5551,9 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "T509C",
-                             "C573G",
-                             "C574G"
+                             "T489C",
+                             "C553G",
+                             "C554G"
                             ],
                             "H": [
                              "P185G"
@@ -5568,7 +5568,7 @@
                         "branch_attrs": {
                          "mutations": {
                           "nuc": [
-                           "A1550G"
+                           "A1530G"
                           ]
                          }
                         }
@@ -5623,7 +5623,7 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "G929T"
+                             "G909T"
                             ],
                             "H": [
                              "L303F"
@@ -5772,7 +5772,7 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "C1397T"
+                             "C1377T"
                             ]
                            }
                           }
@@ -5786,7 +5786,7 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "C548T"
+                         "C528T"
                         ]
                        }
                       }
@@ -5912,8 +5912,8 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "G744A",
-                                 "T1625G"
+                                 "G724A",
+                                 "T1605G"
                                 ],
                                 "H": [
                                  "E242K"
@@ -5951,7 +5951,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "C1346A"
+                                 "C1326A"
                                 ],
                                 "H": [
                                  "S442R"
@@ -5966,8 +5966,8 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "G515A",
-                               "G610A"
+                               "G495A",
+                               "G590A"
                               ],
                               "H": [
                                "R197K"
@@ -6038,7 +6038,7 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "T1214C"
+                             "T1194C"
                             ]
                            }
                           }
@@ -6119,7 +6119,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "G949A"
+                               "G929A"
                               ],
                               "H": [
                                "G310D"
@@ -6157,7 +6157,7 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "T903C"
+                               "T883C"
                               ]
                              }
                             }
@@ -6239,8 +6239,8 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "G326A",
-                                 "G401A"
+                                 "G306A",
+                                 "G381A"
                                 ]
                                }
                               }
@@ -6295,7 +6295,7 @@
                                 "branch_attrs": {
                                  "mutations": {
                                   "nuc": [
-                                   "T1007C"
+                                   "T987C"
                                   ]
                                  }
                                 }
@@ -6332,7 +6332,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "G846A"
+                                 "G826A"
                                 ],
                                 "H": [
                                  "E276K"
@@ -6498,7 +6498,7 @@
                                   "branch_attrs": {
                                    "mutations": {
                                     "nuc": [
-                                     "G776A"
+                                     "G756A"
                                     ]
                                    }
                                   }
@@ -6636,7 +6636,7 @@
                                     "branch_attrs": {
                                      "mutations": {
                                       "nuc": [
-                                       "A1550G"
+                                       "A1530G"
                                       ]
                                      }
                                     }
@@ -6650,7 +6650,7 @@
                                 "branch_attrs": {
                                  "mutations": {
                                   "nuc": [
-                                   "G664A"
+                                   "G644A"
                                   ],
                                   "H": [
                                    "G215E"
@@ -6665,7 +6665,7 @@
                               "branch_attrs": {
                                "mutations": {
                                 "nuc": [
-                                 "A1484G"
+                                 "A1464G"
                                 ]
                                }
                               }
@@ -6674,9 +6674,9 @@
                             "branch_attrs": {
                              "mutations": {
                               "nuc": [
-                               "A664G",
-                               "G977A",
-                               "C1640T"
+                               "A644G",
+                               "G957A",
+                               "C1620T"
                               ],
                               "H": [
                                "E215G"
@@ -6706,8 +6706,8 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
-                       "T329A",
-                       "A1296G"
+                       "T309A",
+                       "A1276G"
                       ],
                       "H": [
                        "T426A"
@@ -6750,8 +6750,8 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "A623T",
-                     "T1444C"
+                     "A603T",
+                     "T1424C"
                     ],
                     "H": [
                      "I475T"
@@ -6766,8 +6766,8 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "C1230G",
-                   "A1266G"
+                   "C1210G",
+                   "A1246G"
                   ],
                   "H": [
                    "P404A",
@@ -6833,8 +6833,8 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "G914A",
-                     "A1129C"
+                     "G894A",
+                     "A1109C"
                     ],
                     "H": [
                      "K370T"
@@ -6896,7 +6896,7 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
-                       "C356T"
+                       "C336T"
                       ]
                      }
                     }
@@ -6928,8 +6928,8 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
-                       "C621T",
-                       "C1235A"
+                       "C601T",
+                       "C1215A"
                       ]
                      }
                     }
@@ -6938,7 +6938,7 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "A502G"
+                     "A482G"
                     ],
                     "H": [
                      "K161R"
@@ -6958,21 +6958,21 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "A694G",
-                 "C695T",
-                 "G821A",
-                 "G845T",
-                 "A911G",
-                 "T914G",
-                 "A940G",
-                 "A1022C",
-                 "A1220G",
-                 "G1221A",
-                 "C1286T",
-                 "T1516C",
-                 "A1559G",
-                 "T1578A",
-                 "G1608A"
+                 "A674G",
+                 "C675T",
+                 "G801A",
+                 "G825T",
+                 "A891G",
+                 "T894G",
+                 "A920G",
+                 "A1002C",
+                 "A1200G",
+                 "G1201A",
+                 "C1266T",
+                 "T1496C",
+                 "A1539G",
+                 "T1558A",
+                 "G1588A"
                 ],
                 "H": [
                  "D225G",
@@ -7022,24 +7022,24 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "C389T",
-                 "G549A",
-                 "C620T",
-                 "A680C",
-                 "C785T",
-                 "T851A",
-                 "G974T",
-                 "A983T",
-                 "G1029C",
-                 "C1177A",
-                 "A1292G",
-                 "T1304C",
-                 "C1346T",
-                 "G1355A",
-                 "A1486G",
-                 "T1529A",
-                 "A1536T",
-                 "T1625A"
+                 "C369T",
+                 "G529A",
+                 "C600T",
+                 "A660C",
+                 "C765T",
+                 "T831A",
+                 "G954T",
+                 "A963T",
+                 "G1009C",
+                 "C1157A",
+                 "A1272G",
+                 "T1284C",
+                 "C1326T",
+                 "G1335A",
+                 "A1466G",
+                 "T1509A",
+                 "A1516T",
+                 "T1605A"
                 ],
                 "H": [
                  "G177R",
@@ -7066,32 +7066,32 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "C32T",
-               "T62C",
-               "T74C",
-               "T90C",
-               "A110C",
-               "T182C",
-               "G254A",
-               "C336A",
-               "C527G",
-               "C531A",
-               "G552A",
-               "T667C",
-               "G699T",
-               "G1022A",
-               "G1118A",
-               "G1199A",
-               "T1235C",
-               "A1253C",
-               "T1299A",
-               "C1325T",
-               "G1576T",
-               "G1607A",
-               "G1652A",
-               "A1751G",
-               "A1817G",
-               "T1826C"
+               "C12T",
+               "T42C",
+               "T54C",
+               "T70C",
+               "A90C",
+               "T162C",
+               "G234A",
+               "C316A",
+               "C507G",
+               "C511A",
+               "G532A",
+               "T647C",
+               "G679T",
+               "G1002A",
+               "G1098A",
+               "G1179A",
+               "T1215C",
+               "A1233C",
+               "T1279A",
+               "C1305T",
+               "G1556T",
+               "G1587A",
+               "G1632A",
+               "A1731G",
+               "A1797G",
+               "T1806C"
               ],
               "cytoplasmic": [
                "S24P",
@@ -7130,17 +7130,17 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "A206G",
-             "G311A",
-             "G327A",
-             "T725G",
-             "A850C",
-             "T1031C",
-             "T1073A",
-             "T1176A",
-             "G1292A",
-             "T1352C",
-             "G1559A"
+             "A186G",
+             "G291A",
+             "G307A",
+             "T705G",
+             "A830C",
+             "T1011C",
+             "T1053A",
+             "T1156A",
+             "G1272A",
+             "T1332C",
+             "G1539A"
             ],
             "H": [
              "V103I",
@@ -7161,8 +7161,8 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "A41G",
-           "C416T"
+           "A21G",
+           "C396T"
           ]
          }
         }
@@ -7268,7 +7268,7 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "A911G"
+                 "A891G"
                 ]
                }
               }
@@ -7333,8 +7333,8 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "T732C",
-               "G1731T"
+               "T712C",
+               "G1711T"
               ],
               "H": [
                "Y238H",
@@ -7351,16 +7351,16 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "G45A",
-             "C356T",
-             "G586T",
-             "G635A",
-             "G663A",
-             "C860T",
-             "C1350T",
-             "C1469T",
-             "G1609A",
-             "A1670G"
+             "G25A",
+             "C336T",
+             "G566T",
+             "G615A",
+             "G643A",
+             "C840T",
+             "C1330T",
+             "C1449T",
+             "G1589A",
+             "A1650G"
             ],
             "cytoplasmic": [
              "G9S"
@@ -7408,13 +7408,13 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "A521G",
-             "T533G",
-             "G1355A",
-             "A1525G",
-             "A1699G",
-             "A1735G",
-             "G1770A"
+             "A501G",
+             "T513G",
+             "G1335A",
+             "A1505G",
+             "A1679G",
+             "A1715G",
+             "G1750A"
             ],
             "H": [
              "K502R",
@@ -7435,31 +7435,31 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "G254A",
-           "A299C",
-           "G302T",
-           "A320G",
-           "G410A",
-           "G549A",
-           "A653T",
-           "T747G",
-           "T808C",
-           "C920T",
-           "G924A",
-           "G980A",
-           "A1147G",
-           "T1163C",
-           "C1178T",
-           "G1323A",
-           "A1357G",
-           "G1385A",
-           "G1420A",
-           "C1430T",
-           "C1511T",
-           "G1576T",
-           "C1704T",
-           "A1773G",
-           "A1828G"
+           "G234A",
+           "A279C",
+           "G282T",
+           "A300G",
+           "G390A",
+           "G529A",
+           "A633T",
+           "T727G",
+           "T788C",
+           "C900T",
+           "G904A",
+           "G960A",
+           "A1127G",
+           "T1143C",
+           "C1158T",
+           "G1303A",
+           "A1337G",
+           "G1365A",
+           "G1400A",
+           "C1410T",
+           "C1491T",
+           "G1556T",
+           "C1684T",
+           "A1753G",
+           "A1808G"
           ],
           "H": [
            "M78I",
@@ -7500,11 +7500,11 @@
       "branch_attrs": {
        "mutations": {
         "nuc": [
-         "C107G",
-         "A311G",
-         "A327G",
-         "T527C",
-         "C1354T"
+         "C87G",
+         "A291G",
+         "A307G",
+         "T507C",
+         "C1334T"
         ],
         "cytoplasmic": [
          "D29E"
@@ -7654,19 +7654,19 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "T725C",
-                 "G755T",
-                 "C843T",
-                 "G848T",
-                 "C884T",
-                 "A986G",
-                 "G1055A",
-                 "T1108C",
-                 "A1142C",
-                 "G1229A",
-                 "T1462C",
-                 "A1653G",
-                 "A1731G"
+                 "T705C",
+                 "G735T",
+                 "C823T",
+                 "G828T",
+                 "C864T",
+                 "A966G",
+                 "G1035A",
+                 "T1088C",
+                 "A1122C",
+                 "G1209A",
+                 "T1442C",
+                 "A1633G",
+                 "A1711G"
                 ],
                 "H": [
                  "P275S",
@@ -7772,10 +7772,10 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "G612T",
-                     "C999T",
-                     "A1442G",
-                     "T1491C"
+                     "G592T",
+                     "C979T",
+                     "A1422G",
+                     "T1471C"
                     ],
                     "H": [
                      "V198F",
@@ -7817,13 +7817,13 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "C1124T",
-                     "G1127C",
-                     "A1130C",
-                     "A1458G",
-                     "C1663T",
-                     "A1731G",
-                     "A1732G"
+                     "C1104T",
+                     "G1107C",
+                     "A1110C",
+                     "A1438G",
+                     "C1643T",
+                     "A1711G",
+                     "A1712G"
                     ],
                     "H": [
                      "E369D",
@@ -7849,8 +7849,8 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "T1227C",
-                   "T1474A"
+                   "T1207C",
+                   "T1454A"
                   ],
                   "H": [
                    "V485E"
@@ -7940,7 +7940,7 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "G1724A"
+                     "G1704A"
                     ]
                    }
                   }
@@ -7954,16 +7954,16 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "C389T",
-                 "A995T",
-                 "T1077C",
-                 "T1251C",
-                 "G1307A",
-                 "A1364G",
-                 "G1652A",
-                 "A1760C",
-                 "C1778T",
-                 "A1791G"
+                 "C369T",
+                 "A975T",
+                 "T1057C",
+                 "T1231C",
+                 "G1287A",
+                 "A1344G",
+                 "G1632A",
+                 "A1740C",
+                 "C1758T",
+                 "A1771G"
                 ],
                 "H": [
                  "F353L",
@@ -7980,9 +7980,9 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "T1163A",
-               "G1349T",
-               "C1677T"
+               "T1143A",
+               "G1329T",
+               "C1657T"
               ]
              }
             }
@@ -8040,9 +8040,9 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "G612T",
-                 "C620T",
-                 "A847G"
+                 "G592T",
+                 "C600T",
+                 "A827G"
                 ],
                 "H": [
                  "V198F",
@@ -8087,18 +8087,18 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "A680G",
-               "C839T",
-               "G848A",
-               "G1076A",
-               "G1226A",
-               "C1350T",
-               "G1425A",
-               "G1648A",
-               "A1674C",
-               "A1779T",
-               "A1785G",
-               "G1843A"
+               "A660G",
+               "C819T",
+               "G828A",
+               "G1056A",
+               "G1206A",
+               "C1330T",
+               "G1405A",
+               "G1628A",
+               "A1654C",
+               "A1759T",
+               "A1765G",
+               "G1823A"
               ],
               "H": [
                "L444F",
@@ -8121,8 +8121,8 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "C1665T",
-             "G1731A"
+             "C1645T",
+             "G1711A"
             ],
             "H": [
              "H549Y",
@@ -8162,26 +8162,26 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "G809A",
-             "A824G",
-             "A913G",
-             "T1003C",
-             "G1004A",
-             "T1034C",
-             "C1159T",
-             "C1177T",
-             "T1304C",
-             "A1424G",
-             "T1494C",
-             "T1523C",
-             "A1536G",
-             "T1645C",
-             "C1651A",
+             "G789A",
+             "A804G",
+             "A893G",
+             "T983C",
+             "G984A",
+             "T1014C",
+             "C1139T",
+             "C1157T",
+             "T1284C",
+             "A1404G",
+             "T1474C",
+             "T1503C",
+             "A1516G",
+             "T1625C",
+             "C1631A",
+             "T1662C",
              "T1682C",
-             "T1702C",
-             "T1737C",
-             "C1778T",
-             "C1808T"
+             "T1717C",
+             "C1758T",
+             "C1788T"
             ],
             "H": [
              "M263I",
@@ -8212,15 +8212,15 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "C395T",
-           "A446T",
-           "C621T",
-           "T736C",
-           "T1404G",
-           "A1474T",
-           "A1496G",
-           "G1632A",
-           "A1639C"
+           "C375T",
+           "A426T",
+           "C601T",
+           "T716C",
+           "T1384G",
+           "A1454T",
+           "A1476G",
+           "G1612A",
+           "A1619C"
           ],
           "H": [
            "I239T",
@@ -8368,11 +8368,11 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "C569T",
-                   "C584T",
-                   "A760C",
-                   "G887A",
-                   "C1469T"
+                   "C549T",
+                   "C564T",
+                   "A740C",
+                   "G867A",
+                   "C1449T"
                   ],
                   "H": [
                    "K247T"
@@ -8485,7 +8485,7 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
-                       "T1535C"
+                       "T1515C"
                       ]
                      }
                     }
@@ -8539,8 +8539,8 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "G980A",
-                         "G1014A"
+                         "G960A",
+                         "G994A"
                         ],
                         "H": [
                          "E332K"
@@ -8588,8 +8588,8 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "A572G",
-                     "C683T"
+                     "A552G",
+                     "C663T"
                     ]
                    }
                   }
@@ -8598,9 +8598,9 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "C1000A",
-                   "G1044A",
-                   "G1649A"
+                   "C980A",
+                   "G1024A",
+                   "G1629A"
                   ],
                   "H": [
                    "P327H",
@@ -8617,7 +8617,7 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "A612T"
+                 "A592T"
                 ],
                 "H": [
                  "I198F"
@@ -8655,9 +8655,9 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "G540A",
-                 "C770T",
-                 "T928C"
+                 "G520A",
+                 "C750T",
+                 "T908C"
                 ],
                 "H": [
                  "A174T",
@@ -8676,11 +8676,11 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "G612A",
-               "C727T",
-               "G993A",
-               "G1345A",
-               "C1397T"
+               "G592A",
+               "C707T",
+               "G973A",
+               "G1325A",
+               "C1377T"
               ],
               "H": [
                "V198I",
@@ -8748,7 +8748,7 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "A1296G"
+                 "A1276G"
                 ],
                 "H": [
                  "T426A"
@@ -8786,10 +8786,10 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "T398C",
-                 "T950G",
-                 "T1328C",
-                 "A1432G"
+                 "T378C",
+                 "T930G",
+                 "T1308C",
+                 "A1412G"
                 ],
                 "H": [
                  "Q471R"
@@ -8804,18 +8804,18 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "C351T",
-               "A512C",
-               "G515A",
-               "G553A",
-               "T613C",
-               "C619T",
-               "C695T",
-               "C843T",
-               "A1053T",
-               "T1122A",
-               "A1484G",
-               "T1625C"
+               "C331T",
+               "A492C",
+               "G495A",
+               "G533A",
+               "T593C",
+               "C599T",
+               "C675T",
+               "C823T",
+               "A1033T",
+               "T1102A",
+               "A1464G",
+               "T1605C"
               ],
               "H": [
                "G178D",
@@ -8870,14 +8870,14 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "C479T",
-             "A710G",
-             "G800A",
-             "A850G",
-             "A861G",
-             "T930C",
-             "A1085G",
-             "C1286T"
+             "C459T",
+             "A690G",
+             "G780A",
+             "A830G",
+             "A841G",
+             "T910C",
+             "A1065G",
+             "C1266T"
             ],
             "H": [
              "N277S",
@@ -8894,12 +8894,12 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "T1031C",
-           "T1271G",
-           "T1277C",
-           "G1406A",
-           "A1407G",
-           "A1409G"
+           "T1011C",
+           "T1251G",
+           "T1257C",
+           "G1386A",
+           "A1387G",
+           "A1389G"
           ],
           "H": [
            "I417M",
@@ -8916,29 +8916,29 @@
       "branch_attrs": {
        "mutations": {
         "nuc": [
-         "G59A",
-         "A99G",
-         "T138G",
-         "T146C",
-         "C147A",
-         "G171A",
-         "G332A",
-         "T533A",
-         "T633C",
-         "C816T",
-         "G896C",
-         "G929A",
-         "G960A",
-         "A1055G",
-         "A1092G",
-         "T1124C",
-         "G1154A",
-         "A1349G",
-         "A1384T",
-         "G1420C",
-         "T1562C",
-         "A1650G",
-         "A1817G"
+         "G39A",
+         "A79G",
+         "T118G",
+         "T126C",
+         "C127A",
+         "G151A",
+         "G312A",
+         "T513A",
+         "T613C",
+         "C796T",
+         "G876C",
+         "G909A",
+         "G940A",
+         "A1035G",
+         "A1072G",
+         "T1104C",
+         "G1134A",
+         "A1329G",
+         "A1364T",
+         "G1400C",
+         "T1542C",
+         "A1630G",
+         "A1797G"
         ],
         "cytoplasmic": [
          "T27A"
@@ -8977,18 +8977,11 @@
     "branch_attrs": {
      "mutations": {
       "nuc": [
-       "C179T",
-       "A302G",
-       "C614T",
-       "C803T",
-       "A1292G",
-       "A1852G",
-       "C1860T",
-       "A1880G",
-       "C1890T",
-       "A1891G",
-       "C1927T",
-       "C1931T"
+       "C159T",
+       "A282G",
+       "C594T",
+       "C783T",
+       "A1272G"
       ]
      }
     }
@@ -9176,13 +9169,13 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "A498C",
-                   "T593C",
-                   "C617T",
-                   "A733T",
-                   "T1227C",
-                   "C1361T",
-                   "G1480A"
+                   "A478C",
+                   "T573C",
+                   "C597T",
+                   "A713T",
+                   "T1207C",
+                   "C1341T",
+                   "G1460A"
                   ],
                   "H": [
                    "Y238F",
@@ -9325,7 +9318,7 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "T646C"
+                         "T626C"
                         ],
                         "H": [
                          "L209S"
@@ -9442,7 +9435,7 @@
                         "branch_attrs": {
                          "mutations": {
                           "nuc": [
-                           "G1609C"
+                           "G1589C"
                           ],
                           "H": [
                            "G530A"
@@ -9513,7 +9506,7 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "A1217G"
+                         "A1197G"
                         ]
                        }
                       }
@@ -9527,7 +9520,7 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "G515A"
+                     "G495A"
                     ]
                    }
                   }
@@ -9536,21 +9529,21 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "C26T",
-                   "T215C",
-                   "A245G",
-                   "C356T",
-                   "G493A",
-                   "A523C",
-                   "G558A",
-                   "A669G",
-                   "G845T",
-                   "A878G",
-                   "A911G",
-                   "A983G",
-                   "A1147T",
-                   "A1259C",
-                   "G1260A"
+                   "C6T",
+                   "T195C",
+                   "A225G",
+                   "C336T",
+                   "G473A",
+                   "A503C",
+                   "G538A",
+                   "A649G",
+                   "G825T",
+                   "A858G",
+                   "A891G",
+                   "A963G",
+                   "A1127T",
+                   "A1239C",
+                   "G1240A"
                   ],
                   "H": [
                    "G158E",
@@ -9577,10 +9570,10 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "C269T",
-                 "G1174A",
-                 "G1709A",
-                 "C1808T"
+                 "C249T",
+                 "G1154A",
+                 "G1689A",
+                 "C1788T"
                 ],
                 "H": [
                  "R385K"
@@ -9772,10 +9765,10 @@
                           "branch_attrs": {
                            "mutations": {
                             "nuc": [
-                             "C26A",
-                             "G113A",
-                             "C179T",
-                             "A1805G"
+                             "C6A",
+                             "G93A",
+                             "C159T",
+                             "A1785G"
                             ]
                            }
                           }
@@ -9873,9 +9866,9 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "G118A",
-                         "C1376T",
-                         "T1388C"
+                         "G98A",
+                         "C1356T",
+                         "T1368C"
                         ],
                         "cytoplasmic": [
                          "R33K"
@@ -9918,7 +9911,7 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
-                       "T1481G"
+                       "T1461G"
                       ],
                       "H": [
                        "S487R"
@@ -9933,14 +9926,14 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "G353A",
-                     "A564G",
-                     "C754T",
-                     "G896A",
-                     "G960A",
-                     "G1280A",
-                     "A1313C",
-                     "C1665T"
+                     "G333A",
+                     "A544G",
+                     "C734T",
+                     "G876A",
+                     "G940A",
+                     "G1260A",
+                     "A1293C",
+                     "C1645T"
                     ],
                     "H": [
                      "I182V",
@@ -10012,14 +10005,14 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
-                       "C172T",
-                       "C179T",
-                       "C569T",
-                       "T587C",
-                       "G1222A",
-                       "T1379C",
-                       "C1604T",
-                       "C1775T"
+                       "C152T",
+                       "C159T",
+                       "C549T",
+                       "T567C",
+                       "G1202A",
+                       "T1359C",
+                       "C1584T",
+                       "C1755T"
                       ],
                       "H": [
                        "A51V",
@@ -10083,11 +10076,11 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "C32T",
-                         "G158T",
-                         "C269A",
-                         "C902T",
-                         "G980T"
+                         "C12T",
+                         "G138T",
+                         "C249A",
+                         "C882T",
+                         "G960T"
                         ]
                        }
                       }
@@ -10119,7 +10112,7 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "A1475G"
+                         "A1455G"
                         ]
                        }
                       }
@@ -10128,19 +10121,19 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
+                       "A307G",
                        "A327G",
-                       "A347G",
-                       "G401A",
-                       "T1007C",
-                       "A1126G",
-                       "A1145G",
-                       "A1479G",
-                       "T1493C",
-                       "A1508T",
-                       "A1513T",
-                       "T1661C",
-                       "G1759A",
-                       "T1826C"
+                       "G381A",
+                       "T987C",
+                       "A1106G",
+                       "A1125G",
+                       "A1459G",
+                       "T1473C",
+                       "A1488T",
+                       "A1493T",
+                       "T1641C",
+                       "G1739A",
+                       "T1806C"
                       ],
                       "H": [
                        "I103V",
@@ -10170,7 +10163,7 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "T1562C"
+                   "T1542C"
                   ]
                  }
                 }
@@ -10254,8 +10247,8 @@
                     "branch_attrs": {
                      "mutations": {
                       "nuc": [
-                       "T906G",
-                       "A1085G"
+                       "T886G",
+                       "A1065G"
                       ],
                       "H": [
                        "C296G"
@@ -10340,7 +10333,7 @@
                         "branch_attrs": {
                          "mutations": {
                           "nuc": [
-                           "C179A"
+                           "C159A"
                           ]
                          }
                         }
@@ -10405,7 +10398,7 @@
                       "branch_attrs": {
                        "mutations": {
                         "nuc": [
-                         "A95C"
+                         "A75C"
                         ],
                         "cytoplasmic": [
                          "L25F"
@@ -10453,17 +10446,17 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "A759G",
-                     "C798A",
-                     "A873C",
-                     "A932G",
-                     "A937C",
-                     "A953C",
-                     "G1017A",
-                     "A1018G",
-                     "G1174A",
-                     "G1402T",
-                     "G1433T"
+                     "A739G",
+                     "C778A",
+                     "A853C",
+                     "A912G",
+                     "A917C",
+                     "A933C",
+                     "G997A",
+                     "A998G",
+                     "G1154A",
+                     "G1382T",
+                     "G1413T"
                     ],
                     "H": [
                      "K247E",
@@ -10492,11 +10485,11 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "A299C",
-                   "A403C",
-                   "T928C",
-                   "T1078A",
-                   "G1480A"
+                   "A279C",
+                   "A383C",
+                   "T908C",
+                   "T1058A",
+                   "G1460A"
                   ],
                   "H": [
                    "N128T",
@@ -10519,21 +10512,21 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "T62C",
-                 "T74C",
-                 "C107A",
-                 "C185T",
-                 "G499A",
-                 "C548T",
-                 "G992A",
-                 "C1193T",
-                 "G1356A",
-                 "T1376C",
-                 "C1388T",
-                 "C1430T",
-                 "G1551A",
-                 "C1610T",
-                 "A1751G"
+                 "T42C",
+                 "T54C",
+                 "C87A",
+                 "C165T",
+                 "G479A",
+                 "C528T",
+                 "G972A",
+                 "C1173T",
+                 "G1336A",
+                 "T1356C",
+                 "C1368T",
+                 "C1410T",
+                 "G1531A",
+                 "C1590T",
+                 "A1731G"
                 ],
                 "cytoplasmic": [
                  "D29E"
@@ -10558,8 +10551,8 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "A500G",
-               "C1079T"
+               "A480G",
+               "C1059T"
               ]
              }
             }
@@ -10591,21 +10584,21 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "C530A",
-               "T533C",
-               "G549A",
-               "A575G",
-               "T645C",
-               "G750A",
-               "A932T",
-               "T950A",
-               "T989C",
-               "G1107T",
-               "G1199T",
-               "A1322G",
-               "T1370C",
-               "C1445T",
-               "G1452A"
+               "C510A",
+               "T513C",
+               "G529A",
+               "A555G",
+               "T625C",
+               "G730A",
+               "A912T",
+               "T930A",
+               "T969C",
+               "G1087T",
+               "G1179T",
+               "A1302G",
+               "T1350C",
+               "C1425T",
+               "G1432A"
               ],
               "H": [
                "G177R",
@@ -10630,9 +10623,9 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "T146G",
-             "C573T",
-             "A1174G"
+             "T126G",
+             "C553T",
+             "A1154G"
             ],
             "H": [
              "P185S",
@@ -10726,15 +10719,15 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "T644C",
-                 "G794T",
-                 "A963C",
-                 "G1229A",
-                 "A1298G",
-                 "A1424G",
-                 "T1585C",
-                 "T1655C",
-                 "T1712C"
+                 "T624C",
+                 "G774T",
+                 "A943C",
+                 "G1209A",
+                 "A1278G",
+                 "A1404G",
+                 "T1565C",
+                 "T1635C",
+                 "T1692C"
                 ],
                 "H": [
                  "I315L",
@@ -10800,14 +10793,14 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "G515A",
-                   "T725C",
-                   "C792A",
-                   "C944T",
-                   "C1249A",
-                   "T1340C",
-                   "T1354C",
-                   "A1536G"
+                   "G495A",
+                   "T705C",
+                   "C772A",
+                   "C924T",
+                   "C1229A",
+                   "T1320C",
+                   "T1334C",
+                   "A1516G"
                   ],
                   "H": [
                    "T410K",
@@ -10849,23 +10842,23 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "A518C",
-                   "A528G",
-                   "A536T",
-                   "G742A",
-                   "G776A",
-                   "G800A",
-                   "G864A",
-                   "G887A",
-                   "T947C",
-                   "G1022A",
-                   "C1039A",
-                   "G1044A",
-                   "A1170G",
-                   "T1352G",
-                   "T1404C",
-                   "A1427G",
-                   "C1436T"
+                   "A498C",
+                   "A508G",
+                   "A516T",
+                   "G722A",
+                   "G756A",
+                   "G780A",
+                   "G844A",
+                   "G867A",
+                   "T927C",
+                   "G1002A",
+                   "C1019A",
+                   "G1024A",
+                   "A1150G",
+                   "T1332G",
+                   "T1384C",
+                   "A1407G",
+                   "C1416T"
                   ],
                   "H": [
                    "I170V",
@@ -10894,10 +10887,10 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "C181T",
-                 "C356T",
-                 "G586A",
-                 "G1608C"
+                 "C161T",
+                 "C336T",
+                 "G566A",
+                 "G1588C"
                 ],
                 "H": [
                  "A54V",
@@ -10918,24 +10911,24 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "T200C",
-               "A206G",
-               "A245C",
-               "A626G",
-               "G699A",
-               "G746A",
-               "C830T",
-               "G845A",
-               "T951C",
-               "A955G",
-               "C1037T",
-               "A1052G",
-               "C1325T",
-               "T1328C",
-               "C1358T",
-               "A1391G",
-               "C1507T",
-               "G1559A"
+               "T180C",
+               "A186G",
+               "A225C",
+               "A606G",
+               "G679A",
+               "G726A",
+               "C810T",
+               "G825A",
+               "T931C",
+               "A935G",
+               "C1017T",
+               "A1032G",
+               "C1305T",
+               "T1308C",
+               "C1338T",
+               "A1371G",
+               "C1487T",
+               "G1539A"
               ],
               "H": [
                "K75N",
@@ -11083,7 +11076,7 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "T1176A"
+                     "T1156A"
                     ],
                     "H": [
                      "S386T"
@@ -11126,8 +11119,8 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "A653G",
-                   "A1279T"
+                   "A633G",
+                   "A1259T"
                   ],
                   "H": [
                    "H420L"
@@ -11142,7 +11135,7 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "G1608A"
+                 "G1588A"
                 ],
                 "H": [
                  "G530S"
@@ -11229,7 +11222,7 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "C1068T"
+                     "C1048T"
                     ],
                     "H": [
                      "R350C"
@@ -11267,9 +11260,9 @@
                   "branch_attrs": {
                    "mutations": {
                     "nuc": [
-                     "A812T",
-                     "G918A",
-                     "G1226A"
+                     "A792T",
+                     "G898A",
+                     "G1206A"
                     ],
                     "H": [
                      "G300S"
@@ -11368,13 +11361,13 @@
                 "branch_attrs": {
                  "mutations": {
                   "nuc": [
-                   "G603A",
-                   "C749T",
-                   "C1325T",
-                   "T1337C",
-                   "A1442C",
-                   "G1452T",
-                   "T1547A"
+                   "G583A",
+                   "C729T",
+                   "C1305T",
+                   "T1317C",
+                   "A1422C",
+                   "G1432T",
+                   "T1527A"
                   ],
                   "H": [
                    "V195I",
@@ -11393,8 +11386,8 @@
               "branch_attrs": {
                "mutations": {
                 "nuc": [
-                 "T398C",
-                 "T1576G"
+                 "T378C",
+                 "T1556G"
                 ],
                 "H": [
                  "I519R"
@@ -11409,23 +11402,23 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "A209G",
-               "G257A",
-               "A327G",
-               "A698G",
-               "A757C",
-               "A758G",
-               "C816A",
-               "A857G",
-               "A918G",
-               "A1009G",
-               "A1040G",
-               "A1069G",
-               "G1280C",
-               "G1307A",
-               "C1430A",
-               "C1511T",
-               "T1645C"
+               "A189G",
+               "G237A",
+               "A307G",
+               "A678G",
+               "A737C",
+               "A738G",
+               "C796A",
+               "A837G",
+               "A898G",
+               "A989G",
+               "A1020G",
+               "A1049G",
+               "G1260C",
+               "G1287A",
+               "C1410A",
+               "C1491T",
+               "T1625C"
               ],
               "H": [
                "I103V",
@@ -11458,8 +11451,8 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "G1576T",
-             "C1733T"
+             "G1556T",
+             "C1713T"
             ],
             "H": [
              "R519I"
@@ -11474,13 +11467,13 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "A662T",
-           "A849G",
-           "A1062G",
-           "T1067C",
-           "A1280G",
-           "G1767A",
-           "T1769A"
+           "A642T",
+           "A829G",
+           "A1042G",
+           "T1047C",
+           "A1260G",
+           "G1747A",
+           "T1749A"
           ],
           "H": [
            "N277D",
@@ -11574,7 +11567,7 @@
             "branch_attrs": {
              "mutations": {
               "nuc": [
-               "T188C"
+               "T168C"
               ]
              }
             }
@@ -11611,9 +11604,9 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "C803T",
-             "G1406A",
-             "G1576T"
+             "C783T",
+             "G1386A",
+             "G1556T"
             ],
             "H": [
              "R519I"
@@ -11656,11 +11649,11 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "A611T",
-           "A958G",
-           "C1373T",
-           "C1605A",
-           "T1745C"
+           "A591T",
+           "A938G",
+           "C1353T",
+           "C1585A",
+           "T1725C"
           ],
           "H": [
            "R197S",
@@ -11677,11 +11670,11 @@
       "branch_attrs": {
        "mutations": {
         "nuc": [
-         "C395T",
-         "G665A",
-         "G804A",
-         "C1354T",
-         "T1691C"
+         "C375T",
+         "G645A",
+         "G784A",
+         "C1334T",
+         "T1671C"
         ],
         "H": [
          "D262N",
@@ -11773,22 +11766,22 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "C413T",
-             "C595T",
-             "A662C",
-             "C683T",
-             "T686G",
-             "G782A",
-             "A834C",
-             "T950C",
-             "G1044A",
-             "T1124C",
-             "A1259G",
-             "T1270C",
-             "A1344G",
-             "G1426A",
-             "T1548A",
-             "C1610G"
+             "C393T",
+             "C575T",
+             "A642C",
+             "C663T",
+             "T666G",
+             "G762A",
+             "A814C",
+             "T930C",
+             "G1024A",
+             "T1104C",
+             "A1239G",
+             "T1250C",
+             "A1324G",
+             "G1406A",
+             "T1528A",
+             "C1590G"
             ],
             "H": [
              "T192I",
@@ -11838,10 +11831,10 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "A664G",
-             "A694G",
-             "C844T",
-             "A1169G"
+             "A644G",
+             "A674G",
+             "C824T",
+             "A1149G"
             ],
             "H": [
              "E215G",
@@ -11860,13 +11853,13 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "T524A",
-           "G746T",
-           "C830T",
-           "T928C",
-           "A1130G",
-           "G1160A",
-           "A1427G"
+           "T504A",
+           "G726T",
+           "C810T",
+           "T908C",
+           "A1110G",
+           "G1140A",
+           "A1407G"
           ],
           "H": [
            "N168K",
@@ -11936,11 +11929,11 @@
           "branch_attrs": {
            "mutations": {
             "nuc": [
-             "G332A",
-             "C854T",
-             "C1123T",
-             "T1509C",
-             "A1599G"
+             "G312A",
+             "C834T",
+             "C1103T",
+             "T1489C",
+             "A1579G"
             ],
             "H": [
              "S368F",
@@ -11990,21 +11983,21 @@
         "branch_attrs": {
          "mutations": {
           "nuc": [
-           "A327G",
-           "A454G",
-           "A653G",
-           "T728A",
-           "T732G",
-           "A767G",
-           "G848A",
-           "A946G",
-           "T1034C",
-           "C1181T",
-           "A1196G",
-           "T1295C",
-           "C1510T",
-           "T1548C",
-           "C1583T"
+           "A307G",
+           "A434G",
+           "A633G",
+           "T708A",
+           "T712G",
+           "A747G",
+           "G828A",
+           "A926G",
+           "T1014C",
+           "C1161T",
+           "A1176G",
+           "T1275C",
+           "C1490T",
+           "T1528C",
+           "C1563T"
           ],
           "H": [
            "I103V",
@@ -12029,23 +12022,23 @@
       "branch_attrs": {
        "mutations": {
         "nuc": [
-         "C123T",
-         "G137A",
-         "G159A",
-         "T215C",
-         "A227G",
-         "A263T",
-         "C269A",
-         "A564G",
-         "A802C",
-         "C884A",
-         "G971A",
-         "A1129G",
-         "T1310C",
-         "T1319C",
-         "A1650T",
-         "T1655C",
-         "T1682C"
+         "C103T",
+         "G117A",
+         "G139A",
+         "T195C",
+         "A207G",
+         "A243T",
+         "C249A",
+         "A544G",
+         "A782C",
+         "C864A",
+         "G951A",
+         "A1109G",
+         "T1290C",
+         "T1299C",
+         "A1630T",
+         "T1635C",
+         "T1662C"
         ],
         "cytoplasmic": [
          "P35S"
@@ -12076,18 +12069,12 @@
     "branch_attrs": {
      "mutations": {
       "nuc": [
-       "A41G",
-       "C83T",
-       "A85G",
-       "A353G",
-       "A735C",
-       "A1082C",
-       "A1872G",
-       "A1878G",
-       "A1886G",
-       "A1889G",
-       "C1902T",
-       "A1929T"
+       "A21G",
+       "C63T",
+       "A65G",
+       "A333G",
+       "A715C",
+       "A1062C"
       ],
       "cytoplasmic": [
        "K22R"
