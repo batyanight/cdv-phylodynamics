@@ -15,3 +15,6 @@ __pycache__/
 .ipynb_checkpoints/
 beast/**/*.trees
 !beast/**/*.log
+
+# timestamped backups written by 10/11_*.py
+*.bak.json
