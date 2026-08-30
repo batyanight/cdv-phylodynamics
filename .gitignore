@@ -18,3 +18,5 @@ beast/**/*.trees
 
 # timestamped backups written by 10/11_*.py
 *.bak.json
+
+*.prescrub
