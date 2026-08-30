@@ -197,7 +197,7 @@ def main() -> int:
                     help="Annotation key in the MCC tree (BEAST_CLASSIC writes 'location')")
     ap.add_argument("--trait-name", default="host",
                     help="What to call it in Auspice")
-    ap.add_argument("--title", default="CDV clade 3 — America-2 lineage in North American carnivores")
+    ap.add_argument("--title", default="America-2 canine distemper virus in North American carnivores")
     ap.add_argument("--maintainer", default="")
     ap.add_argument("--output", required=True, type=Path)
     args = ap.parse_args()
