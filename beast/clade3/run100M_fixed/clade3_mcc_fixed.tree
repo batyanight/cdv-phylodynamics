@@ -22,7 +22,7 @@ Begin taxa;
 			MH810099|domestic_dog|2017.970
 			MK473365|wild_canid|2017.500
 			MK473366|wild_canid|2017.500
-			MK487378|wild_felid|2016.500
+			MK487378|ailurid|2016.500
 			MK487379|procyonid|2016.500
 			MN824467|procyonid|2018.500
 			MT932504|wild_felid|1992.667
@@ -188,7 +188,7 @@ Begin trees;
 		    17 MH810099|domestic_dog|2017.970,
 		    18 MK473365|wild_canid|2017.500,
 		    19 MK473366|wild_canid|2017.500,
-		    20 MK487378|wild_felid|2016.500,
+		    20 MK487378|ailurid|2016.500,
 		    21 MK487379|procyonid|2016.500,
 		    22 MN824467|procyonid|2018.500,
 		    23 MT932504|wild_felid|1992.667,
