@@ -1,7 +1,7 @@
 {
  "version": "v2",
  "meta": {
-  "title": "CDV clade 3",
+  "title": "CDV clade 3 \u2014 America-2 lineage in North American carnivores",
   "updated": "2026-08-30",
   "build_url": "https://github.com/batyanight/cdv-phylodynamics",
   "panels": [
@@ -45,7 +45,7 @@
    "branch_label": "none",
    "distance_measure": "num_date"
   },
-  "description": "Phylodynamics of an America-2 canine distemper virus lineage in North American carnivores. Branches coloured by reconstructed host state; deep nodes are poorly resolved and should not be over-interpreted.",
+  "description": "Phylodynamics of an America-2 canine distemper virus lineage in North American carnivores. Branches coloured by reconstructed host state; deep nodes are poorly resolved and should not be over-interpreted. Amino acid positions follow the H CDS of A75/17 (AF164967).",
   "genome_annotations": {
    "nuc": {
     "start": 1,
