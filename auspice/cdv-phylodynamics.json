@@ -1,11 +1,12 @@
 {
  "version": "v2",
  "meta": {
-  "title": "CDV America-2 lineage in North American carnivores",
-  "updated": "2026-08-29",
+  "title": "CDV clade 3",
+  "updated": "2026-08-30",
   "build_url": "https://github.com/batyanight/cdv-phylodynamics",
   "panels": [
-   "tree"
+   "tree",
+   "entropy"
   ],
   "colorings": [
    {
@@ -45,11 +46,94 @@
    "distance_measure": "num_date"
   },
   "description": "Phylodynamics of an America-2 canine distemper virus lineage in North American carnivores. Branches coloured by reconstructed host state; deep nodes are poorly resolved and should not be over-interpreted.",
-  "maintainers": [
-   {
-    "name": "Batya Nightingale"
+  "genome_annotations": {
+   "nuc": {
+    "start": 1,
+    "end": 1946,
+    "strand": "+",
+    "type": "source"
+   },
+   "H": {
+    "start": 21,
+    "end": 1841,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#5097BA",
+    "display_name": "H",
+    "description": "Hemagglutinin (attachment) glycoprotein, full CDS"
+   },
+   "cytoplasmic": {
+    "start": 21,
+    "end": 125,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#4C90C0",
+    "display_name": "cytoplasmic",
+    "description": "H protein cytoplasmic tail"
+   },
+   "transmembrane": {
+    "start": 126,
+    "end": 194,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#8EBC66",
+    "display_name": "transmembrane",
+    "description": "H protein transmembrane anchor"
+   },
+   "stalk": {
+    "start": 195,
+    "end": 482,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#E4B143",
+    "display_name": "stalk",
+    "description": "H protein stalk"
+   },
+   "connector": {
+    "start": 483,
+    "end": 581,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#DE8A5A",
+    "display_name": "connector",
+    "description": "H protein connecting region"
+   },
+   "head": {
+    "start": 582,
+    "end": 1841,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#DB2823",
+    "display_name": "head",
+    "description": "H protein receptor-binding head (beta-propeller)"
+   },
+   "SLAM_526_529": {
+    "start": 1596,
+    "end": 1607,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#7F4CA5",
+    "display_name": "SLAM_526_529",
+    "description": "SLAM/CD150 contact residues 526-529"
+   },
+   "SLAM_547_548": {
+    "start": 1659,
+    "end": 1664,
+    "strand": "+",
+    "type": "CDS",
+    "gene": "H",
+    "color": "#B14C8F",
+    "display_name": "SLAM_547_548",
+    "description": "SLAM/CD150 contact residues 547-548"
    }
-  ]
+  }
  },
  "tree": {
   "name": "NODE_0000001",
@@ -204,6 +288,24 @@
              "accession": {
               "value": "EU716337"
              }
+            },
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "A745G",
+               "A878G",
+               "A945G",
+               "C1121A"
+              ],
+              "H": [
+               "E242G",
+               "N309D"
+              ],
+              "head": [
+               "E55G",
+               "N122D"
+              ]
+             }
             }
            },
            {
@@ -229,9 +331,94 @@
              "accession": {
               "value": "KJ123771"
              }
+            },
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "T737G",
+               "G848T",
+               "A913G",
+               "C920T",
+               "G924A",
+               "A953G",
+               "G980A",
+               "C1037T",
+               "A1065G",
+               "T1067A",
+               "A1147G",
+               "T1176C",
+               "C1177T",
+               "C1178T"
+              ],
+              "H": [
+               "I239M",
+               "E276D",
+               "D298G",
+               "V302I",
+               "N349E",
+               "N376S",
+               "S386L"
+              ],
+              "head": [
+               "I52M",
+               "E89D",
+               "D111G",
+               "V115I",
+               "N162E",
+               "N189S",
+               "S199L"
+              ]
+             }
             }
            }
-          ]
+          ],
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "T94C",
+             "G217A",
+             "A260G",
+             "G493A",
+             "C514T",
+             "A551T",
+             "A581T",
+             "C620T",
+             "G655A",
+             "A698G",
+             "T1379C",
+             "G1433A",
+             "A1650G",
+             "C1665T",
+             "C1829T"
+            ],
+            "cytoplasmic": [
+             "L25S"
+            ],
+            "H": [
+             "L25S",
+             "S66N",
+             "G158E",
+             "S165L",
+             "R187S",
+             "R212K",
+             "T544A",
+             "H549Y"
+            ],
+            "stalk": [
+             "S8N"
+            ],
+            "connector": [
+             "G4E",
+             "S11L",
+             "R33S"
+            ],
+            "head": [
+             "R25K",
+             "T357A",
+             "H362Y"
+            ]
+           }
+          }
          },
          {
           "name": "NODE_0000006",
@@ -281,6 +468,93 @@
              },
              "accession": {
               "value": "MN824467"
+             }
+            },
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "T93C",
+               "G113A",
+               "A191T",
+               "T194C",
+               "A256T",
+               "G296A",
+               "G407A",
+               "T535C",
+               "C543T",
+               "A572G",
+               "T644C",
+               "A653G",
+               "A664G",
+               "T736C",
+               "A751G",
+               "A760G",
+               "C826G",
+               "T950C",
+               "G1004A",
+               "C1037T",
+               "A1051G",
+               "A1094C",
+               "G1127T",
+               "T1166C",
+               "A1217G",
+               "A1223G",
+               "A1232T",
+               "C1254T",
+               "C1268T",
+               "A1343G",
+               "G1428T",
+               "A1442G",
+               "C1445T",
+               "G1483A",
+               "T1493C",
+               "T1719C",
+               "C1757T",
+               "A1787C",
+               "T1795C",
+               "T1796C",
+               "A1838G"
+              ],
+              "H": [
+               "E79V",
+               "L172S",
+               "L175F",
+               "E215G",
+               "I239T",
+               "D244G",
+               "K247R",
+               "T269S",
+               "M328I",
+               "K344R",
+               "E369D",
+               "P412S",
+               "D470Y",
+               "G488E",
+               "F567L",
+               "V592A"
+              ],
+              "stalk": [
+               "E21V"
+              ],
+              "connector": [
+               "L18S",
+               "L21F"
+              ],
+              "head": [
+               "E28G",
+               "I52T",
+               "D57G",
+               "K60R",
+               "T82S",
+               "M141I",
+               "K157R",
+               "E182D",
+               "P225S",
+               "D283Y",
+               "G301E",
+               "F380L",
+               "V405A"
+              ]
              }
             }
            },
@@ -571,6 +845,22 @@
                                    "accession": {
                                     "value": "OK666872"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {
+                                    "nuc": [
+                                     "C1000A",
+                                     "A1308G"
+                                    ],
+                                    "H": [
+                                     "P327H",
+                                     "I430V"
+                                    ],
+                                    "head": [
+                                     "P140H",
+                                     "I243V"
+                                    ]
+                                   }
                                   }
                                  },
                                  {
@@ -716,6 +1006,19 @@
                                              "accession": {
                                               "value": "OK666879"
                                              }
+                                            },
+                                            "branch_attrs": {
+                                             "mutations": {
+                                              "nuc": [
+                                               "C1360T"
+                                              ],
+                                              "H": [
+                                               "S447F"
+                                              ],
+                                              "head": [
+                                               "S260F"
+                                              ]
+                                             }
                                             }
                                            },
                                            {
@@ -741,9 +1044,19 @@
                                              "accession": {
                                               "value": "OK666889"
                                              }
+                                            },
+                                            "branch_attrs": {
+                                             "mutations": {
+                                              "nuc": [
+                                               "T1184C"
+                                              ]
+                                             }
                                             }
                                            }
-                                          ]
+                                          ],
+                                          "branch_attrs": {
+                                           "mutations": {}
+                                          }
                                          },
                                          {
                                           "name": "NODE_0000023",
@@ -817,6 +1130,9 @@
                                                "accession": {
                                                 "value": "OK666884"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {}
                                               }
                                              },
                                              {
@@ -842,9 +1158,20 @@
                                                "accession": {
                                                 "value": "OK666886"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {
+                                                "nuc": [
+                                                 "T314C",
+                                                 "G1118A"
+                                                ]
+                                               }
                                               }
                                              }
-                                            ]
+                                            ],
+                                            "branch_attrs": {
+                                             "mutations": {}
+                                            }
                                            },
                                            {
                                             "name": "NODE_0000025",
@@ -893,6 +1220,9 @@
                                                "accession": {
                                                 "value": "OK666931"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {}
                                               }
                                              },
                                              {
@@ -918,13 +1248,33 @@
                                                "accession": {
                                                 "value": "OK667040"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {}
                                               }
                                              }
+                                            ],
+                                            "branch_attrs": {
+                                             "mutations": {
+                                              "nuc": [
+                                               "T633C"
+                                              ]
+                                             }
+                                            }
+                                           }
+                                          ],
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "C1640T"
                                             ]
                                            }
-                                          ]
+                                          }
                                          }
-                                        ]
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {}
+                                        }
                                        },
                                        {
                                         "name": "NODE_0000026",
@@ -972,6 +1322,9 @@
                                            "accession": {
                                             "value": "OK666927"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {}
                                           }
                                          },
                                          {
@@ -997,11 +1350,24 @@
                                            "accession": {
                                             "value": "OK667026"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "A551G"
+                                            ]
+                                           }
                                           }
                                          }
-                                        ]
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {}
+                                        }
                                        }
-                                      ]
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {}
+                                      }
                                      },
                                      {
                                       "name": "NODE_0000027",
@@ -1073,6 +1439,9 @@
                                            "accession": {
                                             "value": "OK666905"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {}
                                           }
                                          },
                                          {
@@ -1144,6 +1513,19 @@
                                                "accession": {
                                                 "value": "OK666906"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {
+                                                "nuc": [
+                                                 "G499C"
+                                                ],
+                                                "H": [
+                                                 "R160T"
+                                                ],
+                                                "connector": [
+                                                 "R6T"
+                                                ]
+                                               }
                                               }
                                              },
                                              {
@@ -1169,9 +1551,15 @@
                                                "accession": {
                                                 "value": "OK667039"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {}
                                               }
                                              }
-                                            ]
+                                            ],
+                                            "branch_attrs": {
+                                             "mutations": {}
+                                            }
                                            },
                                            {
                                             "name": "OK666934|wild_canid|2017.500",
@@ -1196,11 +1584,39 @@
                                              "accession": {
                                               "value": "OK666934"
                                              }
+                                            },
+                                            "branch_attrs": {
+                                             "mutations": {
+                                              "nuc": [
+                                               "A1458T"
+                                              ],
+                                              "H": [
+                                               "T480S"
+                                              ],
+                                              "head": [
+                                               "T293S"
+                                              ]
+                                             }
                                             }
                                            }
+                                          ],
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "T731C"
+                                            ]
+                                           }
+                                          }
+                                         }
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {
+                                          "nuc": [
+                                           "C422A",
+                                           "A572G"
                                           ]
                                          }
-                                        ]
+                                        }
                                        },
                                        {
                                         "name": "NODE_0000031",
@@ -1296,6 +1712,9 @@
                                                "accession": {
                                                 "value": "OK666930"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {}
                                               }
                                              },
                                              {
@@ -1321,9 +1740,15 @@
                                                "accession": {
                                                 "value": "OK667038"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {}
                                               }
                                              }
-                                            ]
+                                            ],
+                                            "branch_attrs": {
+                                             "mutations": {}
+                                            }
                                            },
                                            {
                                             "name": "NODE_0000034",
@@ -1395,6 +1820,13 @@
                                                  "accession": {
                                                   "value": "OK667030"
                                                  }
+                                                },
+                                                "branch_attrs": {
+                                                 "mutations": {
+                                                  "nuc": [
+                                                   "C1430T"
+                                                  ]
+                                                 }
                                                 }
                                                },
                                                {
@@ -1420,9 +1852,15 @@
                                                  "accession": {
                                                   "value": "OK667034"
                                                  }
+                                                },
+                                                "branch_attrs": {
+                                                 "mutations": {}
                                                 }
                                                }
-                                              ]
+                                              ],
+                                              "branch_attrs": {
+                                               "mutations": {}
+                                              }
                                              },
                                              {
                                               "name": "OK667032|procyonid|2016.500",
@@ -1447,11 +1885,41 @@
                                                "accession": {
                                                 "value": "OK667032"
                                                }
+                                              },
+                                              "branch_attrs": {
+                                               "mutations": {
+                                                "nuc": [
+                                                 "A745G",
+                                                 "A1115C"
+                                                ],
+                                                "H": [
+                                                 "E242G"
+                                                ],
+                                                "head": [
+                                                 "E55G"
+                                                ]
+                                               }
                                               }
                                              }
-                                            ]
+                                            ],
+                                            "branch_attrs": {
+                                             "mutations": {
+                                              "nuc": [
+                                               "A1432T"
+                                              ],
+                                              "H": [
+                                               "Q471L"
+                                              ],
+                                              "head": [
+                                               "Q284L"
+                                              ]
+                                             }
+                                            }
                                            }
-                                          ]
+                                          ],
+                                          "branch_attrs": {
+                                           "mutations": {}
+                                          }
                                          },
                                          {
                                           "name": "NODE_0000036",
@@ -1500,6 +1968,9 @@
                                              "accession": {
                                               "value": "OK666932"
                                              }
+                                            },
+                                            "branch_attrs": {
+                                             "mutations": {}
                                             }
                                            },
                                            {
@@ -1525,15 +1996,44 @@
                                              "accession": {
                                               "value": "OK667044"
                                              }
+                                            },
+                                            "branch_attrs": {
+                                             "mutations": {}
                                             }
                                            }
-                                          ]
+                                          ],
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "A1144T"
+                                            ],
+                                            "H": [
+                                             "K375I"
+                                            ],
+                                            "head": [
+                                             "K188I"
+                                            ]
+                                           }
+                                          }
                                          }
-                                        ]
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {}
+                                        }
                                        }
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {}
+                                      }
+                                     }
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "A1118G"
                                       ]
                                      }
-                                    ]
+                                    }
                                    },
                                    {
                                     "name": "NODE_0000037",
@@ -1632,6 +2132,9 @@
                                            "accession": {
                                             "value": "OK666908"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {}
                                           }
                                          },
                                          {
@@ -1657,9 +2160,36 @@
                                            "accession": {
                                             "value": "OK666909"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "G612A",
+                                             "A1010G"
+                                            ],
+                                            "H": [
+                                             "V198I"
+                                            ],
+                                            "head": [
+                                             "V11I"
+                                            ]
+                                           }
                                           }
                                          }
-                                        ]
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {
+                                          "nuc": [
+                                           "C1350A"
+                                          ],
+                                          "H": [
+                                           "L444I"
+                                          ],
+                                          "head": [
+                                           "L257I"
+                                          ]
+                                         }
+                                        }
                                        },
                                        {
                                         "name": "NODE_0000040",
@@ -1708,6 +2238,9 @@
                                            "accession": {
                                             "value": "OK666936"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {}
                                           }
                                          },
                                          {
@@ -1733,11 +2266,40 @@
                                            "accession": {
                                             "value": "OK667043"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "T732G"
+                                            ],
+                                            "H": [
+                                             "Y238D"
+                                            ],
+                                            "head": [
+                                             "Y51D"
+                                            ]
+                                           }
                                           }
                                          }
-                                        ]
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {
+                                          "nuc": [
+                                           "T1078A"
+                                          ],
+                                          "H": [
+                                           "F353Y"
+                                          ],
+                                          "head": [
+                                           "F166Y"
+                                          ]
+                                         }
+                                        }
                                        }
-                                      ]
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {}
+                                      }
                                      },
                                      {
                                       "name": "NODE_0000041",
@@ -1833,6 +2395,9 @@
                                              "accession": {
                                               "value": "OK666911"
                                              }
+                                            },
+                                            "branch_attrs": {
+                                             "mutations": {}
                                             }
                                            },
                                            {
@@ -1858,9 +2423,29 @@
                                              "accession": {
                                               "value": "OK666933"
                                              }
+                                            },
+                                            "branch_attrs": {
+                                             "mutations": {
+                                              "nuc": [
+                                               "T633C"
+                                              ]
+                                             }
                                             }
                                            }
-                                          ]
+                                          ],
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "A936C"
+                                            ],
+                                            "H": [
+                                             "N306H"
+                                            ],
+                                            "head": [
+                                             "N119H"
+                                            ]
+                                           }
+                                          }
                                          },
                                          {
                                           "name": "OK666937|wild_canid|2017.500",
@@ -1885,9 +2470,35 @@
                                            "accession": {
                                             "value": "OK666937"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "A1577T"
+                                            ]
+                                           }
                                           }
                                          }
-                                        ]
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {
+                                          "nuc": [
+                                           "T1226G",
+                                           "A1296G",
+                                           "A1308G"
+                                          ],
+                                          "H": [
+                                           "H402Q",
+                                           "T426A",
+                                           "I430V"
+                                          ],
+                                          "head": [
+                                           "H215Q",
+                                           "T239A",
+                                           "I243V"
+                                          ]
+                                         }
+                                        }
                                        },
                                        {
                                         "name": "OK666912|wild_canid|2017.500",
@@ -1912,15 +2523,41 @@
                                          "accession": {
                                           "value": "OK666912"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {}
                                         }
                                        }
-                                      ]
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {
+                                        "nuc": [
+                                         "A1147T",
+                                         "A1550G"
+                                        ],
+                                        "H": [
+                                         "N376I"
+                                        ],
+                                        "head": [
+                                         "N189I"
+                                        ]
+                                       }
+                                      }
                                      }
-                                    ]
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {}
+                                    }
                                    }
-                                  ]
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
                                  }
-                                ]
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {}
+                                }
                                },
                                {
                                 "name": "OK666983|procyonid|2014.500",
@@ -1945,9 +2582,15 @@
                                  "accession": {
                                   "value": "OK666983"
                                  }
+                                },
+                                "branch_attrs": {
+                                 "mutations": {}
                                 }
                                }
-                              ]
+                              ],
+                              "branch_attrs": {
+                               "mutations": {}
+                              }
                              },
                              {
                               "name": "NODE_0000044",
@@ -2041,6 +2684,20 @@
                                      "accession": {
                                       "value": "OK666920"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "T731C",
+                                       "C1358A"
+                                      ],
+                                      "H": [
+                                       "D446E"
+                                      ],
+                                      "head": [
+                                       "D259E"
+                                      ]
+                                     }
                                     }
                                    },
                                    {
@@ -2066,9 +2723,20 @@
                                      "accession": {
                                       "value": "OK666974"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "A623G",
+                                       "A1139G"
+                                      ]
+                                     }
                                     }
                                    }
-                                  ]
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
                                  },
                                  {
                                   "name": "NODE_0000047",
@@ -2116,6 +2784,20 @@
                                      "accession": {
                                       "value": "OK666926"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "G755T",
+                                       "A1474G"
+                                      ],
+                                      "H": [
+                                       "E485G"
+                                      ],
+                                      "head": [
+                                       "E298G"
+                                      ]
+                                     }
                                     }
                                    },
                                    {
@@ -2141,11 +2823,35 @@
                                      "accession": {
                                       "value": "OK666994"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "A523G",
+                                       "G1568T"
+                                      ],
+                                      "H": [
+                                       "N168S",
+                                       "Q516H"
+                                      ],
+                                      "connector": [
+                                       "N14S"
+                                      ],
+                                      "head": [
+                                       "Q329H"
+                                      ]
+                                     }
                                     }
                                    }
-                                  ]
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
                                  }
-                                ]
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {}
+                                }
                                },
                                {
                                 "name": "NODE_0000048",
@@ -2217,6 +2923,13 @@
                                      "accession": {
                                       "value": "OK666928"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "C374T"
+                                      ]
+                                     }
                                     }
                                    },
                                    {
@@ -2242,9 +2955,26 @@
                                      "accession": {
                                       "value": "OK667009"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {}
                                     }
                                    }
-                                  ]
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {
+                                    "nuc": [
+                                     "A347G",
+                                     "C1350T"
+                                    ],
+                                    "H": [
+                                     "L444F"
+                                    ],
+                                    "head": [
+                                     "L257F"
+                                    ]
+                                   }
+                                  }
                                  },
                                  {
                                   "name": "OK666997|procyonid|2014.500",
@@ -2269,13 +2999,45 @@
                                    "accession": {
                                     "value": "OK666997"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {}
                                   }
                                  }
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {}
+                                }
+                               }
+                              ],
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "A1518G"
+                                ],
+                                "H": [
+                                 "M500V"
+                                ],
+                                "head": [
+                                 "M313V"
                                 ]
                                }
+                              }
+                             }
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "C936A"
+                              ],
+                              "H": [
+                               "H306N"
+                              ],
+                              "head": [
+                               "H119N"
                               ]
                              }
-                            ]
+                            }
                            },
                            {
                             "name": "NODE_0000050",
@@ -2325,6 +3087,19 @@
                                "accession": {
                                 "value": "OK666924"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "A1384G"
+                                ],
+                                "H": [
+                                 "K455R"
+                                ],
+                                "head": [
+                                 "K268R"
+                                ]
+                               }
                               }
                              },
                              {
@@ -2350,11 +3125,28 @@
                                "accession": {
                                 "value": "OK667023"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {}
                               }
                              }
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "T764C"
+                              ]
+                             }
+                            }
+                           }
+                          ],
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "C584T"
                             ]
                            }
-                          ]
+                          }
                          },
                          {
                           "name": "OK666914|wild_canid|2017.500",
@@ -2379,9 +3171,44 @@
                            "accession": {
                             "value": "OK666914"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "T329A",
+                             "A1144T",
+                             "A1147T"
+                            ],
+                            "H": [
+                             "K375I",
+                             "N376I"
+                            ],
+                            "head": [
+                             "K188I",
+                             "N189I"
+                            ]
+                           }
                           }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {
+                          "nuc": [
+                           "A446G",
+                           "C720T",
+                           "G1226T",
+                           "G1308A"
+                          ],
+                          "H": [
+                           "Q402H",
+                           "V430I"
+                          ],
+                          "head": [
+                           "Q215H",
+                           "V243I"
+                          ]
+                         }
+                        }
                        },
                        {
                         "name": "NODE_0000051",
@@ -2432,6 +3259,25 @@
                            "accession": {
                             "value": "OK666939"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "A523G",
+                             "G915A",
+                             "G1556A"
+                            ],
+                            "H": [
+                             "N168S",
+                             "E299K"
+                            ],
+                            "connector": [
+                             "N14S"
+                            ],
+                            "head": [
+                             "E112K"
+                            ]
+                           }
                           }
                          },
                          {
@@ -2457,11 +3303,33 @@
                            "accession": {
                             "value": "OK666984"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {}
                           }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {
+                          "nuc": [
+                           "C620T",
+                           "A913G",
+                           "C923A",
+                           "C1532T"
+                          ],
+                          "H": [
+                           "E298G"
+                          ],
+                          "head": [
+                           "E111G"
+                          ]
+                         }
+                        }
                        }
-                      ]
+                      ],
+                      "branch_attrs": {
+                       "mutations": {}
+                      }
                      },
                      {
                       "name": "NODE_0000052",
@@ -2532,6 +3400,16 @@
                            "accession": {
                             "value": "OK666921"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "A344T",
+                             "C356T",
+                             "A692G",
+                             "A1010G"
+                            ]
+                           }
                           }
                          },
                          {
@@ -2557,9 +3435,26 @@
                            "accession": {
                             "value": "OK666954"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "G914A",
+                             "G1222A"
+                            ],
+                            "H": [
+                             "R401K"
+                            ],
+                            "head": [
+                             "R214K"
+                            ]
+                           }
                           }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {}
+                        }
                        },
                        {
                         "name": "NODE_0000054",
@@ -2791,6 +3686,19 @@
                                            "accession": {
                                             "value": "OK666925"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "A986G"
+                                            ],
+                                            "H": [
+                                             "I322M"
+                                            ],
+                                            "head": [
+                                             "I135M"
+                                            ]
+                                           }
                                           }
                                          },
                                          {
@@ -2816,9 +3724,26 @@
                                            "accession": {
                                             "value": "OK666935"
                                            }
+                                          },
+                                          "branch_attrs": {
+                                           "mutations": {
+                                            "nuc": [
+                                             "T473C",
+                                             "A1144T"
+                                            ],
+                                            "H": [
+                                             "K375I"
+                                            ],
+                                            "head": [
+                                             "K188I"
+                                            ]
+                                           }
                                           }
                                          }
-                                        ]
+                                        ],
+                                        "branch_attrs": {
+                                         "mutations": {}
+                                        }
                                        },
                                        {
                                         "name": "OK667007|procyonid|2015.500",
@@ -2843,9 +3768,15 @@
                                          "accession": {
                                           "value": "OK667007"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {}
                                         }
                                        }
-                                      ]
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {}
+                                      }
                                      },
                                      {
                                       "name": "OK666999|procyonid|2014.500",
@@ -2870,9 +3801,19 @@
                                        "accession": {
                                         "value": "OK666999"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {
+                                        "nuc": [
+                                         "G1355A"
+                                        ]
+                                       }
                                       }
                                      }
-                                    ]
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {}
+                                    }
                                    },
                                    {
                                     "name": "NODE_0000063",
@@ -2920,6 +3861,19 @@
                                        "accession": {
                                         "value": "OK666978"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {
+                                        "nuc": [
+                                         "A955G"
+                                        ],
+                                        "H": [
+                                         "Q312R"
+                                        ],
+                                        "head": [
+                                         "Q125R"
+                                        ]
+                                       }
                                       }
                                      },
                                      {
@@ -2945,11 +3899,45 @@
                                        "accession": {
                                         "value": "OK666979"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {
+                                        "nuc": [
+                                         "T329C",
+                                         "T1112G"
+                                        ]
+                                       }
                                       }
                                      }
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "C1350T"
+                                      ],
+                                      "H": [
+                                       "L444F"
+                                      ],
+                                      "head": [
+                                       "L257F"
+                                      ]
+                                     }
+                                    }
+                                   }
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {
+                                    "nuc": [
+                                     "C1000A"
+                                    ],
+                                    "H": [
+                                     "P327H"
+                                    ],
+                                    "head": [
+                                     "P140H"
                                     ]
                                    }
-                                  ]
+                                  }
                                  },
                                  {
                                   "name": "NODE_0000064",
@@ -2996,6 +3984,9 @@
                                      "accession": {
                                       "value": "OK666950"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {}
                                     }
                                    },
                                    {
@@ -3021,11 +4012,34 @@
                                      "accession": {
                                       "value": "OK666977"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "A365G"
+                                      ]
+                                     }
                                     }
                                    }
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
+                                 }
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {
+                                  "nuc": [
+                                   "G846A"
+                                  ],
+                                  "H": [
+                                   "E276K"
+                                  ],
+                                  "head": [
+                                   "E89K"
                                   ]
                                  }
-                                ]
+                                }
                                },
                                {
                                 "name": "NODE_0000065",
@@ -3073,6 +4087,9 @@
                                    "accession": {
                                     "value": "OK666948"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {}
                                   }
                                  },
                                  {
@@ -3098,11 +4115,31 @@
                                    "accession": {
                                     "value": "OK666998"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {
+                                    "nuc": [
+                                     "T852C",
+                                     "C1100T"
+                                    ],
+                                    "H": [
+                                     "S278P"
+                                    ],
+                                    "head": [
+                                     "S91P"
+                                    ]
+                                   }
                                   }
                                  }
-                                ]
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {}
+                                }
                                }
-                              ]
+                              ],
+                              "branch_attrs": {
+                               "mutations": {}
+                              }
                              },
                              {
                               "name": "OK666946|procyonid|2013.500",
@@ -3127,9 +4164,35 @@
                                "accession": {
                                 "value": "OK666946"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "G1222A"
+                                ],
+                                "H": [
+                                 "R401K"
+                                ],
+                                "head": [
+                                 "R214K"
+                                ]
+                               }
                               }
                              }
-                            ]
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "C816T"
+                              ],
+                              "H": [
+                               "L266F"
+                              ],
+                              "head": [
+                               "L79F"
+                              ]
+                             }
+                            }
                            },
                            {
                             "name": "OK666949|procyonid|2013.500",
@@ -3154,9 +4217,20 @@
                              "accession": {
                               "value": "OK666949"
                              }
+                            },
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "A512C",
+                               "A551G"
+                              ]
+                             }
                             }
                            }
-                          ]
+                          ],
+                          "branch_attrs": {
+                           "mutations": {}
+                          }
                          },
                          {
                           "name": "NODE_0000066",
@@ -3227,6 +4301,19 @@
                                "accession": {
                                 "value": "OK666975"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "A703T"
+                                ],
+                                "H": [
+                                 "Y228F"
+                                ],
+                                "head": [
+                                 "Y41F"
+                                ]
+                               }
                               }
                              },
                              {
@@ -3252,9 +4339,29 @@
                                "accession": {
                                 "value": "OK666980"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "A1092G"
+                                ],
+                                "H": [
+                                 "I358V"
+                                ],
+                                "head": [
+                                 "I171V"
+                                ]
+                               }
                               }
                              }
-                            ]
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "C1511T"
+                              ]
+                             }
+                            }
                            },
                            {
                             "name": "OK666976|procyonid|2014.500",
@@ -3279,15 +4386,50 @@
                              "accession": {
                               "value": "OK666976"
                              }
+                            },
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "G510A"
+                              ],
+                              "H": [
+                               "A164T"
+                              ],
+                              "connector": [
+                               "A10T"
+                              ]
+                             }
                             }
                            }
-                          ]
+                          ],
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "A1524G"
+                            ],
+                            "H": [
+                             "K502E"
+                            ],
+                            "head": [
+                             "K315E"
+                            ]
+                           }
+                          }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {}
+                        }
                        }
-                      ]
+                      ],
+                      "branch_attrs": {
+                       "mutations": {}
+                      }
                      }
-                    ]
+                    ],
+                    "branch_attrs": {
+                     "mutations": {}
+                    }
                    },
                    {
                     "name": "NODE_0000068",
@@ -3548,6 +4690,9 @@
                                          "accession": {
                                           "value": "OK666876"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {}
                                         }
                                        },
                                        {
@@ -3573,9 +4718,19 @@
                                          "accession": {
                                           "value": "OK666910"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {
+                                          "nuc": [
+                                           "A932G"
+                                          ]
+                                         }
                                         }
                                        }
-                                      ]
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {}
+                                      }
                                      },
                                      {
                                       "name": "NODE_0000078",
@@ -3622,6 +4777,9 @@
                                          "accession": {
                                           "value": "OK666877"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {}
                                         }
                                        },
                                        {
@@ -3647,11 +4805,20 @@
                                          "accession": {
                                           "value": "OK666880"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {}
                                         }
                                        }
-                                      ]
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {}
+                                      }
                                      }
-                                    ]
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {}
+                                    }
                                    },
                                    {
                                     "name": "OK666885|mustelid|2016.500",
@@ -3676,9 +4843,19 @@
                                      "accession": {
                                       "value": "OK666885"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "A1343G"
+                                      ]
+                                     }
                                     }
                                    }
-                                  ]
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
                                  },
                                  {
                                   "name": "OK667022|procyonid|2015.500",
@@ -3703,9 +4880,25 @@
                                    "accession": {
                                     "value": "OK667022"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {}
                                   }
                                  }
-                                ]
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {
+                                  "nuc": [
+                                   "A733T"
+                                  ],
+                                  "H": [
+                                   "Y238F"
+                                  ],
+                                  "head": [
+                                   "Y51F"
+                                  ]
+                                 }
+                                }
                                },
                                {
                                 "name": "NODE_0000079",
@@ -3798,6 +4991,13 @@
                                        "accession": {
                                         "value": "OK666890"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {
+                                        "nuc": [
+                                         "A539G"
+                                        ]
+                                       }
                                       }
                                      },
                                      {
@@ -3847,6 +5047,9 @@
                                          "accession": {
                                           "value": "OK667020"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {}
                                         }
                                        },
                                        {
@@ -3872,11 +5075,34 @@
                                          "accession": {
                                           "value": "OK667037"
                                          }
+                                        },
+                                        "branch_attrs": {
+                                         "mutations": {}
                                         }
                                        }
+                                      ],
+                                      "branch_attrs": {
+                                       "mutations": {
+                                        "nuc": [
+                                         "A1146T"
+                                        ],
+                                        "H": [
+                                         "I376F"
+                                        ],
+                                        "head": [
+                                         "I189F"
+                                        ]
+                                       }
+                                      }
+                                     }
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "C392T"
                                       ]
                                      }
-                                    ]
+                                    }
                                    },
                                    {
                                     "name": "NODE_0000083",
@@ -3924,6 +5150,9 @@
                                        "accession": {
                                         "value": "OK667019"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {}
                                       }
                                      },
                                      {
@@ -3949,11 +5178,25 @@
                                        "accession": {
                                         "value": "OK667025"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {
+                                        "nuc": [
+                                         "T548C",
+                                         "G977A"
+                                        ]
+                                       }
                                       }
                                      }
-                                    ]
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {}
+                                    }
                                    }
-                                  ]
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
                                  },
                                  {
                                   "name": "NODE_0000084",
@@ -4001,6 +5244,9 @@
                                      "accession": {
                                       "value": "OK666904"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {}
                                     }
                                    },
                                    {
@@ -4049,6 +5295,9 @@
                                        "accession": {
                                         "value": "OK667024"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {}
                                       }
                                      },
                                      {
@@ -4074,15 +5323,30 @@
                                        "accession": {
                                         "value": "OK667029"
                                        }
+                                      },
+                                      "branch_attrs": {
+                                       "mutations": {}
                                       }
                                      }
-                                    ]
+                                    ],
+                                    "branch_attrs": {
+                                     "mutations": {}
+                                    }
                                    }
-                                  ]
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
                                  }
-                                ]
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {}
+                                }
                                }
-                              ]
+                              ],
+                              "branch_attrs": {
+                               "mutations": {}
+                              }
                              },
                              {
                               "name": "OK667000|procyonid|2014.500",
@@ -4107,9 +5371,55 @@
                                "accession": {
                                 "value": "OK667000"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "G493A",
+                                 "C1162A",
+                                 "A1232T",
+                                 "C1275T",
+                                 "G1420T",
+                                 "C1498T",
+                                 "A1592C",
+                                 "T1593G",
+                                 "A1594C"
+                                ],
+                                "H": [
+                                 "G158E",
+                                 "A381D",
+                                 "L419F",
+                                 "S467I",
+                                 "P493L",
+                                 "Y525A"
+                                ],
+                                "connector": [
+                                 "G4E"
+                                ],
+                                "head": [
+                                 "A194D",
+                                 "L232F",
+                                 "S280I",
+                                 "P306L",
+                                 "Y338A"
+                                ]
+                               }
                               }
                              }
-                            ]
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "A1147T"
+                              ],
+                              "H": [
+                               "N376I"
+                              ],
+                              "head": [
+                               "N189I"
+                              ]
+                             }
+                            }
                            },
                            {
                             "name": "NODE_0000086",
@@ -4157,6 +5467,9 @@
                                "accession": {
                                 "value": "OK666985"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {}
                               }
                              },
                              {
@@ -4182,11 +5495,34 @@
                                "accession": {
                                 "value": "OK666986"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "T838C"
+                                ],
+                                "H": [
+                                 "V273A"
+                                ],
+                                "head": [
+                                 "V86A"
+                                ]
+                               }
                               }
                              }
-                            ]
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "C1469T"
+                              ]
+                             }
+                            }
                            }
-                          ]
+                          ],
+                          "branch_attrs": {
+                           "mutations": {}
+                          }
                          },
                          {
                           "name": "OK666907|wild_canid|2017.500",
@@ -4211,9 +5547,31 @@
                            "accession": {
                             "value": "OK666907"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "T509C",
+                             "C573G",
+                             "C574G"
+                            ],
+                            "H": [
+                             "P185G"
+                            ],
+                            "connector": [
+                             "P31G"
+                            ]
+                           }
                           }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {
+                          "nuc": [
+                           "A1550G"
+                          ]
+                         }
+                        }
                        },
                        {
                         "name": "NODE_0000087",
@@ -4260,6 +5618,19 @@
                            },
                            "accession": {
                             "value": "OK666973"
+                           }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "G929T"
+                            ],
+                            "H": [
+                             "L303F"
+                            ],
+                            "head": [
+                             "L116F"
+                            ]
                            }
                           }
                          },
@@ -4309,6 +5680,9 @@
                              "accession": {
                               "value": "OK667013"
                              }
+                            },
+                            "branch_attrs": {
+                             "mutations": {}
                             }
                            },
                            {
@@ -4356,6 +5730,9 @@
                                "accession": {
                                 "value": "OK667018"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {}
                               }
                              },
                              {
@@ -4381,15 +5758,38 @@
                                "accession": {
                                 "value": "OK667021"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {}
                               }
                              }
+                            ],
+                            "branch_attrs": {
+                             "mutations": {}
+                            }
+                           }
+                          ],
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "C1397T"
                             ]
                            }
-                          ]
+                          }
                          }
+                        ],
+                        "branch_attrs": {
+                         "mutations": {}
+                        }
+                       }
+                      ],
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "C548T"
                         ]
                        }
-                      ]
+                      }
                      },
                      {
                       "name": "NODE_0000090",
@@ -4508,6 +5908,20 @@
                                "accession": {
                                 "value": "OK666878"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "G744A",
+                                 "T1625G"
+                                ],
+                                "H": [
+                                 "E242K"
+                                ],
+                                "head": [
+                                 "E55K"
+                                ]
+                               }
                               }
                              },
                              {
@@ -4533,9 +5947,36 @@
                                "accession": {
                                 "value": "OK667033"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "C1346A"
+                                ],
+                                "H": [
+                                 "S442R"
+                                ],
+                                "head": [
+                                 "S255R"
+                                ]
+                               }
                               }
                              }
-                            ]
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "G515A",
+                               "G610A"
+                              ],
+                              "H": [
+                               "R197K"
+                              ],
+                              "head": [
+                               "R10K"
+                              ]
+                             }
+                            }
                            },
                            {
                             "name": "OK666970|procyonid|2014.500",
@@ -4560,9 +6001,15 @@
                              "accession": {
                               "value": "OK666970"
                              }
+                            },
+                            "branch_attrs": {
+                             "mutations": {}
                             }
                            }
-                          ]
+                          ],
+                          "branch_attrs": {
+                           "mutations": {}
+                          }
                          },
                          {
                           "name": "OK666959|procyonid|2014.500",
@@ -4587,9 +6034,19 @@
                            "accession": {
                             "value": "OK666959"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "T1214C"
+                            ]
+                           }
                           }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {}
+                        }
                        },
                        {
                         "name": "NODE_0000094",
@@ -4658,6 +6115,19 @@
                              "accession": {
                               "value": "OK666952"
                              }
+                            },
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "G949A"
+                              ],
+                              "H": [
+                               "G310D"
+                              ],
+                              "head": [
+                               "G123D"
+                              ]
+                             }
                             }
                            },
                            {
@@ -4683,9 +6153,19 @@
                              "accession": {
                               "value": "OK666955"
                              }
+                            },
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "T903C"
+                              ]
+                             }
                             }
                            }
-                          ]
+                          ],
+                          "branch_attrs": {
+                           "mutations": {}
+                          }
                          },
                          {
                           "name": "NODE_0000096",
@@ -4755,6 +6235,14 @@
                                "accession": {
                                 "value": "OK666958"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "G326A",
+                                 "G401A"
+                                ]
+                               }
                               }
                              },
                              {
@@ -4803,6 +6291,13 @@
                                  "accession": {
                                   "value": "OK666963"
                                  }
+                                },
+                                "branch_attrs": {
+                                 "mutations": {
+                                  "nuc": [
+                                   "T1007C"
+                                  ]
+                                 }
                                 }
                                },
                                {
@@ -4828,11 +6323,30 @@
                                  "accession": {
                                   "value": "OK666971"
                                  }
+                                },
+                                "branch_attrs": {
+                                 "mutations": {}
                                 }
                                }
-                              ]
+                              ],
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "G846A"
+                                ],
+                                "H": [
+                                 "E276K"
+                                ],
+                                "head": [
+                                 "E89K"
+                                ]
+                               }
+                              }
                              }
-                            ]
+                            ],
+                            "branch_attrs": {
+                             "mutations": {}
+                            }
                            },
                            {
                             "name": "NODE_0000099",
@@ -4880,6 +6394,9 @@
                                "accession": {
                                 "value": "OK667003"
                                }
+                              },
+                              "branch_attrs": {
+                               "mutations": {}
                               }
                              },
                              {
@@ -4949,6 +6466,9 @@
                                    "accession": {
                                     "value": "OK667004"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {}
                                   }
                                  },
                                  {
@@ -4974,9 +6494,19 @@
                                    "accession": {
                                     "value": "OK667005"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {
+                                    "nuc": [
+                                     "G776A"
+                                    ]
+                                   }
                                   }
                                  }
-                                ]
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {}
+                                }
                                },
                                {
                                 "name": "NODE_0000102",
@@ -5023,6 +6553,9 @@
                                    "accession": {
                                     "value": "OK667012"
                                    }
+                                  },
+                                  "branch_attrs": {
+                                   "mutations": {}
                                   }
                                  },
                                  {
@@ -5071,6 +6604,9 @@
                                      "accession": {
                                       "value": "OK667015"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {}
                                     }
                                    },
                                    {
@@ -5096,25 +6632,96 @@
                                      "accession": {
                                       "value": "OK667028"
                                      }
+                                    },
+                                    "branch_attrs": {
+                                     "mutations": {
+                                      "nuc": [
+                                       "A1550G"
+                                      ]
+                                     }
                                     }
                                    }
+                                  ],
+                                  "branch_attrs": {
+                                   "mutations": {}
+                                  }
+                                 }
+                                ],
+                                "branch_attrs": {
+                                 "mutations": {
+                                  "nuc": [
+                                   "G664A"
+                                  ],
+                                  "H": [
+                                   "G215E"
+                                  ],
+                                  "head": [
+                                   "G28E"
                                   ]
                                  }
+                                }
+                               }
+                              ],
+                              "branch_attrs": {
+                               "mutations": {
+                                "nuc": [
+                                 "A1484G"
                                 ]
                                }
+                              }
+                             }
+                            ],
+                            "branch_attrs": {
+                             "mutations": {
+                              "nuc": [
+                               "A664G",
+                               "G977A",
+                               "C1640T"
+                              ],
+                              "H": [
+                               "E215G"
+                              ],
+                              "head": [
+                               "E28G"
                               ]
                              }
-                            ]
+                            }
                            }
-                          ]
+                          ],
+                          "branch_attrs": {
+                           "mutations": {}
+                          }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {}
+                        }
                        }
+                      ],
+                      "branch_attrs": {
+                       "mutations": {}
+                      }
+                     }
+                    ],
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "T329A",
+                       "A1296G"
+                      ],
+                      "H": [
+                       "T426A"
+                      ],
+                      "head": [
+                       "T239A"
                       ]
                      }
-                    ]
+                    }
                    }
-                  ]
+                  ],
+                  "branch_attrs": {
+                   "mutations": {}
+                  }
                  },
                  {
                   "name": "OK666940|procyonid|2010.500",
@@ -5139,9 +6746,39 @@
                    "accession": {
                     "value": "OK666940"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "A623T",
+                     "T1444C"
+                    ],
+                    "H": [
+                     "I475T"
+                    ],
+                    "head": [
+                     "I288T"
+                    ]
+                   }
                   }
                  }
-                ]
+                ],
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "C1230G",
+                   "A1266G"
+                  ],
+                  "H": [
+                   "P404A",
+                   "S416G"
+                  ],
+                  "head": [
+                   "P217A",
+                   "S229G"
+                  ]
+                 }
+                }
                },
                {
                 "name": "NODE_0000104",
@@ -5192,6 +6829,20 @@
                    "accession": {
                     "value": "OK666945"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "G914A",
+                     "A1129C"
+                    ],
+                    "H": [
+                     "K370T"
+                    ],
+                    "head": [
+                     "K183T"
+                    ]
+                   }
                   }
                  },
                  {
@@ -5241,6 +6892,13 @@
                      "accession": {
                       "value": "OK666951"
                      }
+                    },
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "C356T"
+                      ]
+                     }
                     }
                    },
                    {
@@ -5266,13 +6924,76 @@
                      "accession": {
                       "value": "OK666960"
                      }
+                    },
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "C621T",
+                       "C1235A"
+                      ]
+                     }
                     }
                    }
-                  ]
+                  ],
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "A502G"
+                    ],
+                    "H": [
+                     "K161R"
+                    ],
+                    "connector": [
+                     "K7R"
+                    ]
+                   }
+                  }
                  }
+                ],
+                "branch_attrs": {
+                 "mutations": {}
+                }
+               }
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "A694G",
+                 "C695T",
+                 "G821A",
+                 "G845T",
+                 "A911G",
+                 "T914G",
+                 "A940G",
+                 "A1022C",
+                 "A1220G",
+                 "G1221A",
+                 "C1286T",
+                 "T1516C",
+                 "A1559G",
+                 "T1578A",
+                 "G1608A"
+                ],
+                "H": [
+                 "D225G",
+                 "D298E",
+                 "D307G",
+                 "G401R",
+                 "I499T",
+                 "Y520N",
+                 "G530S"
+                ],
+                "head": [
+                 "D38G",
+                 "D111E",
+                 "D120G",
+                 "G214R",
+                 "I312T",
+                 "Y333N",
+                 "G343S"
                 ]
                }
-              ]
+              }
              },
              {
               "name": "PX789675|wild_canid|2019.304",
@@ -5297,13 +7018,154 @@
                "accession": {
                 "value": "PX789675"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "C389T",
+                 "G549A",
+                 "C620T",
+                 "A680C",
+                 "C785T",
+                 "T851A",
+                 "G974T",
+                 "A983T",
+                 "G1029C",
+                 "C1177A",
+                 "A1292G",
+                 "T1304C",
+                 "C1346T",
+                 "G1355A",
+                 "A1486G",
+                 "T1529A",
+                 "A1536T",
+                 "T1625A"
+                ],
+                "H": [
+                 "G177R",
+                 "V337L",
+                 "T386N",
+                 "N489S",
+                 "D503E",
+                 "T506S"
+                ],
+                "connector": [
+                 "G23R"
+                ],
+                "head": [
+                 "V150L",
+                 "T199N",
+                 "N302S",
+                 "D316E",
+                 "T319S"
+                ]
+               }
               }
              }
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "C32T",
+               "T62C",
+               "T74C",
+               "T90C",
+               "A110C",
+               "T182C",
+               "G254A",
+               "C336A",
+               "C527G",
+               "C531A",
+               "G552A",
+               "T667C",
+               "G699T",
+               "G1022A",
+               "G1118A",
+               "G1199A",
+               "T1235C",
+               "A1253C",
+               "T1299A",
+               "C1325T",
+               "G1576T",
+               "G1607A",
+               "G1652A",
+               "A1751G",
+               "A1817G",
+               "T1826C"
+              ],
+              "cytoplasmic": [
+               "S24P",
+               "Q30H"
+              ],
+              "H": [
+               "S24P",
+               "Q30H",
+               "M78I",
+               "L171I",
+               "G178S",
+               "I216T",
+               "V227L",
+               "L411F",
+               "Y427N",
+               "R519I"
+              ],
+              "stalk": [
+               "M20I"
+              ],
+              "connector": [
+               "L17I",
+               "G24S"
+              ],
+              "head": [
+               "I29T",
+               "V40L",
+               "L224F",
+               "Y240N",
+               "R332I"
+              ]
+             }
+            }
+           }
+          ],
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "A206G",
+             "G311A",
+             "G327A",
+             "T725G",
+             "A850C",
+             "T1031C",
+             "T1073A",
+             "T1176A",
+             "G1292A",
+             "T1352C",
+             "G1559A"
+            ],
+            "H": [
+             "V103I",
+             "N277T",
+             "S386T"
+            ],
+            "stalk": [
+             "V45I"
+            ],
+            "head": [
+             "N90T",
+             "S199T"
             ]
            }
+          }
+         }
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "A41G",
+           "C416T"
           ]
          }
-        ]
+        }
        },
        {
         "name": "NODE_0000106",
@@ -5402,6 +7264,13 @@
                "accession": {
                 "value": "KF430371"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "A911G"
+                ]
+               }
               }
              },
              {
@@ -5427,9 +7296,15 @@
                "accession": {
                 "value": "KF430373"
                }
+              },
+              "branch_attrs": {
+               "mutations": {}
               }
              }
-            ]
+            ],
+            "branch_attrs": {
+             "mutations": {}
+            }
            },
            {
             "name": "KF430372|mustelid|2007.500",
@@ -5454,9 +7329,57 @@
              "accession": {
               "value": "KF430372"
              }
+            },
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "T732C",
+               "G1731T"
+              ],
+              "H": [
+               "Y238H",
+               "D571Y"
+              ],
+              "head": [
+               "Y51H",
+               "D384Y"
+              ]
+             }
             }
            }
-          ]
+          ],
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "G45A",
+             "C356T",
+             "G586T",
+             "G635A",
+             "G663A",
+             "C860T",
+             "C1350T",
+             "C1469T",
+             "G1609A",
+             "A1670G"
+            ],
+            "cytoplasmic": [
+             "G9S"
+            ],
+            "H": [
+             "G9S",
+             "S189I",
+             "E215K",
+             "L444F",
+             "G530D"
+            ],
+            "head": [
+             "S2I",
+             "E28K",
+             "L257F",
+             "G343D"
+            ]
+           }
+          }
          },
          {
           "name": "KF430374|mustelid|2004.500",
@@ -5481,11 +7404,124 @@
            "accession": {
             "value": "KF430374"
            }
+          },
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "A521G",
+             "T533G",
+             "G1355A",
+             "A1525G",
+             "A1699G",
+             "A1735G",
+             "G1770A"
+            ],
+            "H": [
+             "K502R",
+             "D560G",
+             "D572G",
+             "D584N"
+            ],
+            "head": [
+             "K315R",
+             "D373G",
+             "D385G",
+             "D397N"
+            ]
+           }
           }
          }
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "G254A",
+           "A299C",
+           "G302T",
+           "A320G",
+           "G410A",
+           "G549A",
+           "A653T",
+           "T747G",
+           "T808C",
+           "C920T",
+           "G924A",
+           "G980A",
+           "A1147G",
+           "T1163C",
+           "C1178T",
+           "G1323A",
+           "A1357G",
+           "G1385A",
+           "G1420A",
+           "C1430T",
+           "C1511T",
+           "G1576T",
+           "C1704T",
+           "A1773G",
+           "A1828G"
+          ],
+          "H": [
+           "M78I",
+           "G177R",
+           "F243V",
+           "M263T",
+           "V302I",
+           "N376S",
+           "D435N",
+           "D446G",
+           "S467N",
+           "R519I",
+           "S585G",
+           "N603S"
+          ],
+          "stalk": [
+           "M20I"
+          ],
+          "connector": [
+           "G23R"
+          ],
+          "head": [
+           "F56V",
+           "M76T",
+           "V115I",
+           "N189S",
+           "D248N",
+           "D259G",
+           "S280N",
+           "R332I",
+           "S398G",
+           "N416S"
+          ]
+         }
+        }
+       }
+      ],
+      "branch_attrs": {
+       "mutations": {
+        "nuc": [
+         "C107G",
+         "A311G",
+         "A327G",
+         "T527C",
+         "C1354T"
+        ],
+        "cytoplasmic": [
+         "D29E"
+        ],
+        "H": [
+         "D29E",
+         "I103V",
+         "S445L"
+        ],
+        "stalk": [
+         "I45V"
+        ],
+        "head": [
+         "S258L"
         ]
        }
-      ]
+      }
      },
      {
       "name": "NODE_0000109",
@@ -5614,6 +7650,47 @@
                "accession": {
                 "value": "KU666057"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "T725C",
+                 "G755T",
+                 "C843T",
+                 "G848T",
+                 "C884T",
+                 "A986G",
+                 "G1055A",
+                 "T1108C",
+                 "A1142C",
+                 "G1229A",
+                 "T1462C",
+                 "A1653G",
+                 "A1731G"
+                ],
+                "H": [
+                 "P275S",
+                 "E276D",
+                 "I322M",
+                 "M345I",
+                 "V363A",
+                 "Q374H",
+                 "F481S",
+                 "I545V",
+                 "N571D"
+                ],
+                "head": [
+                 "P88S",
+                 "E89D",
+                 "I135M",
+                 "M158I",
+                 "V176A",
+                 "Q187H",
+                 "F294S",
+                 "I358V",
+                 "N384D"
+                ]
+               }
               }
              },
              {
@@ -5691,6 +7768,26 @@
                    "accession": {
                     "value": "MH644852"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "G612T",
+                     "C999T",
+                     "A1442G",
+                     "T1491C"
+                    ],
+                    "H": [
+                     "V198F",
+                     "P327S",
+                     "Y491H"
+                    ],
+                    "head": [
+                     "V11F",
+                     "P140S",
+                     "Y304H"
+                    ]
+                   }
                   }
                  },
                  {
@@ -5716,9 +7813,53 @@
                    "accession": {
                     "value": "MH644854"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "C1124T",
+                     "G1127C",
+                     "A1130C",
+                     "A1458G",
+                     "C1663T",
+                     "A1731G",
+                     "A1732G"
+                    ],
+                    "H": [
+                     "E369D",
+                     "K370N",
+                     "T480A",
+                     "T548M",
+                     "N571G"
+                    ],
+                    "head": [
+                     "E182D",
+                     "K183N",
+                     "T293A",
+                     "T361M",
+                     "N384G"
+                    ],
+                    "SLAM_547_548": [
+                     "T2M"
+                    ]
+                   }
                   }
                  }
-                ]
+                ],
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "T1227C",
+                   "T1474A"
+                  ],
+                  "H": [
+                   "V485E"
+                  ],
+                  "head": [
+                   "V298E"
+                  ]
+                 }
+                }
                },
                {
                 "name": "NODE_0000115",
@@ -5767,6 +7908,9 @@
                    "accession": {
                     "value": "MH644853"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {}
                   }
                  },
                  {
@@ -5792,13 +7936,56 @@
                    "accession": {
                     "value": "MH644855"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "G1724A"
+                    ]
+                   }
                   }
                  }
+                ],
+                "branch_attrs": {
+                 "mutations": {}
+                }
+               }
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "C389T",
+                 "A995T",
+                 "T1077C",
+                 "T1251C",
+                 "G1307A",
+                 "A1364G",
+                 "G1652A",
+                 "A1760C",
+                 "C1778T",
+                 "A1791G"
+                ],
+                "H": [
+                 "F353L",
+                 "S591G"
+                ],
+                "head": [
+                 "F166L",
+                 "S404G"
                 ]
                }
+              }
+             }
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "T1163A",
+               "G1349T",
+               "C1677T"
               ]
              }
-            ]
+            }
            },
            {
             "name": "NODE_0000116",
@@ -5849,6 +8036,23 @@
                "accession": {
                 "value": "MH644849"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "G612T",
+                 "C620T",
+                 "A847G"
+                ],
+                "H": [
+                 "V198F",
+                 "E276G"
+                ],
+                "head": [
+                 "V11F",
+                 "E89G"
+                ]
+               }
               }
              },
              {
@@ -5874,11 +8078,62 @@
                "accession": {
                 "value": "MH644851"
                }
+              },
+              "branch_attrs": {
+               "mutations": {}
               }
              }
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "A680G",
+               "C839T",
+               "G848A",
+               "G1076A",
+               "G1226A",
+               "C1350T",
+               "G1425A",
+               "G1648A",
+               "A1674C",
+               "A1779T",
+               "A1785G",
+               "G1843A"
+              ],
+              "H": [
+               "L444F",
+               "G469R",
+               "R543Q",
+               "N587Y",
+               "T589A"
+              ],
+              "head": [
+               "L257F",
+               "G282R",
+               "R356Q",
+               "N400Y",
+               "T402A"
+              ]
+             }
+            }
+           }
+          ],
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "C1665T",
+             "G1731A"
+            ],
+            "H": [
+             "H549Y",
+             "D571N"
+            ],
+            "head": [
+             "H362Y",
+             "D384N"
             ]
            }
-          ]
+          }
          },
          {
           "name": "MH644850|mustelid|2016.361",
@@ -5903,9 +8158,86 @@
            "accession": {
             "value": "MH644850"
            }
+          },
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "G809A",
+             "A824G",
+             "A913G",
+             "T1003C",
+             "G1004A",
+             "T1034C",
+             "C1159T",
+             "C1177T",
+             "T1304C",
+             "A1424G",
+             "T1494C",
+             "T1523C",
+             "A1536G",
+             "T1645C",
+             "C1651A",
+             "T1682C",
+             "T1702C",
+             "T1737C",
+             "C1778T",
+             "C1808T"
+            ],
+            "H": [
+             "M263I",
+             "D298G",
+             "M328T",
+             "S380L",
+             "S386F",
+             "T506A",
+             "I542T",
+             "A544E",
+             "F561S"
+            ],
+            "head": [
+             "M76I",
+             "D111G",
+             "M141T",
+             "S193L",
+             "S199F",
+             "T319A",
+             "I355T",
+             "A357E",
+             "F374S"
+            ]
+           }
           }
          }
-        ]
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "C395T",
+           "A446T",
+           "C621T",
+           "T736C",
+           "T1404G",
+           "A1474T",
+           "A1496G",
+           "G1632A",
+           "A1639C"
+          ],
+          "H": [
+           "I239T",
+           "L462V",
+           "E485V",
+           "V538I",
+           "D540A"
+          ],
+          "head": [
+           "I52T",
+           "L275V",
+           "E298V",
+           "V351I",
+           "D353A"
+          ]
+         }
+        }
        },
        {
         "name": "NODE_0000117",
@@ -6032,6 +8364,23 @@
                  "accession": {
                   "value": "OK666992"
                  }
+                },
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "C569T",
+                   "C584T",
+                   "A760C",
+                   "G887A",
+                   "C1469T"
+                  ],
+                  "H": [
+                   "K247T"
+                  ],
+                  "head": [
+                   "K60T"
+                  ]
+                 }
                 }
                },
                {
@@ -6081,6 +8430,9 @@
                    "accession": {
                     "value": "OK667002"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {}
                   }
                  },
                  {
@@ -6129,6 +8481,13 @@
                      "accession": {
                       "value": "OK667031"
                      }
+                    },
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "T1535C"
+                      ]
+                     }
                     }
                    },
                    {
@@ -6176,6 +8535,20 @@
                        "accession": {
                         "value": "OK667035"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "G980A",
+                         "G1014A"
+                        ],
+                        "H": [
+                         "E332K"
+                        ],
+                        "head": [
+                         "E145K"
+                        ]
+                       }
                       }
                      },
                      {
@@ -6201,15 +8574,59 @@
                        "accession": {
                         "value": "OK667036"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {}
                       }
                      }
+                    ],
+                    "branch_attrs": {
+                     "mutations": {}
+                    }
+                   }
+                  ],
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "A572G",
+                     "C683T"
                     ]
                    }
+                  }
+                 }
+                ],
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "C1000A",
+                   "G1044A",
+                   "G1649A"
+                  ],
+                  "H": [
+                   "P327H",
+                   "V342I"
+                  ],
+                  "head": [
+                   "P140H",
+                   "V155I"
                   ]
                  }
+                }
+               }
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "A612T"
+                ],
+                "H": [
+                 "I198F"
+                ],
+                "head": [
+                 "I11F"
                 ]
                }
-              ]
+              }
              },
              {
               "name": "OK667042|procyonid|2017.500",
@@ -6234,9 +8651,51 @@
                "accession": {
                 "value": "OK667042"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "G540A",
+                 "C770T",
+                 "T928C"
+                ],
+                "H": [
+                 "A174T",
+                 "L303S"
+                ],
+                "connector": [
+                 "A20T"
+                ],
+                "head": [
+                 "L116S"
+                ]
+               }
               }
              }
-            ]
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "G612A",
+               "C727T",
+               "G993A",
+               "G1345A",
+               "C1397T"
+              ],
+              "H": [
+               "V198I",
+               "P236L",
+               "A325T",
+               "S442N"
+              ],
+              "head": [
+               "V11I",
+               "P49L",
+               "A138T",
+               "S255N"
+              ]
+             }
+            }
            },
            {
             "name": "NODE_0000124",
@@ -6285,6 +8744,19 @@
                "accession": {
                 "value": "OK667010"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "A1296G"
+                ],
+                "H": [
+                 "T426A"
+                ],
+                "head": [
+                 "T239A"
+                ]
+               }
               }
              },
              {
@@ -6310,11 +8782,66 @@
                "accession": {
                 "value": "OK667041"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "T398C",
+                 "T950G",
+                 "T1328C",
+                 "A1432G"
+                ],
+                "H": [
+                 "Q471R"
+                ],
+                "head": [
+                 "Q284R"
+                ]
+               }
               }
              }
-            ]
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "C351T",
+               "A512C",
+               "G515A",
+               "G553A",
+               "T613C",
+               "C619T",
+               "C695T",
+               "C843T",
+               "A1053T",
+               "T1122A",
+               "A1484G",
+               "T1625C"
+              ],
+              "H": [
+               "G178D",
+               "V198A",
+               "P200L",
+               "P275S",
+               "M345L",
+               "S368T"
+              ],
+              "connector": [
+               "G24D"
+              ],
+              "head": [
+               "V11A",
+               "P13L",
+               "P88S",
+               "M158L",
+               "S181T"
+              ]
+             }
+            }
            }
-          ]
+          ],
+          "branch_attrs": {
+           "mutations": {}
+          }
          },
          {
           "name": "OK667016|procyonid|2015.500",
@@ -6339,13 +8866,132 @@
            "accession": {
             "value": "OK667016"
            }
+          },
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "C479T",
+             "A710G",
+             "G800A",
+             "A850G",
+             "A861G",
+             "T930C",
+             "A1085G",
+             "C1286T"
+            ],
+            "H": [
+             "N277S",
+             "K281E"
+            ],
+            "head": [
+             "N90S",
+             "K94E"
+            ]
+           }
           }
          }
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "T1031C",
+           "T1271G",
+           "T1277C",
+           "G1406A",
+           "A1407G",
+           "A1409G"
+          ],
+          "H": [
+           "I417M",
+           "I463V"
+          ],
+          "head": [
+           "I230M",
+           "I276V"
+          ]
+         }
+        }
+       }
+      ],
+      "branch_attrs": {
+       "mutations": {
+        "nuc": [
+         "G59A",
+         "A99G",
+         "T138G",
+         "T146C",
+         "C147A",
+         "G171A",
+         "G332A",
+         "T533A",
+         "T633C",
+         "C816T",
+         "G896C",
+         "G929A",
+         "G960A",
+         "A1055G",
+         "A1092G",
+         "T1124C",
+         "G1154A",
+         "A1349G",
+         "A1384T",
+         "G1420C",
+         "T1562C",
+         "A1650G",
+         "A1817G"
+        ],
+        "cytoplasmic": [
+         "T27A"
+        ],
+        "H": [
+         "T27A",
+         "F40V",
+         "L43I",
+         "A51T",
+         "L266F",
+         "G314S",
+         "I345M",
+         "I358V",
+         "K455M",
+         "S467T",
+         "T544A"
+        ],
+        "transmembrane": [
+         "F5V",
+         "L8I",
+         "A16T"
+        ],
+        "head": [
+         "L79F",
+         "G127S",
+         "I158M",
+         "I171V",
+         "K268M",
+         "S280T",
+         "T357A"
         ]
        }
+      }
+     }
+    ],
+    "branch_attrs": {
+     "mutations": {
+      "nuc": [
+       "C179T",
+       "A302G",
+       "C614T",
+       "C803T",
+       "A1292G",
+       "A1852G",
+       "C1860T",
+       "A1880G",
+       "C1890T",
+       "A1891G",
+       "C1927T",
+       "C1931T"
       ]
      }
-    ]
+    }
    },
    {
     "name": "NODE_0000125",
@@ -6526,6 +9172,27 @@
                  "accession": {
                   "value": "JF283477"
                  }
+                },
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "A498C",
+                   "T593C",
+                   "C617T",
+                   "A733T",
+                   "T1227C",
+                   "C1361T",
+                   "G1480A"
+                  ],
+                  "H": [
+                   "Y238F",
+                   "S487N"
+                  ],
+                  "head": [
+                   "Y51F",
+                   "S300N"
+                  ]
+                 }
                 }
                },
                {
@@ -6577,6 +9244,9 @@
                    "accession": {
                     "value": "MT932506"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {}
                   }
                  },
                  {
@@ -6651,6 +9321,19 @@
                        "accession": {
                         "value": "MT932507"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "T646C"
+                        ],
+                        "H": [
+                         "L209S"
+                        ],
+                        "head": [
+                         "L22S"
+                        ]
+                       }
                       }
                      },
                      {
@@ -6676,9 +9359,15 @@
                        "accession": {
                         "value": "MT943490"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {}
                       }
                      }
-                    ]
+                    ],
+                    "branch_attrs": {
+                     "mutations": {}
+                    }
                    },
                    {
                     "name": "NODE_0000134",
@@ -6749,6 +9438,19 @@
                          "accession": {
                           "value": "MT932508"
                          }
+                        },
+                        "branch_attrs": {
+                         "mutations": {
+                          "nuc": [
+                           "G1609C"
+                          ],
+                          "H": [
+                           "G530A"
+                          ],
+                          "head": [
+                           "G343A"
+                          ]
+                         }
                         }
                        },
                        {
@@ -6774,9 +9476,15 @@
                          "accession": {
                           "value": "MT932510"
                          }
+                        },
+                        "branch_attrs": {
+                         "mutations": {}
                         }
                        }
-                      ]
+                      ],
+                      "branch_attrs": {
+                       "mutations": {}
+                      }
                      },
                      {
                       "name": "MT932509|procyonid|2013.230",
@@ -6801,15 +9509,87 @@
                        "accession": {
                         "value": "MT932509"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "A1217G"
+                        ]
+                       }
                       }
                      }
+                    ],
+                    "branch_attrs": {
+                     "mutations": {}
+                    }
+                   }
+                  ],
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "G515A"
                     ]
                    }
+                  }
+                 }
+                ],
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "C26T",
+                   "T215C",
+                   "A245G",
+                   "C356T",
+                   "G493A",
+                   "A523C",
+                   "G558A",
+                   "A669G",
+                   "G845T",
+                   "A878G",
+                   "A911G",
+                   "A983G",
+                   "A1147T",
+                   "A1259C",
+                   "G1260A"
+                  ],
+                  "H": [
+                   "G158E",
+                   "N168T",
+                   "G180S",
+                   "I217V",
+                   "N376I",
+                   "D414N"
+                  ],
+                  "connector": [
+                   "G4E",
+                   "N14T",
+                   "G26S"
+                  ],
+                  "head": [
+                   "I30V",
+                   "N189I",
+                   "D227N"
                   ]
                  }
+                }
+               }
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "C269T",
+                 "G1174A",
+                 "G1709A",
+                 "C1808T"
+                ],
+                "H": [
+                 "R385K"
+                ],
+                "head": [
+                 "R198K"
                 ]
                }
-              ]
+              }
              },
              {
               "name": "NODE_0000136",
@@ -6988,6 +9768,16 @@
                            "accession": {
                             "value": "MH810099"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {
+                            "nuc": [
+                             "C26A",
+                             "G113A",
+                             "C179T",
+                             "A1805G"
+                            ]
+                           }
                           }
                          },
                          {
@@ -7013,12 +9803,18 @@
                            "accession": {
                             "value": "MK473365"
                            }
+                          },
+                          "branch_attrs": {
+                           "mutations": {}
                           }
                          }
-                        ]
+                        ],
+                        "branch_attrs": {
+                         "mutations": {}
+                        }
                        },
                        {
-                        "name": "MK487378|wild_felid|2016.500",
+                        "name": "MK487378|ailurid|2016.500",
                         "node_attrs": {
                          "div": 40.595667,
                          "num_date": {
@@ -7029,14 +9825,26 @@
                           ]
                          },
                          "host": {
-                          "value": "wild_felid",
-                          "confidence": {
-                           "wild_felid": 1.0
-                          }
+                          "value": "ailurid"
+                         },
+                         "country": {
+                          "value": "USA"
+                         },
+                         "species": {
+                          "value": "Ailurus fulgens"
+                         },
+                         "accession": {
+                          "value": "MK487378"
                          }
+                        },
+                        "branch_attrs": {
+                         "mutations": {}
                         }
                        }
-                      ]
+                      ],
+                      "branch_attrs": {
+                       "mutations": {}
+                      }
                      },
                      {
                       "name": "MK473366|wild_canid|2017.500",
@@ -7061,9 +9869,27 @@
                        "accession": {
                         "value": "MK473366"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "G118A",
+                         "C1376T",
+                         "T1388C"
+                        ],
+                        "cytoplasmic": [
+                         "R33K"
+                        ],
+                        "H": [
+                         "R33K"
+                        ]
+                       }
                       }
                      }
-                    ]
+                    ],
+                    "branch_attrs": {
+                     "mutations": {}
+                    }
                    },
                    {
                     "name": "MK487379|procyonid|2016.500",
@@ -7088,9 +9914,50 @@
                      "accession": {
                       "value": "MK487379"
                      }
+                    },
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "T1481G"
+                      ],
+                      "H": [
+                       "S487R"
+                      ],
+                      "head": [
+                       "S300R"
+                      ]
+                     }
                     }
                    }
-                  ]
+                  ],
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "G353A",
+                     "A564G",
+                     "C754T",
+                     "G896A",
+                     "G960A",
+                     "G1280A",
+                     "A1313C",
+                     "C1665T"
+                    ],
+                    "H": [
+                     "I182V",
+                     "T245M",
+                     "G314S",
+                     "H549Y"
+                    ],
+                    "connector": [
+                     "I28V"
+                    ],
+                    "head": [
+                     "T58M",
+                     "G127S",
+                     "H362Y"
+                    ]
+                   }
+                  }
                  },
                  {
                   "name": "NODE_0000142",
@@ -7141,6 +10008,30 @@
                      "accession": {
                       "value": "MW984533"
                      }
+                    },
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "C172T",
+                       "C179T",
+                       "C569T",
+                       "T587C",
+                       "G1222A",
+                       "T1379C",
+                       "C1604T",
+                       "C1775T"
+                      ],
+                      "H": [
+                       "A51V",
+                       "G401E"
+                      ],
+                      "transmembrane": [
+                       "A16V"
+                      ],
+                      "head": [
+                       "G214E"
+                      ]
+                     }
                     }
                    },
                    {
@@ -7188,6 +10079,17 @@
                        "accession": {
                         "value": "PX789674"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "C32T",
+                         "G158T",
+                         "C269A",
+                         "C902T",
+                         "G980T"
+                        ]
+                       }
                       }
                      },
                      {
@@ -7213,13 +10115,65 @@
                        "accession": {
                         "value": "PX789678"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "A1475G"
+                        ]
+                       }
                       }
                      }
-                    ]
+                    ],
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "A327G",
+                       "A347G",
+                       "G401A",
+                       "T1007C",
+                       "A1126G",
+                       "A1145G",
+                       "A1479G",
+                       "T1493C",
+                       "A1508T",
+                       "A1513T",
+                       "T1661C",
+                       "G1759A",
+                       "T1826C"
+                      ],
+                      "H": [
+                       "I103V",
+                       "E369G",
+                       "S487G",
+                       "Q498L",
+                       "R580Q"
+                      ],
+                      "stalk": [
+                       "I45V"
+                      ],
+                      "head": [
+                       "E182G",
+                       "S300G",
+                       "Q311L",
+                       "R393Q"
+                      ]
+                     }
+                    }
                    }
+                  ],
+                  "branch_attrs": {
+                   "mutations": {}
+                  }
+                 }
+                ],
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "T1562C"
                   ]
                  }
-                ]
+                }
                },
                {
                 "name": "NODE_0000144",
@@ -7296,6 +10250,20 @@
                      "accession": {
                       "value": "MW984527"
                      }
+                    },
+                    "branch_attrs": {
+                     "mutations": {
+                      "nuc": [
+                       "T906G",
+                       "A1085G"
+                      ],
+                      "H": [
+                       "C296G"
+                      ],
+                      "head": [
+                       "C109G"
+                      ]
+                     }
                     }
                    },
                    {
@@ -7368,6 +10336,13 @@
                          "accession": {
                           "value": "MW984530"
                          }
+                        },
+                        "branch_attrs": {
+                         "mutations": {
+                          "nuc": [
+                           "C179A"
+                          ]
+                         }
                         }
                        },
                        {
@@ -7393,9 +10368,15 @@
                          "accession": {
                           "value": "MW984532"
                          }
+                        },
+                        "branch_attrs": {
+                         "mutations": {}
                         }
                        }
-                      ]
+                      ],
+                      "branch_attrs": {
+                       "mutations": {}
+                      }
                      },
                      {
                       "name": "MW984531|wild_felid|2015.989",
@@ -7420,11 +10401,30 @@
                        "accession": {
                         "value": "MW984531"
                        }
+                      },
+                      "branch_attrs": {
+                       "mutations": {
+                        "nuc": [
+                         "A95C"
+                        ],
+                        "cytoplasmic": [
+                         "L25F"
+                        ],
+                        "H": [
+                         "L25F"
+                        ]
+                       }
                       }
                      }
-                    ]
+                    ],
+                    "branch_attrs": {
+                     "mutations": {}
+                    }
                    }
-                  ]
+                  ],
+                  "branch_attrs": {
+                   "mutations": {}
+                  }
                  },
                  {
                   "name": "MW984535|procyonid|2015.951",
@@ -7449,13 +10449,120 @@
                    "accession": {
                     "value": "MW984535"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "A759G",
+                     "C798A",
+                     "A873C",
+                     "A932G",
+                     "A937C",
+                     "A953C",
+                     "G1017A",
+                     "A1018G",
+                     "G1174A",
+                     "G1402T",
+                     "G1433T"
+                    ],
+                    "H": [
+                     "K247E",
+                     "L260M",
+                     "I285L",
+                     "H306P",
+                     "E333R",
+                     "R385K",
+                     "G461V",
+                     "Q471H"
+                    ],
+                    "head": [
+                     "K60E",
+                     "L73M",
+                     "I98L",
+                     "H119P",
+                     "E146R",
+                     "R198K",
+                     "G274V",
+                     "Q284H"
+                    ]
+                   }
                   }
                  }
+                ],
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "A299C",
+                   "A403C",
+                   "T928C",
+                   "T1078A",
+                   "G1480A"
+                  ],
+                  "H": [
+                   "N128T",
+                   "L303S",
+                   "F353Y",
+                   "S487N"
+                  ],
+                  "stalk": [
+                   "N70T"
+                  ],
+                  "head": [
+                   "L116S",
+                   "F166Y",
+                   "S300N"
+                  ]
+                 }
+                }
+               }
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "T62C",
+                 "T74C",
+                 "C107A",
+                 "C185T",
+                 "G499A",
+                 "C548T",
+                 "G992A",
+                 "C1193T",
+                 "G1356A",
+                 "T1376C",
+                 "C1388T",
+                 "C1430T",
+                 "G1551A",
+                 "C1610T",
+                 "A1751G"
+                ],
+                "cytoplasmic": [
+                 "D29E"
+                ],
+                "H": [
+                 "D29E",
+                 "R160K",
+                 "D446N",
+                 "V511M"
+                ],
+                "connector": [
+                 "R6K"
+                ],
+                "head": [
+                 "D259N",
+                 "V324M"
                 ]
                }
+              }
+             }
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "A500G",
+               "C1079T"
               ]
              }
-            ]
+            }
            },
            {
             "name": "PX789703|procyonid|2023.392",
@@ -7480,9 +10587,65 @@
              "accession": {
               "value": "PX789703"
              }
+            },
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "C530A",
+               "T533C",
+               "G549A",
+               "A575G",
+               "T645C",
+               "G750A",
+               "A932T",
+               "T950A",
+               "T989C",
+               "G1107T",
+               "G1199T",
+               "A1322G",
+               "T1370C",
+               "C1445T",
+               "G1452A"
+              ],
+              "H": [
+               "G177R",
+               "D244N",
+               "L304F",
+               "V363L",
+               "V478M"
+              ],
+              "connector": [
+               "G23R"
+              ],
+              "head": [
+               "D57N",
+               "L117F",
+               "V176L",
+               "V291M"
+              ]
+             }
             }
            }
-          ]
+          ],
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "T146G",
+             "C573T",
+             "A1174G"
+            ],
+            "H": [
+             "P185S",
+             "K385R"
+            ],
+            "connector": [
+             "P31S"
+            ],
+            "head": [
+             "K198R"
+            ]
+           }
+          }
          },
          {
           "name": "NODE_0000148",
@@ -7559,6 +10722,29 @@
                "accession": {
                 "value": "MW984534"
                }
+              },
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "T644C",
+                 "G794T",
+                 "A963C",
+                 "G1229A",
+                 "A1298G",
+                 "A1424G",
+                 "T1585C",
+                 "T1655C",
+                 "T1712C"
+                ],
+                "H": [
+                 "I315L",
+                 "I522T"
+                ],
+                "head": [
+                 "I128L",
+                 "I335T"
+                ]
+               }
               }
              },
              {
@@ -7610,6 +10796,30 @@
                  "accession": {
                   "value": "MW984536"
                  }
+                },
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "G515A",
+                   "T725C",
+                   "C792A",
+                   "C944T",
+                   "C1249A",
+                   "T1340C",
+                   "T1354C",
+                   "A1536G"
+                  ],
+                  "H": [
+                   "T410K",
+                   "L445S",
+                   "T506A"
+                  ],
+                  "head": [
+                   "T223K",
+                   "L258S",
+                   "T319A"
+                  ]
+                 }
                 }
                },
                {
@@ -7635,11 +10845,116 @@
                  "accession": {
                   "value": "PX789692"
                  }
+                },
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "A518C",
+                   "A528G",
+                   "A536T",
+                   "G742A",
+                   "G776A",
+                   "G800A",
+                   "G864A",
+                   "G887A",
+                   "T947C",
+                   "G1022A",
+                   "C1039A",
+                   "G1044A",
+                   "A1170G",
+                   "T1352G",
+                   "T1404C",
+                   "A1427G",
+                   "C1436T"
+                  ],
+                  "H": [
+                   "I170V",
+                   "L172F",
+                   "G241E",
+                   "V282I",
+                   "P340Q",
+                   "V342I",
+                   "R384G"
+                  ],
+                  "connector": [
+                   "I16V",
+                   "L18F"
+                  ],
+                  "head": [
+                   "G54E",
+                   "V95I",
+                   "P153Q",
+                   "V155I",
+                   "R197G"
+                  ]
+                 }
                 }
                }
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "C181T",
+                 "C356T",
+                 "G586A",
+                 "G1608C"
+                ],
+                "H": [
+                 "A54V",
+                 "S189N",
+                 "G530R"
+                ],
+                "transmembrane": [
+                 "A19V"
+                ],
+                "head": [
+                 "S2N",
+                 "G343R"
+                ]
+               }
+              }
+             }
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "T200C",
+               "A206G",
+               "A245C",
+               "A626G",
+               "G699A",
+               "G746A",
+               "C830T",
+               "G845A",
+               "T951C",
+               "A955G",
+               "C1037T",
+               "A1052G",
+               "C1325T",
+               "T1328C",
+               "C1358T",
+               "A1391G",
+               "C1507T",
+               "G1559A"
+              ],
+              "H": [
+               "K75N",
+               "V227M",
+               "S311P",
+               "Q312R",
+               "T496I"
+              ],
+              "stalk": [
+               "K17N"
+              ],
+              "head": [
+               "V40M",
+               "S124P",
+               "Q125R",
+               "T309I"
               ]
              }
-            ]
+            }
            },
            {
             "name": "NODE_0000151",
@@ -7736,6 +11051,9 @@
                    "accession": {
                     "value": "OK666993"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {}
                   }
                  },
                  {
@@ -7761,9 +11079,25 @@
                    "accession": {
                     "value": "OK667001"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "T1176A"
+                    ],
+                    "H": [
+                     "S386T"
+                    ],
+                    "head": [
+                     "S199T"
+                    ]
+                   }
                   }
                  }
-                ]
+                ],
+                "branch_attrs": {
+                 "mutations": {}
+                }
                },
                {
                 "name": "OK667006|procyonid|2015.500",
@@ -7788,9 +11122,36 @@
                  "accession": {
                   "value": "OK667006"
                  }
+                },
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "A653G",
+                   "A1279T"
+                  ],
+                  "H": [
+                   "H420L"
+                  ],
+                  "head": [
+                   "H233L"
+                  ]
+                 }
                 }
                }
-              ]
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "G1608A"
+                ],
+                "H": [
+                 "G530S"
+                ],
+                "head": [
+                 "G343S"
+                ]
+               }
+              }
              },
              {
               "name": "NODE_0000154",
@@ -7864,6 +11225,19 @@
                    "accession": {
                     "value": "PX789676"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "C1068T"
+                    ],
+                    "H": [
+                     "R350C"
+                    ],
+                    "head": [
+                     "R163C"
+                    ]
+                   }
                   }
                  },
                  {
@@ -7889,9 +11263,27 @@
                    "accession": {
                     "value": "PX789700"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {
+                    "nuc": [
+                     "A812T",
+                     "G918A",
+                     "G1226A"
+                    ],
+                    "H": [
+                     "G300S"
+                    ],
+                    "head": [
+                     "G113S"
+                    ]
+                   }
                   }
                  }
-                ]
+                ],
+                "branch_attrs": {
+                 "mutations": {}
+                }
                },
                {
                 "name": "NODE_0000156",
@@ -7939,6 +11331,9 @@
                    "accession": {
                     "value": "PX789695"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {}
                   }
                  },
                  {
@@ -7964,17 +11359,141 @@
                    "accession": {
                     "value": "PX789698"
                    }
+                  },
+                  "branch_attrs": {
+                   "mutations": {}
                   }
                  }
+                ],
+                "branch_attrs": {
+                 "mutations": {
+                  "nuc": [
+                   "G603A",
+                   "C749T",
+                   "C1325T",
+                   "T1337C",
+                   "A1442C",
+                   "G1452T",
+                   "T1547A"
+                  ],
+                  "H": [
+                   "V195I",
+                   "V478L",
+                   "N509K"
+                  ],
+                  "head": [
+                   "V8I",
+                   "V291L",
+                   "N322K"
+                  ]
+                 }
+                }
+               }
+              ],
+              "branch_attrs": {
+               "mutations": {
+                "nuc": [
+                 "T398C",
+                 "T1576G"
+                ],
+                "H": [
+                 "I519R"
+                ],
+                "head": [
+                 "I332R"
                 ]
                }
+              }
+             }
+            ],
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "A209G",
+               "G257A",
+               "A327G",
+               "A698G",
+               "A757C",
+               "A758G",
+               "C816A",
+               "A857G",
+               "A918G",
+               "A1009G",
+               "A1040G",
+               "A1069G",
+               "G1280C",
+               "G1307A",
+               "C1430A",
+               "C1511T",
+               "T1645C"
+              ],
+              "H": [
+               "I103V",
+               "Q246P",
+               "L266I",
+               "S300G",
+               "Q330R",
+               "H350R",
+               "Q420H",
+               "D470E",
+               "I542T"
+              ],
+              "stalk": [
+               "I45V"
+              ],
+              "head": [
+               "Q59P",
+               "L79I",
+               "S113G",
+               "Q143R",
+               "H163R",
+               "Q233H",
+               "D283E",
+               "I355T"
               ]
              }
+            }
+           }
+          ],
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "G1576T",
+             "C1733T"
+            ],
+            "H": [
+             "R519I"
+            ],
+            "head": [
+             "R332I"
             ]
            }
+          }
+         }
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "A662T",
+           "A849G",
+           "A1062G",
+           "T1067C",
+           "A1280G",
+           "G1767A",
+           "T1769A"
+          ],
+          "H": [
+           "N277D",
+           "T348A",
+           "A583T"
+          ],
+          "head": [
+           "N90D",
+           "T161A",
+           "A396T"
           ]
          }
-        ]
+        }
        },
        {
         "name": "NODE_0000157",
@@ -8051,6 +11570,13 @@
              "accession": {
               "value": "MT932504"
              }
+            },
+            "branch_attrs": {
+             "mutations": {
+              "nuc": [
+               "T188C"
+              ]
+             }
             }
            },
            {
@@ -8076,9 +11602,27 @@
              "accession": {
               "value": "MT932511"
              }
+            },
+            "branch_attrs": {
+             "mutations": {}
             }
            }
-          ]
+          ],
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "C803T",
+             "G1406A",
+             "G1576T"
+            ],
+            "H": [
+             "R519I"
+            ],
+            "head": [
+             "R332I"
+            ]
+           }
+          }
          },
          {
           "name": "MT932505|procyonid|1992.000",
@@ -8103,11 +11647,52 @@
            "accession": {
             "value": "MT932505"
            }
+          },
+          "branch_attrs": {
+           "mutations": {}
           }
          }
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "A611T",
+           "A958G",
+           "C1373T",
+           "C1605A",
+           "T1745C"
+          ],
+          "H": [
+           "R197S",
+           "D313G"
+          ],
+          "head": [
+           "R10S",
+           "D126G"
+          ]
+         }
+        }
+       }
+      ],
+      "branch_attrs": {
+       "mutations": {
+        "nuc": [
+         "C395T",
+         "G665A",
+         "G804A",
+         "C1354T",
+         "T1691C"
+        ],
+        "H": [
+         "D262N",
+         "S445L"
+        ],
+        "head": [
+         "D75N",
+         "S258L"
         ]
        }
-      ]
+      }
      },
      {
       "name": "NODE_0000159",
@@ -8184,6 +11769,46 @@
            "accession": {
             "value": "MG797669"
            }
+          },
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "C413T",
+             "C595T",
+             "A662C",
+             "C683T",
+             "T686G",
+             "G782A",
+             "A834C",
+             "T950C",
+             "G1044A",
+             "T1124C",
+             "A1259G",
+             "T1270C",
+             "A1344G",
+             "G1426A",
+             "T1548A",
+             "C1610G"
+            ],
+            "H": [
+             "T192I",
+             "M272L",
+             "V342I",
+             "I417T",
+             "S442G",
+             "G469E",
+             "L510I"
+            ],
+            "head": [
+             "T5I",
+             "M85L",
+             "V155I",
+             "I230T",
+             "S255G",
+             "G282E",
+             "L323I"
+            ]
+           }
           }
          },
          {
@@ -8209,9 +11834,54 @@
            "accession": {
             "value": "OK666917"
            }
+          },
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "A664G",
+             "A694G",
+             "C844T",
+             "A1169G"
+            ],
+            "H": [
+             "E215G",
+             "D225G",
+             "P275L"
+            ],
+            "head": [
+             "E28G",
+             "D38G",
+             "P88L"
+            ]
+           }
           }
          }
-        ]
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "T524A",
+           "G746T",
+           "C830T",
+           "T928C",
+           "A1130G",
+           "G1160A",
+           "A1427G"
+          ],
+          "H": [
+           "N168K",
+           "E242D",
+           "L303S"
+          ],
+          "connector": [
+           "N14K"
+          ],
+          "head": [
+           "E55D",
+           "L116S"
+          ]
+         }
+        }
        },
        {
         "name": "NODE_0000161",
@@ -8262,6 +11932,30 @@
            "accession": {
             "value": "OK666870"
            }
+          },
+          "branch_attrs": {
+           "mutations": {
+            "nuc": [
+             "G332A",
+             "C854T",
+             "C1123T",
+             "T1509C",
+             "A1599G"
+            ],
+            "H": [
+             "S368F",
+             "F497L",
+             "I527V"
+            ],
+            "head": [
+             "S181F",
+             "F310L",
+             "I340V"
+            ],
+            "SLAM_526_529": [
+             "I2V"
+            ]
+           }
           }
          },
          {
@@ -8287,14 +11981,130 @@
            "accession": {
             "value": "OK666919"
            }
+          },
+          "branch_attrs": {
+           "mutations": {}
           }
          }
+        ],
+        "branch_attrs": {
+         "mutations": {
+          "nuc": [
+           "A327G",
+           "A454G",
+           "A653G",
+           "T728A",
+           "T732G",
+           "A767G",
+           "G848A",
+           "A946G",
+           "T1034C",
+           "C1181T",
+           "A1196G",
+           "T1295C",
+           "C1510T",
+           "T1548C",
+           "C1583T"
+          ],
+          "H": [
+           "I103V",
+           "K145R",
+           "Y238D",
+           "N309S",
+           "S497F"
+          ],
+          "stalk": [
+           "I45V",
+           "K87R"
+          ],
+          "head": [
+           "Y51D",
+           "N122S",
+           "S310F"
+          ]
+         }
+        }
+       }
+      ],
+      "branch_attrs": {
+       "mutations": {
+        "nuc": [
+         "C123T",
+         "G137A",
+         "G159A",
+         "T215C",
+         "A227G",
+         "A263T",
+         "C269A",
+         "A564G",
+         "A802C",
+         "C884A",
+         "G971A",
+         "A1129G",
+         "T1310C",
+         "T1319C",
+         "A1650T",
+         "T1655C",
+         "T1682C"
+        ],
+        "cytoplasmic": [
+         "P35S"
+        ],
+        "H": [
+         "P35S",
+         "V47I",
+         "I182V",
+         "N261T",
+         "K370R",
+         "T544S"
+        ],
+        "transmembrane": [
+         "V12I"
+        ],
+        "connector": [
+         "I28V"
+        ],
+        "head": [
+         "N74T",
+         "K183R",
+         "T357S"
         ]
        }
+      }
+     }
+    ],
+    "branch_attrs": {
+     "mutations": {
+      "nuc": [
+       "A41G",
+       "C83T",
+       "A85G",
+       "A353G",
+       "A735C",
+       "A1082C",
+       "A1872G",
+       "A1878G",
+       "A1886G",
+       "A1889G",
+       "C1902T",
+       "A1929T"
+      ],
+      "cytoplasmic": [
+       "K22R"
+      ],
+      "H": [
+       "K22R",
+       "I239L"
+      ],
+      "head": [
+       "I52L"
       ]
      }
-    ]
+    }
    }
-  ]
+  ],
+  "branch_attrs": {
+   "mutations": {}
+  }
  }
 }
