@@ -1,14 +1,16 @@
 cff-version: 1.2.0
 message: "If you use this software or dataset, please cite it as below."
-title: "cdv-phylodynamics: a reproducible pipeline for canine distemper virus phylodynamics"
+title: "cdv-phylodynamics: canine distemper virus phylodynamics in North American carnivores"
 abstract: >-
-  A reproducible pipeline for analysing canine distemper virus (Morbillivirus
-  canis) hemagglutinin gene sequences from GenBank: metadata curation,
-  alignment QC, maximum likelihood phylogeny, clade delineation, stratified
-  subsampling, Bayesian phylodynamic inference with discrete host-state
-  reconstruction, and export to an annotated Auspice dataset. Applied to an
-  America-2 lineage circulating in North American carnivores. Amino acid
-  coordinates follow the H CDS of A75/17 (AF164967).
+  Phylodynamic analysis of canine distemper virus (Morbillivirus canis)
+  hemagglutinin gene sequences from GenBank: metadata curation, alignment QC,
+  maximum likelihood phylogeny, clade delineation, stratified subsampling,
+  Bayesian inference with discrete host-state reconstruction, and an annotated
+  Auspice dataset, applied to an America-2 lineage circulating in North
+  American carnivores. The configuration, host and lineage tables, methods and
+  served dataset live here; the pipeline that runs them is wildphylo, pinned by
+  release tag in environment.yml. Up to v1.0.1 the pipeline was part of this
+  repository. Amino acid coordinates follow the H CDS of A75/17 (AF164967).
 type: software
 authors:
   - family-names: Nightingale

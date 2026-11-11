@@ -125,6 +125,13 @@ resolutions; this section records what was decided and why.
   Nothing is removed from tracking yet, deliberately: METHODS §9.5 says both
   the erroneous and the corrected outputs are retained in the repository, so
   the removal and the DOI belong in one commit. Uploading needs your account.
+- **`CITATION.cff` version and DOI.** The title and abstract now describe a
+  dataset and analysis repository rather than a pipeline, and say that the
+  pipeline was part of this repository up to `v1.0.1`. The `version` and
+  `date-released` fields still name the Zenodo release `1.0.0`, deliberately:
+  they change in the commit that cuts the next release, together with the
+  dataset DOI from the deposit below. Bumping them before that would claim a
+  release that does not exist.
 - **Vault moves**: done 2026-11-11. `SETUP_MACOS.md` and `NEXT_PROJECTS.md`
   are in `~/batyas_vault/Bioinformatics/`, the exploration notebook in
   `~/batyas_vault/Bioinformatics/CDV phylodynamics/`. The folder is new; move
