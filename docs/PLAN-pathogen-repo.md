@@ -129,5 +129,11 @@ resolutions; this section records what was decided and why.
   are in `~/batyas_vault/Bioinformatics/`, the exploration notebook in
   `~/batyas_vault/Bioinformatics/CDV phylodynamics/`. The folder is new; move
   it if the vault grows a better home, but keep the three together.
-- **Scheduled rebuild workflow** here, and `conda-lock` against the pinned
-  `v0.3.0`.
+- **Scheduled rebuild workflow**: added, `.github/workflows/rebuild.yml`.
+  05:00 UTC on the 2nd of each month, after wildphylo's own run on the 1st.
+  It checks the GenBank count, rebuilds as far as the temporal gate, compares
+  against the previous build, opens an issue when the comparison fails and
+  commits the audit trail. It never republishes the dataset. Needs the
+  `NCBI_EMAIL` and `NCBI_API_KEY` secrets set on this repository; the check
+  step was run locally against this layout and reports 3303 records with no
+  previous build to compare against.
