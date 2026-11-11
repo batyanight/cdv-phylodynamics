@@ -117,6 +117,9 @@ resolutions; this section records what was decided and why.
 - **Zenodo deposit** for `beast/clade3/crashed_run*`, `previous_runs`,
   `run100M`, the `.trees` and `.log` files and `data/processed`, then remove
   them from tracking. Needs an account action, so it is yours.
-- **Vault moves**: the notebook, `SETUP_MACOS.md`, `NEXT_PROJECTS.md`.
+- **Vault moves**: done 2026-11-11. `SETUP_MACOS.md` and `NEXT_PROJECTS.md`
+  are in `~/batyas_vault/Bioinformatics/`, the exploration notebook in
+  `~/batyas_vault/Bioinformatics/CDV phylodynamics/`. The folder is new; move
+  it if the vault grows a better home, but keep the three together.
 - **Scheduled rebuild workflow** here, and `conda-lock` against the pinned
   `v0.2.1`.
