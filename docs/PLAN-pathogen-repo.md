@@ -3,7 +3,7 @@
 Status: **phase 2 of the wildphylo restructuring, in progress on branch
 `pathogen-repo`.** Decided 2026-11-10 by interview; see
 `wildphylo/docs/PLAN-stages.md` for phase 1. wildphylo `v0.2.0` and `v0.2.1`
-are pushed; the pin is `v0.2.1`.
+are pushed; the pin is `v0.3.0`.
 
 ## Decisions
 
@@ -11,7 +11,7 @@ are pushed; the pin is `v0.2.1`.
 |---|---|
 | Role of this repo | Dataset and analysis repo for CDV. The pipeline is wildphylo, installed as a dependency. |
 | Published code | `v1.0.0` is the Zenodo release (2026-08-30). Three later commits (host table fix, BEAST manifest, staging cleanup) are untagged: tag HEAD `v1.0.1` before anything is removed, so the last state of the standalone pipeline is citable. |
-| Dependency | `environment.yml` gets `pip: - "wildphylo @ git+https://github.com/batyanight/wildphylo@v0.2.1"`. Bumping the tag is a reviewed change. |
+| Dependency | `environment.yml` gets `pip: - "wildphylo @ git+https://github.com/batyanight/wildphylo@v0.3.0"`. Bumping the tag is a reviewed change. |
 | Config home | `config/cdv.yaml` moves here from `wildphylo/config/pathogen/cdv.yaml`. wildphylo keeps `cdv-smoke` as a test fixture only. The three tables (`host_groups.tsv`, `lineage_references.tsv`, `vaccine_strains.txt`) are taken from wildphylo, whose copies are a superset of the ones here (jackals, bat-eared fox, a Cerdocyon misspelling, six reverse-genetics vaccine patterns). |
 | Tracked files | wildphylo's audit-trail convention: provenance, accession snapshots, QC and temporal reports, clade summaries, the final BEAST XMLs for the published runs, build comparison, the served Auspice JSON. Crashed and previous runs, `.trees`, logs and processed FASTA go to a Zenodo deposit and are removed going forward; history is not rewritten. |
 | Working files | `METHODS.md` and `BEAST_MANIFEST.md` stay. The notebook, `SETUP_MACOS.md` and `NEXT_PROJECTS.md` move to the vault. |

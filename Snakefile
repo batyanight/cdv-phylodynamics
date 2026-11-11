@@ -3,34 +3,23 @@
 #   snakemake --configfile config/cdv.yaml --cores 8
 #
 # Everything pathogen-specific is in config/. The pipeline, its gates and its
-# steps live in wildphylo (installed in the env); this file only locates its
-# Snakefile and includes it, so builds land in ./builds/ and a build's
+# steps live in wildphylo (installed in the env, pinned by tag in
+# environment.yml); this file only asks the installed package where its
+# Snakefile is and includes it, so builds land in ./builds/ and a build's
 # provenance records the wildphylo version it ran with.
-import importlib.resources
-import subprocess
-from pathlib import Path
+import wildphylo
 
 try:
-    import wildphylo
-except ImportError as err:
+    _pipeline = wildphylo.workflow_path()
+except AttributeError as err:
     raise WorkflowError(
-        "wildphylo is not installed in this environment; see environment.yml"
+        "the installed wildphylo predates 0.3.0, which is the first release "
+        "that ships its Snakefile inside the package; bump the pin in "
+        "environment.yml"
     ) from err
+except FileNotFoundError as err:
+    raise WorkflowError(str(err)) from err
 
-# The workflow ships next to the package source in the wildphylo checkout.
-# `pip install` from git keeps it under <site-packages>/../ only when
-# installed editable, so resolve it from the installed package location first
-# and fall back to a sibling checkout for development.
-_candidates = [
-    Path(wildphylo.__file__).resolve().parents[2] / "workflow" / "Snakefile",
-    Path(__file__).resolve().parent.parent / "wildphylo" / "workflow" / "Snakefile",
-]
-_pipeline = next((p for p in _candidates if p.is_file()), None)
-if _pipeline is None:
-    raise WorkflowError(
-        "cannot find wildphylo's workflow/Snakefile; looked at: "
-        + ", ".join(str(p) for p in _candidates)
-    )
 
 include: str(_pipeline)
 

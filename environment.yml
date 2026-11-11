@@ -17,7 +17,7 @@ dependencies:
   - conda-lock
   - pip:
     # The pipeline. Bump the tag deliberately; every build records it in provenance.
-    - "wildphylo @ git+https://github.com/batyanight/wildphylo@v0.2.1"
+    - "wildphylo @ git+https://github.com/batyanight/wildphylo@v0.3.0"
 # BEAST2, Tracer, TempEst and FigTree are Java tools installed separately:
 #   BEAST2  https://www.beast2.org/
 #   Tracer  https://beast.community/tracer

@@ -13,7 +13,7 @@ section and to let another person reproduce the work from the repository.
 
 | Tool | Version | Used for |
 |---|---|---|
-| wildphylo | v0.2.1 | the pipeline: every stage and gate (see below) |
+| wildphylo | v0.3.0 | the pipeline: every stage and gate (see below) |
 | Python | 3.11 | wildphylo and its dependencies |
 | Biopython | 1.8x | GenBank parsing, sequence handling |
 | pandas | 2.x | metadata tables |
@@ -26,7 +26,7 @@ section and to let another person reproduce the work from the repository.
 
 `[FILL IN exact versions from your machine: mafft --version, iqtree2 --version, conda list]`
 
-The pipeline is [wildphylo](https://github.com/batyanight/wildphylo), version `v0.2.1`,
+The pipeline is [wildphylo](https://github.com/batyanight/wildphylo), version `v0.3.0`,
 installed from the tag pinned in `environment.yml`. Each step is a
 `wildphylo <stage> <step>` command; the Snakefile in this repository includes
 wildphylo's workflow with `config/cdv.yaml`. The configuration files, the audit trail of
