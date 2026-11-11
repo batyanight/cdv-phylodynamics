@@ -2,8 +2,8 @@
 
 Status: **phase 2 of the wildphylo restructuring, in progress on branch
 `pathogen-repo`.** Decided 2026-11-10 by interview; see
-`wildphylo/docs/PLAN-stages.md` for phase 1. wildphylo `v0.2.0` and `v0.2.1`
-are pushed; the pin is `v0.3.0`.
+`wildphylo/docs/PLAN-stages.md` for phase 1. wildphylo `v0.2.0`, `v0.2.1` and
+`v0.3.0` are pushed; the pin is `v0.3.0`.
 
 ## Decisions
 
@@ -49,7 +49,7 @@ README.md, METHODS.md, BEAST_MANIFEST.md, CITATION.cff, LICENSE, GLOSSARY.md (li
 ## Order of work
 
 1. Tag `v1.0.1` here. Create the Zenodo deposit for the BEAST runs that leave git.
-2. wildphylo: tag `v0.2.0` (done; pin is now `v0.2.1`); confirm the Snakefile runs against a config outside its checkout.
+2. wildphylo: tag `v0.2.0` (done; pin is now `v0.3.0`); confirm the Snakefile runs against a config outside its checkout.
 3. Move `cdv.yaml` and the tables here; `wildphylo config validate config/cdv.yaml`.
 4. `environment.yml` + lock with the pinned wildphylo; `Snakefile` wrapper; dry run.
 5. Remove scripts, data/processed, crashed and previous BEAST runs, working files; update README and CITATION (new version, pipeline citation).
@@ -71,7 +71,8 @@ resolutions; this section records what was decided and why.
   dead: `config/host_groups.tsv` files domestic cat under `other`, so no rule
   produces `domestic_cat` and nothing in any run ever pooled domestic with
   wild felids. wildphylo `validate` now warns on such a key (that is what
-  v0.2.1 adds). Second, the published run's "five states with wild_felid and
+  v0.2.1 adds; the pin is `v0.3.0` because that is the first release whose
+  wheel carries the Snakefile this repo's wrapper includes). Second, the published run's "five states with wild_felid and
   ailurid merged" was a relabelling of one tip: MK487378 is *Ailurus fulgens*,
   a red panda, carried in the XML as `wild_felid`. A rebuild instead enters it
   as `?`, ambiguous across all five states, which keeps the tip in the tree
@@ -129,4 +130,4 @@ resolutions; this section records what was decided and why.
   `~/batyas_vault/Bioinformatics/CDV phylodynamics/`. The folder is new; move
   it if the vault grows a better home, but keep the three together.
 - **Scheduled rebuild workflow** here, and `conda-lock` against the pinned
-  `v0.2.1`.
+  `v0.3.0`.
