@@ -114,9 +114,16 @@ resolutions; this section records what was decided and why.
 - **A missing lineage reference is only a warning.** Making it fail the build,
   or checking `references.expected_lineages` in curate, is a wildphylo feature
   change and an interface decision.
-- **Zenodo deposit** for `beast/clade3/crashed_run*`, `previous_runs`,
-  `run100M`, the `.trees` and `.log` files and `data/processed`, then remove
-  them from tracking. Needs an account action, so it is yours.
+- **Zenodo deposit.** Built and waiting to upload:
+  `~/zenodo-cdv-phylodynamics-20261111/` holds the archive (38 files, 9.6 MB
+  packed), a SHA-256 manifest, the metadata in Zenodo's API shape, and
+  `README-upload.md` with both routes and the exact sequence afterwards. No
+  `.trees` or `.state` files survive on disk, so the deposit is logs, the
+  superseded XMLs, the erroneous `run100M`, the published run's posterior logs
+  and `data/processed`.
+  Nothing is removed from tracking yet, deliberately: METHODS §9.5 says both
+  the erroneous and the corrected outputs are retained in the repository, so
+  the removal and the DOI belong in one commit. Uploading needs your account.
 - **Vault moves**: done 2026-11-11. `SETUP_MACOS.md` and `NEXT_PROJECTS.md`
   are in `~/batyas_vault/Bioinformatics/`, the exploration notebook in
   `~/batyas_vault/Bioinformatics/CDV phylodynamics/`. The folder is new; move
