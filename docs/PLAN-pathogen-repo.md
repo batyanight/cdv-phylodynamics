@@ -53,7 +53,10 @@ README.md, METHODS.md, BEAST_MANIFEST.md, CITATION.cff, LICENSE, GLOSSARY.md (li
 4. `environment.yml` + lock with the pinned wildphylo; `Snakefile` wrapper; dry run.
 5. Remove scripts, data/processed, crashed and previous BEAST runs, working files; update README and CITATION (new version, pipeline citation).
 6. Full build; `wildphylo gates compare` against the served dataset; publish only on `ok`.
-7. Run the two outstanding analyses (date randomisation, asymmetric trait model) through wildphylo's gates.
+7. Add a scheduled-rebuild workflow here (monthly `wildphylo publish check-updates`
+   then the build, as wildphylo's `rebuild.yml` did for CDV; wildphylo's own
+   scheduler now skips smoke configs and defaults to btv).
+8. Run the two outstanding analyses (date randomisation, asymmetric trait model) through wildphylo's gates.
 
 ## Decisions needed before the full build (found while rewriting METHODS)
 
