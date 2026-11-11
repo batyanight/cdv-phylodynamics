@@ -78,8 +78,16 @@ urocyon	Urocyon cinereoargenteus	wild_canid
 crab-eating fox	Cerdocyon thous	wild_canid
 crab-eating	Cerdocyon thous	wild_canid
 cerdocyon	Cerdocyon thous	wild_canid
+otocyon	Otocyon megalotis	wild_canid
+bat-eared fox	Otocyon megalotis	wild_canid
 fox	Vulpes sp.	wild_canid
+canis mesomelas	Canis mesomelas	wild_canid
+black-backed jackal	Canis mesomelas	wild_canid
+canis aureus	Canis aureus	wild_canid
+golden jackal	Canis aureus	wild_canid
 jackal	Canis sp.	wild_canid
+# Common misspelling of Cerdocyon in GenBank submissions.
+cerdocyun	Cerdocyon thous	wild_canid
 dhole	Cuon alpinus	wild_canid
 cuon	Cuon alpinus	wild_canid
 
@@ -127,6 +135,9 @@ lynx	Lynx sp.	wild_felid
 acinonyx	Acinonyx jubatus	wild_felid
 cheetah	Acinonyx jubatus	wild_felid
 serval	Leptailurus serval	wild_felid
+leopardus pardalis	Leopardus pardalis	wild_felid
+ocelot	Leopardus pardalis	wild_felid
+leopardus	Leopardus sp.	wild_felid
 leptailurus	Leptailurus serval	wild_felid
 felis catus	Felis catus	other
 domestic cat	Felis catus	other
@@ -138,7 +149,11 @@ black-footed ferret	Mustela nigripes	mustelid
 black footed ferret	Mustela nigripes	mustelid
 mustela putorius	Mustela putorius furo	mustelid
 ferret	Mustela putorius furo	mustelid
-neovison	Neovison vison	mustelid
+# Neovison vison was reassigned to Neogale in 2021; both names are in GenBank.
+neogale	Neogale vison	mustelid
+neovison	Neogale vison	mustelid
+pekania	Pekania pennanti	mustelid
+fisher	Pekania pennanti	mustelid
 mustela vison	Neovison vison	mustelid
 mink	Neovison vison	mustelid
 mustela	Mustela sp.	mustelid
@@ -186,22 +201,41 @@ seal	Phoca sp.	pinniped
 # --- other carnivore families -----------------------------------------------
 ailurus	Ailurus fulgens	ailurid
 red panda	Ailurus fulgens	ailurid
+lesser panda	Ailurus fulgens	ailurid
 ailuropoda	Ailuropoda melanoleuca	ursid
 giant panda	Ailuropoda melanoleuca	ursid
 ursus	Ursus sp.	ursid
 bear	Ursus sp.	ursid
+paradoxurus	Paradoxurus hermaphroditus	viverrid
+asian palm civet	Paradoxurus hermaphroditus	viverrid
 civet	Viverridae sp.	viverrid
 viverr	Viverridae sp.	viverrid
 binturong	Arctictis binturong	viverrid
 arctictis	Arctictis binturong	viverrid
 mongoose	Herpestidae sp.	viverrid
 crocuta	Crocuta crocuta	other
+parahyaena	Parahyaena brunnea	other
+brown hyena	Parahyaena brunnea	other
 hyena	Crocuta crocuta	other
+hyaena	Crocuta crocuta	other
 
 # --- primates & non-carnivores ----------------------------------------------
+callithrix	Callithrix sp.	primate
+marmoset	Callithrix sp.	primate
 macaca	Macaca sp.	primate
 macaque	Macaca sp.	primate
 monkey	Primates sp.	primate
+# Non-carnivore hosts. CDV in these is notable but they are dead-end
+# detections, not maintenance hosts -- grouped as 'other' and excluded from
+# the discrete trait by the dta_states map.
+tamandua	Tamandua tetradactyla	other
+myrmecophaga	Myrmecophaga tridactyla	other
+giant anteater	Myrmecophaga tridactyla	other
+anteater	Myrmecophagidae sp.	other
+coendou	Coendou sp.	other
+porcupine	Coendou sp.	other
+sus scrofa	Sus scrofa	other
+wild boar	Sus scrofa	other
 peccary	Tayassuidae sp.	other
 javelina	Tayassuidae sp.	other
 
