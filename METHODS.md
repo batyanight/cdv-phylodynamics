@@ -13,7 +13,7 @@ section and to let another person reproduce the work from the repository.
 
 | Tool | Version | Used for |
 |---|---|---|
-| wildphylo | v0.2.0 | the pipeline: every stage and gate (see below) |
+| wildphylo | v0.2.1 | the pipeline: every stage and gate (see below) |
 | Python | 3.11 | wildphylo and its dependencies |
 | Biopython | 1.8x | GenBank parsing, sequence handling |
 | pandas | 2.x | metadata tables |
@@ -26,7 +26,7 @@ section and to let another person reproduce the work from the repository.
 
 `[FILL IN exact versions from your machine: mafft --version, iqtree2 --version, conda list]`
 
-The pipeline is [wildphylo](https://github.com/batyanight/wildphylo), version `v0.2.0`,
+The pipeline is [wildphylo](https://github.com/batyanight/wildphylo), version `v0.2.1`,
 installed from the tag pinned in `environment.yml`. Each step is a
 `wildphylo <stage> <step>` command; the Snakefile in this repository includes
 wildphylo's workflow with `config/cdv.yaml`. The configuration files, the audit trail of
@@ -49,7 +49,7 @@ were replaced step for step; where a section below names a script, it is followe
 | `05_tree_summary.py` | `wildphylo tree clades` |
 | `06_subsample.py` | `wildphylo beast subsample` |
 | `07_make_beast_xml.py` | `wildphylo beast xml` (`--randomize-dates N` for the date-randomisation replicates) |
-| `08_add_references.py` | `wildphylo curate metadata` (lineage references enter as anchors, `references.include_as_anchors`) |
+| `08_add_references.py` | `wildphylo curate metadata` (lineage references already in the fetched records are flagged as anchors, `references.include_as_anchors`; they are not downloaded separately) |
 | `09_make_auspice.py` | `wildphylo auspice dataset` |
 
 Steps with no numbered script in the original analysis, added by wildphylo as gates or
@@ -349,6 +349,27 @@ with zero observations and the instability persisted (failing later, at ~1.2 × 
 The merge was therefore performed at the FASTA level and the model rebuilt, ensuring model
 dimensionality matched the data.
 
+*How a rebuild handles it, and how that differs.* `hosts.dta_states` in
+`config/cdv.yaml` declares the five states directly: `procyonid`, `wild_canid`,
+`mustelid`, `wild_felid`, `domestic_dog`. `ailurid` is left unmapped, so
+`wildphylo beast xml` enters that tip as `?`, ambiguous across all five states
+through the codeMap, and the substitution model is built with five dimensions
+from the start. The published run instead relabelled MK487378 (*Ailurus
+fulgens*, a red panda) as `wild_felid`, which asserted a felid observation that
+was never made; Ailuridae is not Felidae, and one tip cannot inform a rate
+either way. A rebuild therefore has the same five states and the same model
+dimensionality as the published run, with one tip's host state ambiguous rather
+than wrong. `wildphylo gates compare` will report that difference, and it is
+the only intended one in the trait block. The `?` route has not been run
+against the crash above, so a rebuild should be watched through the first
+10⁶ states.
+
+The config earlier also mapped `domestic_cat` to the felid state. No rule in
+`config/host_groups.tsv` produces `domestic_cat` — domestic cat is filed under
+`other` — so the mapping never fired and nothing in any run pooled domestic
+with wild felids. The key is gone, and `wildphylo config validate` now warns on
+a `dta_states` key the host table cannot produce.
+
 **BSSVS disabled.** Bayesian stochastic search variable selection was initially enabled to
 identify supported transitions. BSSVS permits rate indicators to switch to zero; when all
 indicators for a state are off, the conditional distribution for ancestral state sampling
@@ -391,9 +412,15 @@ corrected analysis gives ucldStdev 0.45 (CoV 0.47), a TMRCA of 1976 with a 23-ye
 interval, and every parameter converging on a single chain. Both the erroneous and
 corrected outputs are retained in the repository (`run100M/` and `run100M_fixed/`).
 
-*Preventive check.* `wildphylo beast xml` (script `07_make_beast_xml.py` up to `v1.0.1`) and the launch procedure now assert
-`traitname="date-forward"` before a chain starts, and MCC trees are verified against
-sampling dates before interpretation.
+*Preventive check.* `wildphylo beast xml` (script `07_make_beast_xml.py` up to
+`v1.0.1`) writes `traitname="date-forward"` as a fixed value in every BEAST XML.
+The direction is not configurable and the builder does not check it, so this is
+prevention by construction, not an assertion. An inverted axis is caught after
+the run: `wildphylo gates temporal` on the MCC tree regresses root-to-tip
+distance on sampling date and fails the gate as "TIME AXIS INVERTED" when the
+slope is -1.0 with R² above 0.80. The same gate run before BEAST cannot catch
+it, because the ML tree is in substitutions per site, where the slope is nowhere
+near ±1. Running the gate on the MCC tree is a manual step; no rule does it.
 
 ### 9.6 Convergence and posterior estimates
 
@@ -556,7 +583,17 @@ captive origin for all felid sequences, Nextstrain build (§12).
 
 ### 11.1 Validate clade identity and outliers — partly complete
 
-Step: `wildphylo curate metadata` (script `08_add_references.py` up to `v1.0.1`), with accessions in `config/lineage_references.tsv`.
+Step: `wildphylo curate metadata` (script `08_add_references.py` up to `v1.0.1`),
+with accessions in `config/lineage_references.tsv`.
+
+The reference accessions are not fetched individually. `wildphylo fetch records`
+downloads whatever the taxon query returns (txid 11232, `NOT patent[Title]`), and
+`curate metadata` flags the records whose accession matches a nucleotide row of
+the table. A table accession absent from the fetched set is omitted with a log
+warning, "reference anchors not present in ...", not an error; protein accessions
+in the table are skipped the same way. Three of the eight nucleotide references
+are the US patent 8647637 panel, so the `NOT patent[Title]` filter is the first
+thing to check if a lineage goes unnamed.
 
 Reference sequences with published lineage designations are merged with the query set,
 realigned, and a classification tree built. Lineage assignment follows from which

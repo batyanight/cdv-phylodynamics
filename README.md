@@ -97,7 +97,7 @@ until then; history is not rewritten.
 ## Pipeline
 
 The analysis is run by [wildphylo](https://github.com/batyanight/wildphylo), installed
-from the tag pinned in `environment.yml` (`v0.2.0`). Every step is a
+from the tag pinned in `environment.yml` (`v0.2.1`). Every step is a
 `wildphylo <stage> <step>` command; the stages are fetch, curate, align, tree, gates, beast,
 auspice and publish. Every exclusion is logged with a machine-readable reason, and a gate
 that fails stops the run. The gates:
