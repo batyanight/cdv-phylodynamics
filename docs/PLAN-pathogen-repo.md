@@ -25,7 +25,7 @@ config/host_groups.tsv             (from wildphylo)
 config/lineage_references.tsv
 config/vaccine_strains.txt
 auspice/cdv-phylodynamics.json     the served dataset; written by `wildphylo publish dataset`
-builds/<YYYYMMDD>/                 audit trail per build (provenance, checks, qc, temporal, clades, build_comparison)
+builds/cdv/<YYYYMMDD>/             audit trail per build (provenance, checks, qc, temporal, clades, build_comparison)
 beast/clade3/run100M_fixed/        the published runs' XMLs and manifest only
 analysis/                          CDV-specific post-processing (H annotation), later
 environment.yml                    conda env with wildphylo pinned by tag
@@ -54,3 +54,19 @@ README.md, METHODS.md, BEAST_MANIFEST.md, CITATION.cff, LICENSE, GLOSSARY.md (li
 5. Remove scripts, data/processed, crashed and previous BEAST runs, working files; update README and CITATION (new version, pipeline citation).
 6. Full build; `wildphylo gates compare` against the served dataset; publish only on `ok`.
 7. Run the two outstanding analyses (date randomisation, asymmetric trait model) through wildphylo's gates.
+
+## Decisions needed before the full build (found while rewriting METHODS)
+
+- **Host states.** `config/cdv.yaml` maps `wild_felid` and `domestic_cat` to one
+  state `felid`; the published run used five states with `wild_felid` and
+  `ailurid` merged at the alignment level. A rebuild from `cdv.yaml` will not
+  reproduce the published states exactly, so `gates compare` against the served
+  dataset will differ for a known reason. Settle the state map first.
+- **CDS bounds.** `cdv.yaml` still carries "VERIFY against AF164967" on the H
+  CDS bounds `[21, 1844]`.
+- **METHODS §9.5** claims the XML builder asserts `traitname="date-forward"`;
+  wildphylo writes it and the temporal gate detects an inverted axis, but no
+  explicit assertion was found in `beast xml`. Verify or reword.
+- **Reference anchors.** METHODS maps `08_add_references` to `curate metadata`
+  (`references.include_as_anchors`); confirm the lineage reference accessions
+  are fetched there and not assumed present.

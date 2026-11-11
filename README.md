@@ -4,10 +4,13 @@
 
 **Phylodynamics of a wildlife-maintained canine distemper virus lineage in North American carnivores.**
 
-A reproducible pipeline for analysing canine distemper virus (*Morbillivirus canis*)
-hemagglutinin gene sequences from GenBank: curation, alignment QC, maximum likelihood
-phylogeny, clade delineation, temporal signal assessment, stratified subsampling, and
-Bayesian phylodynamic inference with discrete host-state reconstruction.
+The CDV analysis repository: pipeline configuration, the audit trail of each build, the
+served Auspice dataset, the published BEAST XMLs and the methods. The pipeline itself
+(curation, alignment QC, maximum likelihood phylogeny, clade delineation, temporal signal
+assessment, stratified subsampling, Bayesian phylodynamic inference with discrete
+host-state reconstruction) is [wildphylo](https://github.com/batyanight/wildphylo);
+canine distemper virus (*Morbillivirus canis*) hemagglutinin gene sequences from GenBank
+are the input.
 
 **[View the interactive phylogeny →](https://nextstrain.org/community/batyanight/cdv-phylodynamics)**
 
@@ -71,57 +74,85 @@ lineage originated. See [limitations](METHODS.md).
 
 ---
 
+## What this repo holds
+
+| Path | Contents |
+|---|---|
+| `config/` | The pathogen config `cdv.yaml` and the tables it points to (`host_groups.tsv`, `lineage_references.tsv`, `vaccine_strains.txt`). Everything CDV-specific lives here; the pipeline holds nothing pathogen-specific |
+| `builds/` | The audit trail of each build: provenance, accession snapshots, QC and temporal reports, clade summaries, build comparison. Large intermediate files are not tracked |
+| `auspice/cdv-phylodynamics.json` | The Auspice dataset served at the Nextstrain link above |
+| `beast/clade3/run100M_fixed/` | The BEAST XMLs of the published runs. [BEAST_MANIFEST.md](BEAST_MANIFEST.md) says which XML produced the published result and which are superseded |
+| `METHODS.md` | Complete methods, including model decisions and limitations |
+| `GLOSSARY.md` | The CDV-specific terms; all other terms are wildphylo's |
+
+BEAUti settings for the discrete trait analysis are documented in
+[METHODS.md](METHODS.md) §9.1–9.4 (sequence partition, trait partition, model
+decisions, MCMC).
+
+The BEAST runs under `beast/clade3/previous_runs`, `crashed_run*` and `data/processed`
+are tracked today but are scheduled to move to a Zenodo deposit (see
+[docs/PLAN-pathogen-repo.md](docs/PLAN-pathogen-repo.md)). They stay in the repository
+until then; history is not rewritten.
+
 ## Pipeline
 
-Scripts run in numbered order. Every exclusion is logged with a machine-readable reason.
+The analysis is run by [wildphylo](https://github.com/batyanight/wildphylo), installed
+from the tag pinned in `environment.yml` (`v0.2.0`). Every step is a
+`wildphylo <stage> <step>` command; the stages are fetch, curate, align, tree, gates, beast,
+auspice and publish. Every exclusion is logged with a machine-readable reason, and a gate
+that fails stops the run. The gates:
 
-| Script | Purpose |
-|---|---|
-| `00_check_env.py` | Verify Python packages and command-line tools; print install commands for anything missing |
-| `01_fetch_sequences.py` | Retrieve all CDV records from GenBank; date-stamped, cached, with accession list |
-| `02_curate_metadata.py` | Host normalisation, vaccine-strain filtering, date parsing, H-gene extraction, exclusion logging |
-| `03_align_and_tree.py` | Tip relabelling for BEAST/TempEst, MAFFT alignment, IQ-TREE ML phylogeny |
-| `04_alignment_qc.py` | Gap/ambiguity/identity statistics, coverage plot, reading-frame inference, duplicate detection |
-| `05_tree_summary.py` | Clade delineation and host composition; identifies candidate clades for focused analysis |
-| `06_subsample.py` | Stratified subsampling by clade × host × time; deterministic |
-| `07_make_beast_xml.py` | BEAST2 XML generation and date-randomised replicates |
-| `08_add_references.py` | Fetch published lineage reference sequences for classification |
+- **Review gate**: refuses while `needs_review.tsv` is non-empty (ambiguous host labels
+  are an input to the host-transition analysis).
+- **Temporal gate**: root-to-tip regression, date-shuffling permutation test and
+  sampling-design diagnostics; on `fail` the BEAST branch is not scheduled.
+- **Congruence gate**: segment topology agreement. Segmented pathogens only, so not
+  applicable to CDV.
+- **Convergence gate**: ESS and between-chain agreement, checked before any number is
+  reported.
+- **Trait signal gate**: shuffles host labels across the tips of the posterior trees to
+  test whether host is associated with the phylogeny at all.
+- **Comparison gate**: every build is compared against the previous one
+  (`wildphylo gates compare`); a lost sequence or a moved TMRCA is a regression until
+  explained.
 
-`notebooks/01_explore_dataset.ipynb` is an interactive companion that imports these scripts
-rather than duplicating them.
+Terms follow wildphylo's [GLOSSARY.md](https://github.com/batyanight/wildphylo/blob/main/GLOSSARY.md).
 
-## Setup
+**Versions.** The analysis reported in Findings was run with the standalone numbered
+scripts that preceded wildphylo. That code is at tag `v1.0.1`; the Zenodo release is
+`v1.0.0` (2026-08-30). [METHODS.md §1](METHODS.md) maps each script to the
+`wildphylo` step that replaced it.
+
+## Reproduce
 
 ```bash
 git clone https://github.com/batyanight/cdv-phylodynamics.git
 cd cdv-phylodynamics
 conda env create -f environment.yml
 conda activate cdv-phylo
-python scripts/00_check_env.py
+snakemake --configfile config/cdv.yaml --cores 8
 ```
 
-Full instructions in [SETUP_MACOS.md](SETUP_MACOS.md). BEAST2, Tracer, TempEst and FigTree
-are Java applications installed separately.
+The environment installs wildphylo at its pinned tag. BEAST2, Tracer and FigTree are
+Java applications installed separately; BEAST chains are the step that would belong on a
+cluster. Add `-n` for a dry run that validates the config and resolves the job graph
+before anything downloads.
 
-## Documentation
+A build writes to `builds/cdv/<YYYYMMDD>/`; the newest date is the current build, and
+earlier builds are kept. The audit trail is the tracked subset of that folder. Pin
+`--config build_date=<YYYYMMDD>` to resume or reproduce a build.
 
-- **[METHODS.md](METHODS.md)** — complete methods, including model decisions forced by
-  numerical instability, limitations, and the Nextstrain implementation plan
-- **[SETUP_MACOS.md](SETUP_MACOS.md)** — environment setup, Java tools, and compute
-  planning
-- **[BEAST_MANIFEST.md](BEAST_MANIFEST.md)** — which BEAST XML produced the published
-  result, and which are superseded
-
-BEAUti settings for the discrete trait analysis are documented in
-[METHODS.md](METHODS.md) §9.1–9.4 (sequence partition, trait partition, model
-decisions, MCMC).
+**The Nextstrain entry only changes when a new `auspice/cdv-phylodynamics.json` is pushed
+to `main`.** Rebuilding does not change it. Push a regenerated dataset only after
+`wildphylo gates compare` passes against the served one.
 
 ## Data
 
 All sequence data are public, from GenBank. No restricted or unpublished material is used.
-Most sequence and BEAST output files are excluded from version control by `.gitignore`;
-the pipeline regenerates them from the accession list. Three are tracked deliberately,
-because the published dataset cannot be reproduced without them:
+Each build's accession snapshot (`raw/*.acc`) and provenance record are the reproducible
+record of the dataset, because GenBank content changes over time. Until the Zenodo
+deposit above exists, three processed files are tracked deliberately because the
+published dataset cannot be reproduced without them:
 `data/processed/H_clade_3.fasta` (the analysed alignment),
 `data/processed/H_clade_3_ref.fasta` (the same alignment with A75/17 added, which
 defines every coordinate in the annotation), and `data/processed/metadata_clean.tsv`

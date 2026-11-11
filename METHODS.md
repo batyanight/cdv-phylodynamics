@@ -13,7 +13,8 @@ section and to let another person reproduce the work from the repository.
 
 | Tool | Version | Used for |
 |---|---|---|
-| Python | 3.11 | pipeline scripts |
+| wildphylo | v0.2.0 | the pipeline: every stage and gate (see below) |
+| Python | 3.11 | wildphylo and its dependencies |
 | Biopython | 1.8x | GenBank parsing, sequence handling |
 | pandas | 2.x | metadata tables |
 | MAFFT | 7.x | multiple sequence alignment |
@@ -25,10 +26,39 @@ section and to let another person reproduce the work from the repository.
 
 `[FILL IN exact versions from your machine: mafft --version, iqtree2 --version, conda list]`
 
-All pipeline code, configuration files and BEAST XMLs are in the project repository.
-Analysis scripts are numbered in execution order (`00_check_env.py` through
-`07_make_beast_xml.py`). Every exclusion is logged to `data/interim/exclusions.tsv`
-with a machine-readable reason.
+The pipeline is [wildphylo](https://github.com/batyanight/wildphylo), version `v0.2.0`,
+installed from the tag pinned in `environment.yml`. Each step is a
+`wildphylo <stage> <step>` command; the Snakefile in this repository includes
+wildphylo's workflow with `config/cdv.yaml`. The configuration files, the audit trail of
+each build, the final BEAST XMLs for the published runs and the served Auspice dataset
+are in this repository. Every exclusion is logged with a machine-readable reason. Terms
+follow wildphylo's glossary (see `GLOSSARY.md`).
+
+The analysis reported below was run with the standalone numbered scripts that preceded
+wildphylo. That code is at tag `v1.0.1` (the Zenodo release is `v1.0.0`). The scripts
+were replaced step for step; where a section below names a script, it is followed by the
+`wildphylo` step that now does the same job.
+
+| Script (up to `v1.0.1`) | wildphylo step now |
+|---|---|
+| `00_check_env.py` | none as a step: the environment is `environment.yml`, and `wildphylo config validate config/cdv.yaml` checks the config |
+| `01_fetch_sequences.py` | `wildphylo fetch records` |
+| `02_curate_metadata.py` | `wildphylo curate metadata` (and `wildphylo curate review`, the review gate) |
+| `03_align_and_tree.py` | the `align` and `ml_tree` rules of wildphylo's workflow (MAFFT, IQ-TREE); not a separate step |
+| `04_alignment_qc.py` | `wildphylo align qc` |
+| `05_tree_summary.py` | `wildphylo tree clades` |
+| `06_subsample.py` | `wildphylo beast subsample` |
+| `07_make_beast_xml.py` | `wildphylo beast xml` (`--randomize-dates N` for the date-randomisation replicates) |
+| `08_add_references.py` | `wildphylo curate metadata` (lineage references enter as anchors, `references.include_as_anchors`) |
+| `09_make_auspice.py` | `wildphylo auspice dataset` |
+
+Steps with no numbered script in the original analysis, added by wildphylo as gates or
+post-processing: `wildphylo gates temporal` (automates the root-to-tip regression and
+permutation test; the root-to-tip figures in §7 were produced in TempEst and are
+unchanged), `gates congruence` (segmented pathogens only; not used for CDV),
+`gates convergence`, `gates trait-signal`, `gates drt` (summarises the
+date-randomisation replicates), `gates compare` (build against build), `beast jumps`,
+`beast state-through-time` and `auspice entropy`.
 
 **Disclosure.** Pipeline code and analysis scripts were developed with assistance from
 an AI assistant (Claude, Anthropic). All analytical decisions, data curation judgements,
@@ -52,13 +82,13 @@ raw GenBank flatfile and a companion accession list are archived under `data/raw
 date-stamped filename; GenBank content changes over time, so the dated pull and accession
 list constitute the reproducible record of the dataset.
 
-Script: `01_fetch_sequences.py`.
+Step: `wildphylo fetch records` (script `01_fetch_sequences.py` up to `v1.0.1`).
 
 ---
 
 ## 3. Metadata curation and filtering
 
-Script: `02_curate_metadata.py`. Every record was parsed for accession, host, country,
+Step: `wildphylo curate metadata` (script `02_curate_metadata.py` up to `v1.0.1`). Every record was parsed for accession, host, country,
 collection date, strain/isolate designation, and gene content.
 
 ### 3.1 Host normalisation
@@ -123,7 +153,7 @@ are in `data/interim/exclusions.tsv`.
 Sequences were aligned with MAFFT (`--auto --adjustdirection`). Sequences reverse
 complemented by MAFFT were noted and inspected.
 
-Alignment quality was assessed with `04_alignment_qc.py`, which computes per-sequence gap
+Alignment quality was assessed with `wildphylo align qc` (script `04_alignment_qc.py` up to `v1.0.1`), which computes per-sequence gap
 and ambiguity fractions, identity to the alignment consensus, per-column coverage, and
 internal stop codons. Reading frame was inferred at the dataset level as the frame
 minimising total internal stops across all sequences; individual sequences with internal
@@ -171,7 +201,7 @@ Wild carnivores comprised 823 sequences (46.7%).
 
 ## 6. Clade delineation
 
-Script: `05_tree_summary.py`. The ML tree was midpoint-rooted and partitioned into major
+Step: `wildphylo tree clades` (script `05_tree_summary.py` up to `v1.0.1`). The ML tree was midpoint-rooted and partitioned into major
 groups by iteratively splitting the largest remaining clade at its deepest internal division
 until approximately 20 groups were obtained. Each group was characterised by size, bootstrap
 support, temporal span, and host composition.
@@ -227,7 +257,7 @@ Formal assessment is by date-randomisation (§11.2).
 
 ## 8. Subsampling
 
-Script: `06_subsample.py`. Two datasets were produced.
+Step: `wildphylo beast subsample` (script `06_subsample.py` up to `v1.0.1`). Two datasets were produced.
 
 **Global (n = 400).** Stratified across clade × host group × 5-year time bin, with each
 non-empty stratum guaranteed at least one representative and the remaining budget
@@ -361,7 +391,7 @@ corrected analysis gives ucldStdev 0.45 (CoV 0.47), a TMRCA of 1976 with a 23-ye
 interval, and every parameter converging on a single chain. Both the erroneous and
 corrected outputs are retained in the repository (`run100M/` and `run100M_fixed/`).
 
-*Preventive check.* `07_make_beast_xml.py` and the launch procedure now assert
+*Preventive check.* `wildphylo beast xml` (script `07_make_beast_xml.py` up to `v1.0.1`) and the launch procedure now assert
 `traitname="date-forward"` before a chain starts, and MCC trees are verified against
 sampling dates before interpretation.
 
@@ -465,7 +495,7 @@ investigations — not on ancestral state probability alone.
 ### 9.10 Lineage assignment
 
 Twenty published lineage reference sequences were added and an ML tree rebuilt
-(`08_add_references.py`). Patristic distances place **America-2** closest to the query set:
+(`08_add_references.py` up to `v1.0.1`; now `wildphylo curate metadata`, which admits the lineage references as anchors). Patristic distances place **America-2** closest to the query set:
 A75/17 (AF164967) at mean distance 0.038 (minimum 0.010), AF112189 at 0.040. Two sequences
 already in the dataset (EU716337, KJ123771) are themselves published America-2 reference
 strains. The America-2 isolates Black panther A-92 (Z54166) and "America dog" (Z47762) also
@@ -526,7 +556,7 @@ captive origin for all felid sequences, Nextstrain build (§12).
 
 ### 11.1 Validate clade identity and outliers — partly complete
 
-Script: `08_add_references.py`, with accessions in `config/lineage_references.tsv`.
+Step: `wildphylo curate metadata` (script `08_add_references.py` up to `v1.0.1`), with accessions in `config/lineage_references.tsv`.
 
 Reference sequences with published lineage designations are merged with the query set,
 realigned, and a classification tree built. Lineage assignment follows from which
@@ -567,8 +597,8 @@ Separately, inspect individually:
 
 ### 11.2 Date-randomisation test
 
-Generate 20 replicates with tip dates shuffled (`07_make_beast_xml.py --randomize-dates 20`)
-and run at reduced chain length. Temporal signal is demonstrated if the 95% HPD of the real
+Generate 20 replicates with tip dates shuffled (`wildphylo beast xml --randomize-dates 20`; script `07_make_beast_xml.py` up to `v1.0.1`)
+and run at reduced chain length; `wildphylo gates drt` summarises the replicates. Temporal signal is demonstrated if the 95% HPD of the real
 `ucldMean` estimate does not overlap the distribution of randomised estimates. This is the
 defensible test of temporal signal and substitutes for arguing from R².
 
@@ -787,7 +817,7 @@ verified before publication**.
   pathogen evolution. *Bioinformatics* 34(23):4121–4123. *[verify]*
 
   **Scope note:** Auspice was used for visualisation only. Augur was **not** used; the
-  MCC tree was converted to Auspice v2 JSON directly by `scripts/09_make_auspice.py`.
+  MCC tree was converted to Auspice v2 JSON directly by `scripts/09_make_auspice.py` (up to `v1.0.1`; now `wildphylo auspice dataset`).
   Do not describe this as a Nextstrain pipeline build.
 
 ### Data handling
