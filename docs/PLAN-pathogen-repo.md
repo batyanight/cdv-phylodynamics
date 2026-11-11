@@ -34,16 +34,16 @@ Snakefile                          thin: `include` wildphylo's workflow with thi
 README.md, METHODS.md, BEAST_MANIFEST.md, CITATION.cff, LICENSE, GLOSSARY.md (links to wildphylo's)
 ```
 
-## Open questions for wildphylo first
+## Verified against wildphylo `stage-cli`
 
-- The Snakefile must be runnable from an installed wildphylo, not only from its
-  checkout: `workflow/Snakefile` resolves `scripts/` relative paths nowhere any
-  more, but `config/host_groups.tsv`-style paths in the config are resolved
-  relative to the config file, which is what this repo needs. Verify with a
-  dry run from this directory.
-- `wildphylo publish dataset` needs a config key for the pathogen repo path
-  (proposed `nextstrain.publish.pathogen_repo`), or the Snakefile here passes
-  `--pathogen-repo .`.
+- The Snakefile runs from outside its checkout: from a directory holding only
+  `config/cdv.yaml` and the three tables,
+  `snakemake -s ~/wildphylo/workflow/Snakefile --configfile config/cdv.yaml -n`
+  resolves the 9-job CDV DAG, `builds/` lands under the current directory, and
+  `wildphylo config validate config/cdv.yaml` passes. No wildphylo change needed.
+- Still open: `wildphylo publish dataset` is not wired into the Snakefile. The
+  wrapper here can call it directly with `--pathogen-repo .` after
+  `gates compare`, or wildphylo grows `nextstrain.publish.pathogen_repo`.
 
 ## Order of work
 
