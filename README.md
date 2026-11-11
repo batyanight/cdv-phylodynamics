@@ -90,9 +90,11 @@ BEAUti settings for the discrete trait analysis are documented in
 decisions, MCMC).
 
 The BEAST runs under `beast/clade3/previous_runs`, `crashed_run*` and `data/processed`
-are tracked today but are scheduled to move to a Zenodo deposit (see
-[docs/PLAN-pathogen-repo.md](docs/PLAN-pathogen-repo.md)). They stay in the repository
-until then; history is not rewritten.
+are tracked today but are scheduled to move to a Zenodo deposit, which is built
+and waiting to upload. They stay in the repository until then; history is not
+rewritten. What happens next, in order and with the commands, is
+[docs/NEXT-STEPS.md](docs/NEXT-STEPS.md); the reasoning behind each decision is
+[docs/PLAN-pathogen-repo.md](docs/PLAN-pathogen-repo.md).
 
 ## Pipeline
 

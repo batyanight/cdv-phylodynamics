@@ -108,6 +108,9 @@ resolutions; this section records what was decided and why.
 
 ## Open
 
+The running order, with the commands, is `docs/NEXT-STEPS.md`. This section
+keeps the reasoning.
+
 - **`wildphylo publish dataset` is not wired into the Snakefile.** It needs a
   config key for the pathogen repo path. The wrapper here can call it directly
   with `--pathogen-repo .` after `gates compare`, or wildphylo grows
