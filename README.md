@@ -31,7 +31,7 @@ raccoon (*Procyon lotor*, n=91), coyote (*Canis latrans*, 16), striped skunk
 (*Mephitis mephitis*, 14), red fox (*Vulpes vulpes*, 10) — from Canada (114), the USA (44)
 and Denmark (4). Assigned to lineage **America-2** by reference sequence placement.
 
-**Evolutionary parameters.** BEAST 2.7.7, two chains of 10⁸ states, HKY+Γ₄, uncorrelated
+**Evolutionary parameters.** BEAST 2.7.8, two chains of 10⁸ states, HKY+Γ₄, uncorrelated
 relaxed lognormal clock, constant-size coalescent. 1802 combined samples, all ESS > 500.
 
 | Parameter | Median | 95% HPD |

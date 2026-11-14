@@ -15,7 +15,7 @@ and are not repeated here. This file lists only the CDV-specific terms.
 - **wild_canid** — dta_states state: coyote, red fox, grey fox and other non-domestic canids.
 - **mustelid** — dta_states state: skunks (*Mephitis mephitis*), mink (*Neovison vison*), martens and other mustelids.
 - **domestic_dog** — dta_states state: *Canis lupus familiaris*.
-- **felid** — dta_states state in `config/cdv.yaml`, pooling `wild_felid` and `domestic_cat`. The published run (METHODS.md §9.2) used `wild_felid`, with the single ailurid sequence merged into it at the alignment level (§9.3); its five states are procyonid, wild_canid, mustelid, domestic_dog and wild_felid.
+- **wild_felid** — dta_states state: non-domestic cats. In the published run (METHODS.md §9.2) the single ailurid sequence was merged into it at the alignment level (§9.3). There is no `felid` state; domestic cats are not one of the five states.
 - **wild groups** — `wild_felid`, `wild_canid`, `mustelid`, `procyonid`, `ailurid`, `ursid`, `viverrid`: the host groups counted as wildlife (`hosts.wild_groups`) for subsampling and reporting.
 - **lineage references** — the published reference sequences of the CDV lineages in `config/lineage_references.tsv` (America-1, America-2, Asia-1 to 4, Europe, Europe-Wildlife, Arctic-like, Africa-1, South-America-1). Entered as anchors so clades can be named. Every row is to be verified against its primary source before publication (see Outstanding work in the README); AF259552, listed as America-2 in a patent filing, was excluded as mislabelled (METHODS.md §9.10).
 - **captive felid cluster** — a well-supported felid clade on the MCC tree matching a documented captive outbreak: ~1992 (lion and leopard) and ~2015 (four tigers, Indiana) (METHODS.md §9.9).

@@ -13,22 +13,25 @@ section and to let another person reproduce the work from the repository.
 
 Versions used for the analysis reported below (scripts at `v1.0.1`). "Recorded" means the
 version is printed in that run's own output; "pinned" means it is the version
-`environment.yml` at `v1.0.1` asked for, with no output from the run that confirms it.
+`environment.yml` at `v1.0.1` asked for, with no output from the run that confirms it;
+"stated by the author" means neither a run output nor a pin records it.
 
 | Tool | Version | Source | Used for |
 |---|---|---|---|
 | Python | 3.11 | pinned | analysis scripts |
 | Biopython | 1.83 | pinned | GenBank parsing, sequence handling |
 | pandas | 2.2 | pinned | metadata tables |
-| MAFFT | 7.520 | pinned | multiple sequence alignment (`mafft --auto`) |
+| MAFFT | 7.520 | pinned | multiple sequence alignment (`mafft --auto --adjustdirection`, §4) |
 | IQ-TREE | 2.2.2.9 | recorded (IQ-TREE log, 2026-08-26) | maximum likelihood phylogeny, ModelFinder |
-| TempEst | 1.5.3 | as stated by the author | root-to-tip temporal signal |
-| BEAST | 2.7.7 | recorded (BEAST logs) | Bayesian phylodynamics |
+| TempEst | 1.5.3 | stated by the author | root-to-tip temporal signal |
+| BEAST | 2.7.8 | recorded (`run.out` of each published chain) | Bayesian phylodynamics |
 | BEAST_CLASSIC | 1.6.4 | recorded (BEAST logs) | ancestral state reconstruction |
-| Tracer | 1.7.x | as stated by the author | MCMC convergence assessment |
+| Tracer | 1.7.x | stated by the author | MCMC convergence assessment |
 
 The exploration notebook ran on a Python 3.10.9 kernel, so the scripts' Python may not
-have been the pinned 3.11. The current pipeline (wildphylo `v0.3.0`) runs on newer
+have been the pinned 3.11. BEAST was launched from an install folder named `BEAST 2.7.7`
+(`beast/clade3/run100M*/run_all.sh`), but every published chain's `run.out` reports
+BEAST v2.7.8. The current pipeline (wildphylo `v0.3.0`) runs on newer
 versions, MAFFT 7.526 and IQ-TREE 3.1.4 among them; its exact versions for macOS and
 Linux are in `conda-lock.yml`.
 
@@ -57,6 +60,10 @@ were replaced step for step; where a section below names a script, it is followe
 | `07_make_beast_xml.py` | `wildphylo beast xml` (`--randomize-dates N` for the date-randomisation replicates) |
 | `08_add_references.py` | `wildphylo curate metadata` (lineage references already in the fetched records are flagged as anchors, `references.include_as_anchors`; they are not downloaded separately) |
 | `09_make_auspice.py` | `wildphylo auspice dataset` |
+| `10_add_entropy.py` | `wildphylo auspice entropy` |
+| `11_annotate_H.py` | none yet: the H gene and domain annotation has no wildphylo step. Its code is at `v1.0.1` and returns to this repository under `analysis/` once it is reworked against `locus.coordinate_reference` (`docs/PLAN-pathogen-repo.md`) |
+| `cdv_h_coords.py` | none: a helper module imported by scripts 10 and 11, not a step |
+| `check_repo_sync.py` | none: a read-only repository audit, not part of the analysis |
 
 Steps with no numbered script in the original analysis, added by wildphylo as gates or
 post-processing: `wildphylo gates temporal` (automates the root-to-tip regression and
@@ -64,7 +71,7 @@ permutation test; the root-to-tip figures in §7 were produced in TempEst and ar
 unchanged), `gates congruence` (segmented pathogens only; not used for CDV),
 `gates convergence`, `gates trait-signal`, `gates drt` (summarises the
 date-randomisation replicates), `gates compare` (build against build), `beast jumps`,
-`beast state-through-time` and `auspice entropy`.
+and `beast state-through-time`.
 
 **Disclosure.** Pipeline code and analysis scripts were developed with assistance from
 an AI assistant (Claude, Anthropic). All analytical decisions, data curation judgements,
@@ -390,7 +397,7 @@ pairs exchange remain estimable. Directional inference is listed as future work 
 ### 9.4 MCMC
 
 Two independent chains of 10⁷ states each, seeds 12345 and 54321, sampling every 10⁴ states
-(1000 samples per chain). Run in BEAST 2.7.7 without BEAGLE (BEAGLE library unavailable on
+(1000 samples per chain). Run in BEAST (version in §1) without BEAGLE (BEAGLE library unavailable on
 the analysis machine; Java `BeerLikelihoodCore` used instead, affecting speed only).
 
 **Chain length.** An initial pair of chains at 10⁷ states gave adequate mixing for trait
