@@ -11,20 +11,26 @@ section and to let another person reproduce the work from the repository.
 
 ## 1. Software and reproducibility
 
-| Tool | Version | Used for |
-|---|---|---|
-| wildphylo | v0.3.0 | the pipeline: every stage and gate (see below) |
-| Python | 3.11 | wildphylo and its dependencies |
-| Biopython | 1.8x | GenBank parsing, sequence handling |
-| pandas | 2.x | metadata tables |
-| MAFFT | 7.x | multiple sequence alignment |
-| IQ-TREE | 2.x | maximum likelihood phylogeny, ModelFinder |
-| TempEst | 1.5.3 | root-to-tip temporal signal |
-| BEAST | 2.7.7 | Bayesian phylodynamics |
-| BEAST_CLASSIC | (BEAST 2.7 package) | ancestral state reconstruction |
-| Tracer | 1.7.x | MCMC convergence assessment |
+Versions used for the analysis reported below (scripts at `v1.0.1`). "Recorded" means the
+version is printed in that run's own output; "pinned" means it is the version
+`environment.yml` at `v1.0.1` asked for, with no output from the run that confirms it.
 
-`[FILL IN exact versions from your machine: mafft --version, iqtree2 --version, conda list]`
+| Tool | Version | Source | Used for |
+|---|---|---|---|
+| Python | 3.11 | pinned | analysis scripts |
+| Biopython | 1.83 | pinned | GenBank parsing, sequence handling |
+| pandas | 2.2 | pinned | metadata tables |
+| MAFFT | 7.520 | pinned | multiple sequence alignment (`mafft --auto`) |
+| IQ-TREE | 2.2.2.9 | recorded (IQ-TREE log, 2026-08-26) | maximum likelihood phylogeny, ModelFinder |
+| TempEst | 1.5.3 | as stated by the author | root-to-tip temporal signal |
+| BEAST | 2.7.7 | recorded (BEAST logs) | Bayesian phylodynamics |
+| BEAST_CLASSIC | 1.6.4 | recorded (BEAST logs) | ancestral state reconstruction |
+| Tracer | 1.7.x | as stated by the author | MCMC convergence assessment |
+
+The exploration notebook ran on a Python 3.10.9 kernel, so the scripts' Python may not
+have been the pinned 3.11. The current pipeline (wildphylo `v0.3.0`) runs on newer
+versions, MAFFT 7.526 and IQ-TREE 3.1.4 among them; its exact versions for macOS and
+Linux are in `conda-lock.yml`.
 
 The pipeline is [wildphylo](https://github.com/batyanight/wildphylo), version `v0.3.0`,
 installed from the tag pinned in `environment.yml`. Each step is a
