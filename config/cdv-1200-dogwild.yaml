@@ -1,4 +1,4 @@
-# cdv-1200-dogwild — two-state companion to cdv-1200.yaml (DR-008).
+# cdv-1200-dogwild — two-state companion to cdv-1200.yaml (wildphylo's DECISIONS.md, DR-008).
 #
 # The five-state asymmetric run fits 20 rates from 65 tips. Most will not be
 # identified, which is honest but underpowered for the headline question: is
@@ -8,8 +8,9 @@
 # 2 rates from 65 tips (9 dog, 56 wild). BSSVS is off because there is nothing
 # to select between two rates. Run it alongside cdv-1200, not instead of it.
 #
-# Derived from cdv-1200.yaml. Everything except hosts.dta_states and
-# beast.discrete_trait is inherited unchanged.
+# Derived from cdv-1200.yaml. It differs in id, hosts.dta_states,
+# beast.discrete_trait, date_randomisation.enabled (off) and
+# nextstrain.build_name; everything else is the same.
 
 id: cdv-1200-dogwild
 name: Canine distemper virus
@@ -47,8 +48,8 @@ locus:
     strain: A75/17
     lineage: America-2
     cds:
-    - 21
-    - 1844
+    - 7079
+    - 8902
   annotation_overlength_tolerance: 0.02
   imprecise_date_policy: midpoint
 dates:
@@ -135,7 +136,7 @@ beast:
     symmetric: false
     bssvs: false
     # Tip-label randomisation: does host associate with the tree at all?
-    # Minutes on the existing posterior. See DECISIONS.md DR-009.
+    # Minutes on the existing posterior. See wildphylo's DECISIONS.md, DR-009.
     signal_gate: true
     signal_permutations: 1000   # smallest obtainable p is 1/(this + 1)
     on_no_signal: stop          # stop | warn
@@ -170,4 +171,7 @@ nextstrain:
     keep_builds: 12
     alert_on_tmrca_shift_years: 5.0
     alert_on_sequence_loss: true
+# Lets the review gate (wildphylo curate review) pass records still flagged
+# for manual review. Set for this variant build only; config/cdv.yaml does not
+# set it, so the main build's records must be reviewed before it runs.
 accept_unreviewed: true

@@ -3,7 +3,7 @@
 #
 # This is the reference implementation: the analysis the pipeline was built
 # from. Every value here was hardcoded in a script before. Copy
-# config/pathogen/_template.yaml to start a new pathogen.
+# wildphylo's config/pathogen/_template.yaml to start a new pathogen.
 # =============================================================================
 
 id: cdv
@@ -185,7 +185,7 @@ beast:
     symmetric: true          # false gives directional rates; needs more data
     bssvs: true
     # Tip-label randomisation: does host associate with the tree at all?
-    # Minutes on the existing posterior. See DECISIONS.md DR-009.
+    # Minutes on the existing posterior. See wildphylo's DECISIONS.md, DR-009.
     signal_gate: true
     signal_permutations: 1000   # smallest obtainable p is 1/(this + 1)
     on_no_signal: stop          # stop | warn

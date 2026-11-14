@@ -34,8 +34,8 @@ locus:
     strain: A75/17
     lineage: America-2
     cds:
-    - 21
-    - 1844
+    - 7079
+    - 8902
   annotation_overlength_tolerance: 0.02
   imprecise_date_policy: midpoint
 dates:
@@ -118,7 +118,7 @@ beast:
     trait: host_group
     # Asymmetric: CDV host roles are not reciprocal. Felids are near-pure dead
     # ends; a symmetric matrix cannot express that and invents an outgoing rate
-    # to match the incoming one. See DR-006. Cost is 20 rates instead of 10,
+    # to match the incoming one. See wildphylo's DECISIONS.md, DR-006. Cost is 20 rates instead of 10,
     # which is what bssvs is for.
     symmetric: false
     bssvs: true
@@ -126,7 +126,7 @@ beast:
     # matters more here than anywhere: with that many rates, BSSVS will select
     # some regardless of whether host structure exists.
     # Tip-label randomisation: does host associate with the tree at all?
-    # Minutes on the existing posterior. See DECISIONS.md DR-009.
+    # Minutes on the existing posterior. See wildphylo's DECISIONS.md, DR-009.
     signal_gate: true
     signal_permutations: 1000   # smallest obtainable p is 1/(this + 1)
     on_no_signal: stop          # stop | warn
@@ -146,7 +146,7 @@ subsample:
 nextstrain:
   title: CDV America-2 lineage in North American carnivores
   maintainer: Batya Nightingale
-  build_name: cdv-phylodynamics
+  build_name: cdv-phylodynamics-1200
   colour_by:
   - host_group
   - country
@@ -161,4 +161,7 @@ nextstrain:
     keep_builds: 12
     alert_on_tmrca_shift_years: 5.0
     alert_on_sequence_loss: true
+# Lets the review gate (wildphylo curate review) pass records still flagged
+# for manual review. Set for this variant build only; config/cdv.yaml does not
+# set it, so the main build's records must be reviewed before it runs.
 accept_unreviewed: true
