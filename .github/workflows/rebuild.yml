@@ -37,9 +37,18 @@ jobs:
 
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          environment-file: environment.yml
-          activate-environment: cdv-phylo
           miniforge-version: latest
+
+      # The environment comes from conda-lock.yml, not environment.yml, so
+      # every rebuild runs the exact versions the lock file records. Later
+      # steps use login shells (bash -el), which read ~/.bash_profile and so
+      # start in cdv-phylo.
+      - name: Create the pinned environment
+        shell: bash -el {0}
+        run: |
+          conda install --yes --name base --channel conda-forge conda-lock
+          conda-lock install --name cdv-phylo conda-lock.yml
+          echo "conda activate cdv-phylo" >> ~/.bash_profile
 
       # One esearch with retmax=0. It downloads nothing, and it exists so that
       # builds/ is a log of when the dataset changed rather than a log of the
@@ -67,9 +76,18 @@ jobs:
 
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          environment-file: environment.yml
-          activate-environment: cdv-phylo
           miniforge-version: latest
+
+      # The environment comes from conda-lock.yml, not environment.yml, so
+      # every rebuild runs the exact versions the lock file records. Later
+      # steps use login shells (bash -el), which read ~/.bash_profile and so
+      # start in cdv-phylo.
+      - name: Create the pinned environment
+        shell: bash -el {0}
+        run: |
+          conda install --yes --name base --channel conda-forge conda-lock
+          conda-lock install --name cdv-phylo conda-lock.yml
+          echo "conda activate cdv-phylo" >> ~/.bash_profile
 
       # BEAST is NOT run here. A 10^8-state chain exceeds the job limit and
       # the result would not be reproducible on a shared runner anyway. CI
