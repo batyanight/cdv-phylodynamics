@@ -39,7 +39,7 @@ README.md, METHODS.md, BEAST_MANIFEST.md, CITATION.cff, LICENSE, GLOSSARY.md (li
 
 - The Snakefile runs from outside its checkout: from a directory holding only
   `config/cdv.yaml` and the three tables,
-  `snakemake -s ~/wildphylo/workflow/Snakefile --configfile config/cdv.yaml -n`
+  `snakemake -s <wildphylo checkout>/workflow/Snakefile --configfile config/cdv.yaml -n`
   resolves the 9-job CDV DAG, `builds/` lands under the current directory, and
   `wildphylo config validate config/cdv.yaml` passes. No wildphylo change needed.
 - Still open: `wildphylo publish dataset` is not wired into the Snakefile. The

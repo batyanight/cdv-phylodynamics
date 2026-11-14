@@ -2,11 +2,11 @@
 
 Written 2026-11-11, at the point where both repos stop and wait for you.
 This is the running order; the reasoning behind each item is in
-`docs/PLAN-pathogen-repo.md` and `~/wildphylo/docs/PLAN-stages.md`.
+`docs/PLAN-pathogen-repo.md` and wildphylo's `docs/PLAN-stages.md`.
 
 State as of writing: wildphylo `main` is pushed with tags `v0.2.0`, `v0.2.1`
-and `v0.3.0`. This repo's work is on branch `pathogen-repo`, 18 commits, **not
-pushed**. The served dataset at nextstrain.org is untouched and stays that way
+and `v0.3.0`. This repo's work was reviewed and merged into `main` through
+PR #1 on 2026-11-13. The served dataset at nextstrain.org is untouched and stays that way
 until step 6.
 
 ---
@@ -118,7 +118,7 @@ implementation:
 
 ## On the wildphylo side
 
-Recorded in `~/wildphylo/docs/PLAN-stages.md`; none of it blocks this repo.
+Recorded in wildphylo's `docs/PLAN-stages.md`; none of it blocks this repo.
 
 - **`drt_run` writes BEAST's posterior log into the working directory**, so a
   chain started from a repo root drops `H_*_drt<N>.log` beside the Snakefile.

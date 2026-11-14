@@ -21,6 +21,14 @@ version: 1.0.0
 date-released: 2026-08-30
 repository-code: "https://github.com/batyanight/cdv-phylodynamics"
 url: "https://nextstrain.org/community/batyanight/cdv-phylodynamics"
+references:
+  - type: software
+    title: "wildphylo: a config-driven phylodynamics pipeline for wildlife disease"
+    authors:
+      - family-names: Nightingale
+        given-names: Batya
+    version: 0.3.0
+    repository-code: "https://github.com/batyanight/wildphylo"
 keywords:
   - canine distemper virus
   - Morbillivirus canis
