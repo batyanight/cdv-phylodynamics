@@ -74,8 +74,8 @@ wildphylo gates compare --pathogen cdv --builds-dir builds/cdv --out comparison.
 ```
 
 Expect exactly one intended difference in the trait block: MK487378's host
-state. Anything else — a lost sequence, a moved TMRCA, a changed gate verdict
-— is a regression until explained. `METHODS.md` §9.5 records the one expected
+state. Anything else (a lost sequence, a moved TMRCA, a changed gate verdict)
+is a regression until explained. `METHODS.md` §9.5 records the one expected
 difference; if the comparison surfaces others, they belong in METHODS too
 before anything is published.
 

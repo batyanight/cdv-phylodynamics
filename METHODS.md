@@ -378,8 +378,8 @@ against the crash above, so a rebuild should be watched through the first
 10⁶ states.
 
 The config earlier also mapped `domestic_cat` to the felid state. No rule in
-`config/host_groups.tsv` produces `domestic_cat` — domestic cat is filed under
-`other` — so the mapping never fired and nothing in any run pooled domestic
+`config/host_groups.tsv` produces `domestic_cat` (domestic cat is filed under
+`other`), so the mapping never fired and nothing in any run pooled domestic
 with wild felids. The key is gone, and `wildphylo config validate` now warns on
 a `dta_states` key the host table cannot produce.
 

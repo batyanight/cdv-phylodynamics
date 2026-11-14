@@ -118,7 +118,7 @@ that fails stops the run. The gates:
   (`wildphylo gates compare`); a lost sequence or a moved TMRCA is a regression until
   explained.
 
-Terms follow wildphylo's [GLOSSARY.md](https://github.com/batyanight/wildphylo/blob/main/GLOSSARY.md).
+Terms follow wildphylo's [GLOSSARY.md](https://github.com/batyanight/wildphylo/blob/v0.3.0/GLOSSARY.md).
 
 **Versions.** The analysis reported in Findings was run with the standalone numbered
 scripts that preceded wildphylo. That code is at tag `v1.0.1`; the Zenodo release is

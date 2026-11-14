@@ -1,5 +1,5 @@
 # =============================================================================
-# CDV — canine distemper virus (Morbillivirus canis)
+# CDV: canine distemper virus (Morbillivirus canis)
 #
 # This is the reference implementation: the analysis the pipeline was built
 # from. Every value here was hardcoded in a script before. Copy
@@ -52,7 +52,7 @@ locus:
   # came in at 1946 and 1947 nt against an 1824 nt CDS.
   annotation_overlength_tolerance: 0.02
   # Coordinate reference. Every annotation position is expressed in this
-  # sequence's numbering, not in alignment columns — alignment columns shift
+  # sequence's numbering, not in alignment columns, which shift
   # whenever the dataset changes.
   coordinate_reference:
     accession: AF164967
@@ -63,7 +63,7 @@ locus:
     # CDS H is 7079..8902, which is 1824 nt = 608 codons (607 aa + stop) and
     # matches expected_length. MUST span a multiple of 3; a CDS that does not
     # is arithmetically impossible.
-    # Was [21, 1844] — the same CDS numbered from the first base of the H gene
+    # Was [21, 1844]: the same CDS numbered from the first base of the H gene
     # feature, a third coordinate system that neither this key nor the
     # glossary declares. Alignment-column coordinates (1..1824 in the served
     # Auspice JSON) are a fourth; do not mix them.
@@ -190,7 +190,7 @@ beast:
     signal_permutations: 1000   # smallest obtainable p is 1/(this + 1)
     on_no_signal: stop          # stop | warn
 
-  # Date-randomisation test — the formal temporal signal check.
+  # Date-randomisation test: the formal temporal signal check.
   date_randomisation:
     enabled: true
     replicates: 20
@@ -225,6 +225,6 @@ nextstrain:
     max_new_accessions: 500
     keep_builds: 12
     # Refuse to publish if the new fetch lost sequences or the TMRCA moves
-    # more than this much — that signals a curation regression, not a finding.
+    # more than this much. That signals a curation regression, not a finding.
     alert_on_tmrca_shift_years: 5.0
     alert_on_sequence_loss: true

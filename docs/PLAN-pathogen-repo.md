@@ -65,8 +65,8 @@ All four open items are resolved. The configs and METHODS carry the
 resolutions; this section records what was decided and why.
 
 - **Host states.** `hosts.dta_states` now declares the same five states the
-  published run used — `procyonid`, `wild_canid`, `mustelid`, `wild_felid`,
-  `domestic_dog` — each mapped to itself, and leaves `ailurid` unmapped.
+  published run used (`procyonid`, `wild_canid`, `mustelid`, `wild_felid`,
+  `domestic_dog`), each mapped to itself, and leaves `ailurid` unmapped.
   Two findings drove it. First, the config's `domestic_cat: felid` entry was
   dead: `config/host_groups.tsv` files domestic cat under `other`, so no rule
   produces `domestic_cat` and nothing in any run ever pooled domestic with
