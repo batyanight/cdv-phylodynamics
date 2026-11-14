@@ -1,0 +1,171 @@
+name: Scheduled rebuild
+
+# The published dataset is rebuilt here, not in wildphylo. wildphylo's own
+# scheduler builds its shipped configs; this repo owns the CDV analysis.
+#
+# Nothing in this workflow republishes the Auspice dataset. nextstrain.org
+# serves auspice/cdv-phylodynamics.json from `main`, so changing what the
+# world sees stays a human push. The workflow rebuilds the fast half of the
+# pipeline, compares it against the previous build, and commits the audit
+# trail.
+
+on:
+  schedule:
+    # 05:00 UTC on the 2nd of each month: after wildphylo's own 03:00 run on
+    # the 1st, and offset from midnight because NCBI indexes overnight and a
+    # query at 00:00 can return a partially-updated view.
+    - cron: "0 5 2 * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild even if GenBank has no new records"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    name: check for new accessions
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.delta.outputs.proceed }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: conda-incubator/setup-miniconda@fc2d68f6413eb2d87b895e92f8584b5b94a10167 # v3.3.0
+        with:
+          miniforge-version: 26.9.4-2
+
+      # The environment comes from conda-lock.yml, not environment.yml, so
+      # every rebuild runs the exact versions the lock file records. Later
+      # steps use login shells (bash -el), which read ~/.bash_profile and so
+      # start in cdv-phylo.
+      - name: Create the pinned environment
+        shell: bash -el {0}
+        run: |
+          conda install --yes --name base --channel conda-forge conda-lock
+          conda-lock install --name cdv-phylo conda-lock.yml
+          echo "conda activate cdv-phylo" >> ~/.bash_profile
+
+      # One esearch with retmax=0. It downloads nothing, and it exists so that
+      # builds/ is a log of when the dataset changed rather than a log of the
+      # cron schedule.
+      - name: Compare the accession count against the last build
+        id: delta
+        shell: bash -el {0}
+        env:
+          NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          wildphylo publish check-updates \
+            --config-dir config --only cdv \
+            --builds-dir builds/cdv \
+            --github-output
+
+  rebuild:
+    name: rebuild cdv
+    needs: check
+    if: needs.check.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: conda-incubator/setup-miniconda@fc2d68f6413eb2d87b895e92f8584b5b94a10167 # v3.3.0
+        with:
+          miniforge-version: 26.9.4-2
+
+      # The environment comes from conda-lock.yml, not environment.yml, so
+      # every rebuild runs the exact versions the lock file records. Later
+      # steps use login shells (bash -el), which read ~/.bash_profile and so
+      # start in cdv-phylo.
+      - name: Create the pinned environment
+        shell: bash -el {0}
+        run: |
+          conda install --yes --name base --channel conda-forge conda-lock
+          conda-lock install --name cdv-phylo conda-lock.yml
+          echo "conda activate cdv-phylo" >> ~/.bash_profile
+
+      # BEAST is NOT run here. A 10^8-state chain exceeds the job limit and
+      # the result would not be reproducible on a shared runner anyway. CI
+      # rebuilds fetch, curate, align, the ML tree and the temporal gate, and
+      # reports whether the Bayesian half needs rerunning on real hardware.
+      - name: Run the pipeline through the temporal gate
+        id: pipeline
+        shell: bash -el {0}
+        env:
+          NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+        run: |
+          snakemake --configfile config/cdv.yaml --cores 4 \
+            "builds/cdv/$(date +%Y%m%d)/temporal/H_temporal_signal.json"
+
+      # The comparison is written into the build so it is committed with the
+      # rest of the audit trail, whether it passes or not.
+      - name: Compare against the previous build
+        id: compare
+        shell: bash -el {0}
+        run: |
+          out="builds/cdv/$(date +%Y%m%d)/build_comparison.md"
+          status=0
+          wildphylo gates compare \
+            --pathogen cdv \
+            --builds-dir builds/cdv \
+            --out "$out" || status=$?
+          [ -f "$out" ] && cat "$out" >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      # Two different failures, two different issues: a comparison that
+      # flagged a change is a finding to review; anything else is a broken run.
+      - name: Open an issue if the rebuild did not pass
+        if: failure()
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '${{ steps.compare.outcome }}' === 'failure'
+                ? `Scheduled rebuild flagged a change (${new Date().toISOString().slice(0, 10)})`
+                : `Scheduled rebuild failed before the comparison (${new Date().toISOString().slice(0, 10)})`,
+              body: '${{ steps.compare.outcome }}' !== 'failure' ? [
+                'The scheduled rebuild stopped before comparing against the',
+                'previous build (setup, fetch or the pipeline failed). Nothing was',
+                'committed. See the run log.',
+                '',
+                `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+              ].join('\n') : [
+                'The scheduled rebuild did not pass its comparison against the',
+                'previous build. The usual causes:',
+                '',
+                '- the dataset lost sequences, which is a query bug, not a finding',
+                '- the TMRCA moved beyond the configured tolerance',
+                '- the temporal-signal gate changed verdict',
+                '',
+                'The served dataset is unchanged: publishing is a human push of',
+                'auspice/cdv-phylodynamics.json to main, and it needs a BEAST run',
+                'on real hardware plus `wildphylo gates compare` against the',
+                'served JSON first.',
+                '',
+                `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+              ].join('\n'),
+              labels: ['rebuild', 'needs-review']
+            })
+
+      # Runs whenever the pipeline finished, including when the comparison
+      # flagged a change, so a flagged build still leaves its audit trail.
+      - name: Commit the audit trail
+        if: always() && steps.pipeline.outcome == 'success'
+        shell: bash -el {0}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          build="builds/cdv/$(date +%Y%m%d)"
+          [ -f "$build/provenance.json" ] || { echo "no provenance.json in $build"; exit 1; }
+          git add "$build"
+          git diff --staged --quiet || \
+            git commit -m "Scheduled rebuild: cdv $(date +%Y-%m-%d)"
+          git push

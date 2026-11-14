@@ -11,24 +11,67 @@ section and to let another person reproduce the work from the repository.
 
 ## 1. Software and reproducibility
 
-| Tool | Version | Used for |
-|---|---|---|
-| Python | 3.11 | pipeline scripts |
-| Biopython | 1.8x | GenBank parsing, sequence handling |
-| pandas | 2.x | metadata tables |
-| MAFFT | 7.x | multiple sequence alignment |
-| IQ-TREE | 2.x | maximum likelihood phylogeny, ModelFinder |
-| TempEst | 1.5.3 | root-to-tip temporal signal |
-| BEAST | 2.7.7 | Bayesian phylodynamics |
-| BEAST_CLASSIC | (BEAST 2.7 package) | ancestral state reconstruction |
-| Tracer | 1.7.x | MCMC convergence assessment |
+Versions used for the analysis reported below (scripts at `v1.0.1`). "Recorded" means the
+version is printed in that run's own output; "pinned" means it is the version
+`environment.yml` at `v1.0.1` asked for, with no output from the run that confirms it;
+"stated by the author" means neither a run output nor a pin records it.
 
-`[FILL IN exact versions from your machine: mafft --version, iqtree2 --version, conda list]`
+| Tool | Version | Source | Used for |
+|---|---|---|---|
+| Python | 3.11 | pinned | analysis scripts |
+| Biopython | 1.83 | pinned | GenBank parsing, sequence handling |
+| pandas | 2.2 | pinned | metadata tables |
+| MAFFT | 7.520 | pinned | multiple sequence alignment (`mafft --auto --adjustdirection`, §4) |
+| IQ-TREE | 2.2.2.9 | recorded (IQ-TREE log, 2026-08-26) | maximum likelihood phylogeny, ModelFinder |
+| TempEst | 1.5.3 | stated by the author | root-to-tip temporal signal |
+| BEAST | 2.7.8 | recorded (`run.out` of each published chain) | Bayesian phylodynamics |
+| BEAST_CLASSIC | 1.6.4 | recorded (BEAST logs) | ancestral state reconstruction |
+| Tracer | 1.7.x | stated by the author | MCMC convergence assessment |
 
-All pipeline code, configuration files and BEAST XMLs are in the project repository.
-Analysis scripts are numbered in execution order (`00_check_env.py` through
-`07_make_beast_xml.py`). Every exclusion is logged to `data/interim/exclusions.tsv`
-with a machine-readable reason.
+The exploration notebook ran on a Python 3.10.9 kernel, so the scripts' Python may not
+have been the pinned 3.11. BEAST was launched from an install folder named `BEAST 2.7.7`
+(`beast/clade3/run100M*/run_all.sh`), but every published chain's `run.out` reports
+BEAST v2.7.8. The current pipeline (wildphylo `v0.3.0`) runs on newer
+versions, MAFFT 7.526 and IQ-TREE 3.1.4 among them; its exact versions for macOS and
+Linux are in `conda-lock.yml`.
+
+The pipeline is [wildphylo](https://github.com/batyanight/wildphylo), version `v0.3.0`,
+installed from the tag pinned in `environment.yml`. Each step is a
+`wildphylo <stage> <step>` command; the Snakefile in this repository includes
+wildphylo's workflow with `config/cdv.yaml`. The configuration files, the audit trail of
+each build, the final BEAST XMLs for the published runs and the served Auspice dataset
+are in this repository. Every exclusion is logged with a machine-readable reason. Terms
+follow wildphylo's glossary (see `GLOSSARY.md`).
+
+The analysis reported below was run with the standalone numbered scripts that preceded
+wildphylo. That code is at tag `v1.0.1` (the Zenodo release is `v1.0.0`). The scripts
+were replaced step for step; where a section below names a script, it is followed by the
+`wildphylo` step that now does the same job.
+
+| Script (up to `v1.0.1`) | wildphylo step now |
+|---|---|
+| `00_check_env.py` | none as a step: the environment is `environment.yml`, and `wildphylo config validate config/cdv.yaml` checks the config |
+| `01_fetch_sequences.py` | `wildphylo fetch records` |
+| `02_curate_metadata.py` | `wildphylo curate metadata` (and `wildphylo curate review`, the review gate) |
+| `03_align_and_tree.py` | the `align` and `ml_tree` rules of wildphylo's workflow (MAFFT, IQ-TREE); not a separate step |
+| `04_alignment_qc.py` | `wildphylo align qc` |
+| `05_tree_summary.py` | `wildphylo tree clades` |
+| `06_subsample.py` | `wildphylo beast subsample` |
+| `07_make_beast_xml.py` | `wildphylo beast xml` (`--randomize-dates N` for the date-randomisation replicates) |
+| `08_add_references.py` | `wildphylo curate metadata` (lineage references already in the fetched records are flagged as anchors, `references.include_as_anchors`; they are not downloaded separately) |
+| `09_make_auspice.py` | `wildphylo auspice dataset` |
+| `10_add_entropy.py` | `wildphylo auspice entropy` |
+| `11_annotate_H.py` | none yet: the H gene and domain annotation has no wildphylo step. Its code is at `v1.0.1` and returns to this repository under `analysis/` once it is reworked against `locus.coordinate_reference` (`docs/PLAN-pathogen-repo.md`) |
+| `cdv_h_coords.py` | none: a helper module imported by scripts 10 and 11, not a step |
+| `check_repo_sync.py` | none: a read-only repository audit, not part of the analysis |
+
+Steps with no numbered script in the original analysis, added by wildphylo as gates or
+post-processing: `wildphylo gates temporal` (automates the root-to-tip regression and
+permutation test; the root-to-tip figures in §7 were produced in TempEst and are
+unchanged), `gates congruence` (segmented pathogens only; not used for CDV),
+`gates convergence`, `gates trait-signal`, `gates drt` (summarises the
+date-randomisation replicates), `gates compare` (build against build), `beast jumps`,
+and `beast state-through-time`.
 
 **Disclosure.** Pipeline code and analysis scripts were developed with assistance from
 an AI assistant (Claude, Anthropic). All analytical decisions, data curation judgements,
@@ -52,13 +95,13 @@ raw GenBank flatfile and a companion accession list are archived under `data/raw
 date-stamped filename; GenBank content changes over time, so the dated pull and accession
 list constitute the reproducible record of the dataset.
 
-Script: `01_fetch_sequences.py`.
+Step: `wildphylo fetch records` (script `01_fetch_sequences.py` up to `v1.0.1`).
 
 ---
 
 ## 3. Metadata curation and filtering
 
-Script: `02_curate_metadata.py`. Every record was parsed for accession, host, country,
+Step: `wildphylo curate metadata` (script `02_curate_metadata.py` up to `v1.0.1`). Every record was parsed for accession, host, country,
 collection date, strain/isolate designation, and gene content.
 
 ### 3.1 Host normalisation
@@ -123,7 +166,7 @@ are in `data/interim/exclusions.tsv`.
 Sequences were aligned with MAFFT (`--auto --adjustdirection`). Sequences reverse
 complemented by MAFFT were noted and inspected.
 
-Alignment quality was assessed with `04_alignment_qc.py`, which computes per-sequence gap
+Alignment quality was assessed with `wildphylo align qc` (script `04_alignment_qc.py` up to `v1.0.1`), which computes per-sequence gap
 and ambiguity fractions, identity to the alignment consensus, per-column coverage, and
 internal stop codons. Reading frame was inferred at the dataset level as the frame
 minimising total internal stops across all sequences; individual sequences with internal
@@ -171,7 +214,7 @@ Wild carnivores comprised 823 sequences (46.7%).
 
 ## 6. Clade delineation
 
-Script: `05_tree_summary.py`. The ML tree was midpoint-rooted and partitioned into major
+Step: `wildphylo tree clades` (script `05_tree_summary.py` up to `v1.0.1`). The ML tree was midpoint-rooted and partitioned into major
 groups by iteratively splitting the largest remaining clade at its deepest internal division
 until approximately 20 groups were obtained. Each group was characterised by size, bootstrap
 support, temporal span, and host composition.
@@ -227,7 +270,7 @@ Formal assessment is by date-randomisation (§11.2).
 
 ## 8. Subsampling
 
-Script: `06_subsample.py`. Two datasets were produced.
+Step: `wildphylo beast subsample` (script `06_subsample.py` up to `v1.0.1`). Two datasets were produced.
 
 **Global (n = 400).** Stratified across clade × host group × 5-year time bin, with each
 non-empty stratum guaranteed at least one representative and the remaining budget
@@ -319,6 +362,27 @@ with zero observations and the instability persisted (failing later, at ~1.2 × 
 The merge was therefore performed at the FASTA level and the model rebuilt, ensuring model
 dimensionality matched the data.
 
+*How a rebuild handles it, and how that differs.* `hosts.dta_states` in
+`config/cdv.yaml` declares the five states directly: `procyonid`, `wild_canid`,
+`mustelid`, `wild_felid`, `domestic_dog`. `ailurid` is left unmapped, so
+`wildphylo beast xml` enters that tip as `?`, ambiguous across all five states
+through the codeMap, and the substitution model is built with five dimensions
+from the start. The published run instead relabelled MK487378 (*Ailurus
+fulgens*, a red panda) as `wild_felid`, which asserted a felid observation that
+was never made; Ailuridae is not Felidae, and one tip cannot inform a rate
+either way. A rebuild therefore has the same five states and the same model
+dimensionality as the published run, with one tip's host state ambiguous rather
+than wrong. `wildphylo gates compare` will report that difference, and it is
+the only intended one in the trait block. The `?` route has not been run
+against the crash above, so a rebuild should be watched through the first
+10⁶ states.
+
+The config earlier also mapped `domestic_cat` to the felid state. No rule in
+`config/host_groups.tsv` produces `domestic_cat` (domestic cat is filed under
+`other`), so the mapping never fired and nothing in any run pooled domestic
+with wild felids. The key is gone, and `wildphylo config validate` now warns on
+a `dta_states` key the host table cannot produce.
+
 **BSSVS disabled.** Bayesian stochastic search variable selection was initially enabled to
 identify supported transitions. BSSVS permits rate indicators to switch to zero; when all
 indicators for a state are off, the conditional distribution for ancestral state sampling
@@ -333,7 +397,7 @@ pairs exchange remain estimable. Directional inference is listed as future work 
 ### 9.4 MCMC
 
 Two independent chains of 10⁷ states each, seeds 12345 and 54321, sampling every 10⁴ states
-(1000 samples per chain). Run in BEAST 2.7.7 without BEAGLE (BEAGLE library unavailable on
+(1000 samples per chain). Run in BEAST (version in §1) without BEAGLE (BEAGLE library unavailable on
 the analysis machine; Java `BeerLikelihoodCore` used instead, affecting speed only).
 
 **Chain length.** An initial pair of chains at 10⁷ states gave adequate mixing for trait
@@ -361,9 +425,15 @@ corrected analysis gives ucldStdev 0.45 (CoV 0.47), a TMRCA of 1976 with a 23-ye
 interval, and every parameter converging on a single chain. Both the erroneous and
 corrected outputs are retained in the repository (`run100M/` and `run100M_fixed/`).
 
-*Preventive check.* `07_make_beast_xml.py` and the launch procedure now assert
-`traitname="date-forward"` before a chain starts, and MCC trees are verified against
-sampling dates before interpretation.
+*Preventive check.* `wildphylo beast xml` (script `07_make_beast_xml.py` up to
+`v1.0.1`) writes `traitname="date-forward"` as a fixed value in every BEAST XML.
+The direction is not configurable and the builder does not check it, so this is
+prevention by construction, not an assertion. An inverted axis is caught after
+the run: `wildphylo gates temporal` on the MCC tree regresses root-to-tip
+distance on sampling date and fails the gate as "TIME AXIS INVERTED" when the
+slope is -1.0 with R² above 0.80. The same gate run before BEAST cannot catch
+it, because the ML tree is in substitutions per site, where the slope is nowhere
+near ±1. Running the gate on the MCC tree is a manual step; no rule does it.
 
 ### 9.6 Convergence and posterior estimates
 
@@ -465,7 +535,7 @@ investigations — not on ancestral state probability alone.
 ### 9.10 Lineage assignment
 
 Twenty published lineage reference sequences were added and an ML tree rebuilt
-(`08_add_references.py`). Patristic distances place **America-2** closest to the query set:
+(`08_add_references.py` up to `v1.0.1`; now `wildphylo curate metadata`, which admits the lineage references as anchors). Patristic distances place **America-2** closest to the query set:
 A75/17 (AF164967) at mean distance 0.038 (minimum 0.010), AF112189 at 0.040. Two sequences
 already in the dataset (EU716337, KJ123771) are themselves published America-2 reference
 strains. The America-2 isolates Black panther A-92 (Z54166) and "America dog" (Z47762) also
@@ -526,7 +596,17 @@ captive origin for all felid sequences, Nextstrain build (§12).
 
 ### 11.1 Validate clade identity and outliers — partly complete
 
-Script: `08_add_references.py`, with accessions in `config/lineage_references.tsv`.
+Step: `wildphylo curate metadata` (script `08_add_references.py` up to `v1.0.1`),
+with accessions in `config/lineage_references.tsv`.
+
+The reference accessions are not fetched individually. `wildphylo fetch records`
+downloads whatever the taxon query returns (txid 11232, `NOT patent[Title]`), and
+`curate metadata` flags the records whose accession matches a nucleotide row of
+the table. A table accession absent from the fetched set is omitted with a log
+warning, "reference anchors not present in ...", not an error; protein accessions
+in the table are skipped the same way. Three of the eight nucleotide references
+are the US patent 8647637 panel, so the `NOT patent[Title]` filter is the first
+thing to check if a lineage goes unnamed.
 
 Reference sequences with published lineage designations are merged with the query set,
 realigned, and a classification tree built. Lineage assignment follows from which
@@ -567,8 +647,8 @@ Separately, inspect individually:
 
 ### 11.2 Date-randomisation test
 
-Generate 20 replicates with tip dates shuffled (`07_make_beast_xml.py --randomize-dates 20`)
-and run at reduced chain length. Temporal signal is demonstrated if the 95% HPD of the real
+Generate 20 replicates with tip dates shuffled (`wildphylo beast xml --randomize-dates 20`; script `07_make_beast_xml.py` up to `v1.0.1`)
+and run at reduced chain length; `wildphylo gates drt` summarises the replicates. Temporal signal is demonstrated if the 95% HPD of the real
 `ucldMean` estimate does not overlap the distribution of randomised estimates. This is the
 defensible test of temporal signal and substitutes for arguing from R².
 
@@ -787,7 +867,7 @@ verified before publication**.
   pathogen evolution. *Bioinformatics* 34(23):4121–4123. *[verify]*
 
   **Scope note:** Auspice was used for visualisation only. Augur was **not** used; the
-  MCC tree was converted to Auspice v2 JSON directly by `scripts/09_make_auspice.py`.
+  MCC tree was converted to Auspice v2 JSON directly by `scripts/09_make_auspice.py` (up to `v1.0.1`; now `wildphylo auspice dataset`).
   Do not describe this as a Nextstrain pipeline build.
 
 ### Data handling
