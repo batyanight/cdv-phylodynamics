@@ -33,11 +33,11 @@ jobs:
     outputs:
       proceed: ${{ steps.delta.outputs.proceed }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-      - uses: conda-incubator/setup-miniconda@v3
+      - uses: conda-incubator/setup-miniconda@fc2d68f6413eb2d87b895e92f8584b5b94a10167 # v3.3.0
         with:
-          miniforge-version: latest
+          miniforge-version: 26.9.4-2
 
       # The environment comes from conda-lock.yml, not environment.yml, so
       # every rebuild runs the exact versions the lock file records. Later
@@ -72,11 +72,11 @@ jobs:
     if: needs.check.outputs.proceed == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-      - uses: conda-incubator/setup-miniconda@v3
+      - uses: conda-incubator/setup-miniconda@fc2d68f6413eb2d87b895e92f8584b5b94a10167 # v3.3.0
         with:
-          miniforge-version: latest
+          miniforge-version: 26.9.4-2
 
       # The environment comes from conda-lock.yml, not environment.yml, so
       # every rebuild runs the exact versions the lock file records. Later
@@ -94,6 +94,7 @@ jobs:
       # rebuilds fetch, curate, align, the ML tree and the temporal gate, and
       # reports whether the Bayesian half needs rerunning on real hardware.
       - name: Run the pipeline through the temporal gate
+        id: pipeline
         shell: bash -el {0}
         env:
           NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
@@ -102,25 +103,41 @@ jobs:
           snakemake --configfile config/cdv.yaml --cores 4 \
             "builds/cdv/$(date +%Y%m%d)/temporal/H_temporal_signal.json"
 
+      # The comparison is written into the build so it is committed with the
+      # rest of the audit trail, whether it passes or not.
       - name: Compare against the previous build
+        id: compare
         shell: bash -el {0}
         run: |
+          out="builds/cdv/$(date +%Y%m%d)/build_comparison.md"
+          status=0
           wildphylo gates compare \
             --pathogen cdv \
             --builds-dir builds/cdv \
-            --out /tmp/comparison.md
-          cat /tmp/comparison.md >> "$GITHUB_STEP_SUMMARY"
+            --out "$out" || status=$?
+          [ -f "$out" ] && cat "$out" >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
 
-      - name: Open an issue if the comparison did not pass
+      # Two different failures, two different issues: a comparison that
+      # flagged a change is a finding to review; anything else is a broken run.
+      - name: Open an issue if the rebuild did not pass
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         with:
           script: |
             github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Scheduled rebuild flagged a change (${new Date().toISOString().slice(0, 10)})`,
-              body: [
+              title: '${{ steps.compare.outcome }}' === 'failure'
+                ? `Scheduled rebuild flagged a change (${new Date().toISOString().slice(0, 10)})`
+                : `Scheduled rebuild failed before the comparison (${new Date().toISOString().slice(0, 10)})`,
+              body: '${{ steps.compare.outcome }}' !== 'failure' ? [
+                'The scheduled rebuild stopped before comparing against the',
+                'previous build (setup, fetch or the pipeline failed). Nothing was',
+                'committed. See the run log.',
+                '',
+                `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+              ].join('\n') : [
                 'The scheduled rebuild did not pass its comparison against the',
                 'previous build. The usual causes:',
                 '',
@@ -138,16 +155,17 @@ jobs:
               labels: ['rebuild', 'needs-review']
             })
 
+      # Runs whenever the pipeline finished, including when the comparison
+      # flagged a change, so a flagged build still leaves its audit trail.
       - name: Commit the audit trail
+        if: always() && steps.pipeline.outcome == 'success'
         shell: bash -el {0}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f builds/cdv/*/provenance.json \
-                     builds/cdv/*/checks.json \
-                     builds/cdv/*/qc/ \
-                     builds/cdv/*/temporal/ \
-                     builds/cdv/*/raw/*.acc || true
+          build="builds/cdv/$(date +%Y%m%d)"
+          [ -f "$build/provenance.json" ] || { echo "no provenance.json in $build"; exit 1; }
+          git add "$build"
           git diff --staged --quiet || \
             git commit -m "Scheduled rebuild: cdv $(date +%Y-%m-%d)"
           git push
