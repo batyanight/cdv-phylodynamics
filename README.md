@@ -15,7 +15,7 @@ are the input.
 **[View the interactive phylogeny →](https://nextstrain.org/community/batyanight/cdv-phylodynamics)**
 
 > **Status: core analysis complete.** Date-randomisation test and directional rate
-> model outstanding — see [Outstanding work](#outstanding-work).
+> model outstanding. See [Outstanding work](#outstanding-work).
 
 ---
 
@@ -26,9 +26,9 @@ repeated spillover from domestic dogs?
 
 ## Findings
 
-**Dataset.** 162 hemagglutinin gene sequences, 1992–2023, 95% from wild hosts —
+**Dataset.** 162 hemagglutinin gene sequences, 1992–2023, 95% from wild hosts:
 raccoon (*Procyon lotor*, n=91), coyote (*Canis latrans*, 16), striped skunk
-(*Mephitis mephitis*, 14), red fox (*Vulpes vulpes*, 10) — from Canada (114), the USA (44)
+(*Mephitis mephitis*, 14), red fox (*Vulpes vulpes*, 10), from Canada (114), the USA (44)
 and Denmark (4). Assigned to lineage **America-2** by reference sequence placement.
 
 **Evolutionary parameters.** BEAST 2.7.8, two chains of 10⁸ states, HKY+Γ₄, uncorrelated
@@ -58,9 +58,9 @@ repeatedly from dogs.
 felid transmission clusters, 23 years apart, each matching a published outbreak
 investigation:
 
-- **~1992** (p = 0.992) — a lion and a leopard from the North American captive felid
+- **~1992** (p = 0.992): a lion and a leopard from the North American captive felid
   epizootic (Weckworth et al. 2020; cf. Appel et al. 1994)
-- **~2015** (p = 0.987) — four tigers from an exotic felid rescue centre in Indiana, with
+- **~2015** (p = 0.987): four tigers from an exotic felid rescue centre in Indiana, with
   nested substructure indicating onward felid-to-felid spread
   (Batista Linhares et al. 2021, *Pathogens* 10:544)
 
@@ -187,8 +187,8 @@ rerun. Both the erroneous and corrected outputs are retained. See
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff). Licensed under MIT — see [LICENSE](LICENSE).
+See [CITATION.cff](CITATION.cff). Licensed under MIT. See [LICENSE](LICENSE).
 
 ## Author
 
-Batya Nightingale — [ORCID 0000-0002-0706-8951](https://orcid.org/0000-0002-0706-8951)
+Batya Nightingale, [ORCID 0000-0002-0706-8951](https://orcid.org/0000-0002-0706-8951)

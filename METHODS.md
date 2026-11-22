@@ -1,4 +1,4 @@
-# Methods — Phylodynamics of canine distemper virus in North American carnivores
+# Methods: Phylodynamics of canine distemper virus in North American carnivores
 
 **Status:** core analysis complete (see §11.0). The date-randomisation test and the directional
 rate model are outstanding, and the exact software versions in §1 are still to be filled in.
@@ -147,7 +147,7 @@ annotations, accepting the variant labels used across GenBank (`H`, `HA`, `hemag
 heuristic was applied to records whose description indicated H content (full-length H is
 ~1824 nt). Sequences recovered by heuristic rather than annotation were flagged for manual
 review and retained only after inspection. Records whose annotated H length was
-implausible — chiefly complete genomes with an H feature spanning the entire record — were
+implausible (chiefly complete genomes with an H feature spanning the entire record) were
 excluded pending manual correction.
 
 ### 3.5 Exclusion criteria
@@ -258,7 +258,7 @@ extrapolation to zero divergence is unconstrained when the tree spans divergence
 than the sampling window.
 
 Restricting to clade_3 resolved this. R² rose from 0.049 to 0.586, residual mean squared
-fell 36-fold, and the implied TMRCA moved from an impossible pre-medieval date to 1974 — a
+fell 36-fold, and the implied TMRCA moved from an impossible pre-medieval date to 1974, a
 biologically plausible origin for a regional lineage.
 
 **Caveat.** Root-to-tip regression is a heuristic, not a statistical test: tip observations
@@ -307,7 +307,7 @@ Geographic distribution: Canada 114, USA 44, Denmark 4. Date precision: year-onl
 day 34, month 2. Temporal span 1992.0–2023.6.
 
 **Notes for interpretation.** The composition is that of the North American mesocarnivore
-assemblage — raccoon, coyote, striped skunk, red fox, mink, marten. The felid sequences
+assemblage: raccoon, coyote, striped skunk, red fox, mink, marten. The felid sequences
 (*P. tigris*, *P. leo*, *P. pardus*) are not from wild populations within this range and are
 consistent with captive animals infected from local wildlife, a documented pattern in North
 American zoological collections. The four Danish sequences and single *Meles meles* are
@@ -323,7 +323,7 @@ geographic outliers requiring individual inspection (§11.1).
 - Proportion invariant fixed at 0 (not co-estimated with Γ shape, which is
   non-identifiable and degrades mixing)
 - Molecular clock: uncorrelated relaxed lognormal
-- Clock rate prior: lognormal, M = 7.46 × 10⁻⁴, S = 1.0, mean in real space — centred on
+- Clock rate prior: lognormal, M = 7.46 × 10⁻⁴, S = 1.0, mean in real space, centred on
   the clade_3 root-to-tip estimate and wide enough to be data-dominated
 - Tree prior: coalescent, constant population size
 
@@ -337,7 +337,7 @@ data. Population dynamics are therefore not inferred and no demographic claims a
 - Ancestral state reconstruction via BEAST_CLASSIC `AncestralStateTreeLikelihood`
 - Symmetric substitution model across 5 host states (10 rate parameters)
 - Strict clock on the trait partition
-- Rate indicators fixed (BSSVS disabled — see §9.3)
+- Rate indicators fixed (BSSVS disabled; see §9.3)
 - Priors: `relativeGeoRates` Gamma(1, 1); `traitClockRate` Gamma(0.001, 1000)
 
 Host states: procyonid (91), wild_canid (32), mustelid (23), domestic_dog (8),
@@ -514,7 +514,7 @@ Contemporaneous with the North American captive felid epizootic described by App
 dataset.
 
 **~2015** (node probability 0.987, clade posterior 0.93): MW984527, MW984530, MW984531,
-MW984532 — four tigers from an exotic felid rescue centre in Indiana, USA, sampled
+MW984532: four tigers from an exotic felid rescue centre in Indiana, USA, sampled
 November–December 2015, from Batista Linhares et al. 2021 (*Pathogens* 10:544). Nested
 substructure within this clade (probabilities 0.995 and 1.000) indicates onward
 transmission among felids. The original investigation independently concluded that felids
@@ -530,7 +530,7 @@ independent check on the method.
 **Caveat.** Both felid clades have procyonid-reconstructed parent nodes, but those parents
 are weakly supported (p = 0.535 and 0.392). The raccoon-source interpretation rests on the
 combination of transition rate estimates, host composition, and the published outbreak
-investigations — not on ancestral state probability alone.
+investigations, not on ancestral state probability alone.
 
 ### 9.10 Lineage assignment
 
@@ -546,7 +546,7 @@ distant references (0.102, 0.106). No query sequence groups with them, confirmin
 name-based vaccine filtering (§3.2) did not miss vaccine-derived sequences.
 
 **Reference excluded.** AF259552, listed as America-2 in a patent filing, sat at distance
-0.106 — as far as the vaccine strains — indicating its lineage label is incorrect. It was
+0.106 (as far as the vaccine strains), indicating its lineage label is incorrect. It was
 excluded and the exclusion documented in `config/lineage_references.tsv`.
 
 **Nomenclature.** The original H-gene scheme (Martella et al. 2006; Nikolin et al. 2012)
@@ -594,7 +594,7 @@ Outstanding: date-randomisation test (§11.2), directional transition rates (§1
 investigation of the Danish sequences and the *Meles meles* record, and confirmation of
 captive origin for all felid sequences.
 
-### 11.1 Validate clade identity and outliers — partly complete
+### 11.1 Validate clade identity and outliers (partly complete)
 
 Step: `wildphylo curate metadata` (script `08_add_references.py` up to `v1.0.1`),
 with accessions in `config/lineage_references.tsv`.
@@ -624,7 +624,7 @@ America-2 reference. Work on raccoons around a Chicago-area zoo attributed 2000-
 epizootics to the A75/17 lineage, which is directly relevant to the captive felid
 sequences in clade_3.
 
-**America-3 reference sequence still needed** — it is the most plausible alternative
+**America-3 reference sequence still needed.** It is the most plausible alternative
 assignment and no accession was located in the sources consulted.
 
 **Secondary use: tree-based vaccine check.** The reference panel includes America-1 /
@@ -639,10 +639,10 @@ secondary sources. Each must be verified against its primary GenBank record and
 depositing publication before the lineage call is published.
 
 Separately, inspect individually:
-- the 4 Denmark sequences and the *Meles meles* record — geographic outliers
-- the 8 *Canis lupus familiaris* sequences — potential spillback into dogs; check whether
+- the 4 Denmark sequences and the *Meles meles* record: geographic outliers
+- the 8 *Canis lupus familiaris* sequences: potential spillback into dogs; check whether
   they are phylogenetically nested among wildlife sequences or basal
-- the 7 felid sequences — confirm captive origin from the source publications
+- the 7 felid sequences: confirm captive origin from the source publications
 - the 14 sequences with unresolved host group in the wider dataset
 
 ### 11.2 Date-randomisation test
@@ -660,10 +660,10 @@ domestic dogs are a source or a sink for this lineage.
 
 ### 11.4 Post-processing
 
-1. **LogCombiner** — merge chains if individual ESS is inadequate; 10% burn-in.
-2. **TreeAnnotator** — MCC tree from combined `.trees`, 10% burn-in, median node heights,
+1. **LogCombiner**: merge chains if individual ESS is inadequate; 10% burn-in.
+2. **TreeAnnotator**: MCC tree from combined `.trees`, 10% burn-in, median node heights,
    keeping annotations from `clade3_5state.host.trees` for ancestral states.
-3. **FigTree** — verify branch colouring by reconstructed host state before export.
+3. **FigTree**: verify branch colouring by reconstructed host state before export.
 
 ---
 
@@ -676,7 +676,7 @@ kept as the plan that was considered.
 
 Two routes. Route A is the correct one for a time-calibrated Bayesian tree.
 
-### 12.1 Route A — import the BEAST MCC tree (recommended)
+### 12.1 Route A: import the BEAST MCC tree (recommended)
 
 Augur can ingest a BEAST MCC tree directly, preserving node dates and annotations.
 
@@ -756,7 +756,7 @@ Opens at `http://localhost:4000`.
 
 Pass with `--auspice-config nextstrain/auspice_config.json`.
 
-### 12.2 Route B — native Augur pipeline (alternative)
+### 12.2 Route B: native Augur pipeline (alternative)
 
 If you would rather have a fully Nextstrain-native, Snakemake-driven build (useful if the
 dataset will be updated periodically), the standard chain is:
@@ -826,48 +826,48 @@ verified before publication**.
 
 ### Phylogenetics and phylodynamics
 
-- **BEAST 2** — Bouckaert R, Vaughan TG, Barido-Sottani J, Duchêne S, Fourment M,
+- **BEAST 2**: Bouckaert R, Vaughan TG, Barido-Sottani J, Duchêne S, Fourment M,
   Gavryushkina A, et al. (2019) BEAST 2.5: An advanced software platform for Bayesian
   evolutionary analysis. *PLoS Computational Biology* 15(4):e1006650.
   doi:10.1371/journal.pcbi.1006650 **[verified]**
 
-- **Discrete trait / ancestral state reconstruction** — Lemey P, Rambaut A, Drummond AJ,
+- **Discrete trait / ancestral state reconstruction**: Lemey P, Rambaut A, Drummond AJ,
   Suchard MA (2009) Bayesian phylogeography finds its roots. *PLoS Computational Biology*
   5(9):e1000520. doi:10.1371/journal.pcbi.1000520 **[verified]**
   *(the method underlying BEAST_CLASSIC's `AncestralStateTreeLikelihood`; cite even though
   BSSVS was disabled here)*
 
-- **IQ-TREE 2** — Minh BQ, Schmidt HA, Chernomor O, Schrempf D, Woodhams MD,
+- **IQ-TREE 2**: Minh BQ, Schmidt HA, Chernomor O, Schrempf D, Woodhams MD,
   von Haeseler A, Lanfear R (2020) IQ-TREE 2: New models and efficient methods for
   phylogenetic inference in the genomic era. *Molecular Biology and Evolution*
   37(5):1530–1534. doi:10.1093/molbev/msaa015 **[verified]**
 
-- **Tracer** — Rambaut A, Drummond AJ, Xie D, Baele G, Suchard MA (2018) Posterior
+- **Tracer**: Rambaut A, Drummond AJ, Xie D, Baele G, Suchard MA (2018) Posterior
   summarization in Bayesian phylogenetics using Tracer 1.7. *Systematic Biology*
   67(5):901–904. doi:10.1093/sysbio/syy032 **[verified]**
 
-- **ModelFinder** — Kalyaanamoorthy S, Minh BQ, Wong TKF, von Haeseler A, Jermiin LS
+- **ModelFinder**: Kalyaanamoorthy S, Minh BQ, Wong TKF, von Haeseler A, Jermiin LS
   (2017) ModelFinder: fast model selection for accurate phylogenetic estimates.
   *Nature Methods* 14:587–589. *[verify]*
 
-- **UFBoot2** — Hoang DT, Chernomor O, von Haeseler A, Minh BQ, Vinh LS (2018)
+- **UFBoot2**: Hoang DT, Chernomor O, von Haeseler A, Minh BQ, Vinh LS (2018)
   UFBoot2: improving the ultrafast bootstrap approximation. *Molecular Biology and
   Evolution* 35(2):518–522. *[verify]*
 
-- **TempEst** — Rambaut A, Lam TT, Max Carvalho L, Pybus OG (2016) Exploring the
+- **TempEst**: Rambaut A, Lam TT, Max Carvalho L, Pybus OG (2016) Exploring the
   temporal structure of heterochronous sequences using TempEst. *Virus Evolution*
   2(1):vew007. *[verify]*
 
-- **MAFFT** — Katoh K, Standley DM (2013) MAFFT multiple sequence alignment software
+- **MAFFT**: Katoh K, Standley DM (2013) MAFFT multiple sequence alignment software
   version 7: improvements in performance and usability. *Molecular Biology and Evolution*
   30(4):772–780. *[verify]*
 
-- **FigTree** — Rambaut A. FigTree. http://tree.bio.ed.ac.uk/software/figtree/
+- **FigTree**: Rambaut A. FigTree. http://tree.bio.ed.ac.uk/software/figtree/
   *(software, no publication)*
 
 ### Visualisation
 
-- **Nextstrain / Auspice** — Hadfield J, Megill C, Bell SM, Huddleston J, Potter B,
+- **Nextstrain / Auspice**: Hadfield J, Megill C, Bell SM, Huddleston J, Potter B,
   Callender C, Sagulenko P, Bedford T, Neher RA (2018) Nextstrain: real-time tracking of
   pathogen evolution. *Bioinformatics* 34(23):4121–4123. *[verify]*
 
@@ -877,18 +877,18 @@ verified before publication**.
 
 ### Data handling
 
-- **Biopython** — Cock PJA, Antao T, Chang JT, Chapman BA, Cox CJ, Dalke A, et al. (2009)
+- **Biopython**: Cock PJA, Antao T, Chang JT, Chapman BA, Cox CJ, Dalke A, et al. (2009)
   Biopython: freely available Python tools for computational molecular biology and
   bioinformatics. *Bioinformatics* 25(11):1422–1423. *[verify]*
 
-- **pandas** — McKinney W (2010) Data structures for statistical computing in Python.
+- **pandas**: McKinney W (2010) Data structures for statistical computing in Python.
   *Proceedings of the 9th Python in Science Conference*, 56–61. *[verify]*
 
-- **matplotlib** — Hunter JD (2007) Matplotlib: a 2D graphics environment.
+- **matplotlib**: Hunter JD (2007) Matplotlib: a 2D graphics environment.
   *Computing in Science & Engineering* 9(3):90–95. *[verify]*
 
-- **NCBI GenBank** — Sayers EW, Cavanaugh M, Clark K, Pruitt KD, Schoch CL, Sherry ST,
-  Karsch-Mizrachi I. GenBank. *Nucleic Acids Research*. *[verify — cite the current
+- **NCBI GenBank**: Sayers EW, Cavanaugh M, Clark K, Pruitt KD, Schoch CL, Sherry ST,
+  Karsch-Mizrachi I. GenBank. *Nucleic Acids Research*. *[verify: cite the current
   annual database issue]*
 
 ### Subject literature cited in this document
@@ -909,10 +909,10 @@ verified before publication**.
 
 - Martella V, Cirone F, Elia G, Lorusso E, Decaro N, Campolo M, et al. (2006)
   Heterogeneity within the haemagglutinin genes of canine distemper virus (CDV) strains
-  detected in Italy. *Veterinary Microbiology* 116:301–309. *[verify — lineage
+  detected in Italy. *Veterinary Microbiology* 116:301–309. *[verify: lineage
   nomenclature]*
 
 - Nikolin VM, Wibbelt G, Michler FUF, Wolf P, East ML (2012) Susceptibility of carnivore
   hosts to strains of canine distemper virus from distinct genetic lineages.
-  *Veterinary Microbiology*. *[verify — lineage nomenclature]*
+  *Veterinary Microbiology*. *[verify: lineage nomenclature]*
 
