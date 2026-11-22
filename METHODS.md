@@ -1,7 +1,7 @@
 # Methods — Phylodynamics of canine distemper virus in North American carnivores
 
-**Status:** analysis in progress. BEAST runs executing at time of writing; sections marked
-`[PENDING]` are to be completed from those outputs.
+**Status:** core analysis complete (see §11.0). The date-randomisation test and the directional
+rate model are outstanding, and the exact software versions in §1 are still to be filled in.
 
 **Scope of this document.** A full record of what was done, why, and what was decided,
 including analytical dead ends. Written to be adapted directly into a manuscript methods
@@ -437,7 +437,7 @@ near ±1. Running the gate on the MCC tree is a manual step; no rule does it.
 
 ### 9.6 Convergence and posterior estimates
 
-Two independent chains of 10⁸ states (seeds 12345, 54321), sampled every 10⁴, combined in
+Two independent chains of 10⁸ states (seeds 12345, 54321), sampled every 10⁵, combined in
 LogCombiner with 10% burn-in per chain (1802 samples). All parameters exceeded ESS 500.
 
 | Parameter | Median | 95% HPD | ESS |
@@ -591,8 +591,8 @@ assignment (§9.10), vaccine check (§9.10), felid cluster identification and va
 against published outbreak investigations (§9.9).
 
 Outstanding: date-randomisation test (§11.2), directional transition rates (§11.3),
-investigation of the Danish sequences and the *Meles meles* record, confirmation of
-captive origin for all felid sequences, Nextstrain build (§12).
+investigation of the Danish sequences and the *Meles meles* record, and confirmation of
+captive origin for all felid sequences.
 
 ### 11.1 Validate clade identity and outliers — partly complete
 
@@ -668,6 +668,11 @@ domestic dogs are a source or a sink for this lineage.
 ---
 
 ## 12. Nextstrain / Auspice implementation
+
+**What was done.** Neither route below was used for the published build. The MCC tree was
+converted to Auspice v2 JSON directly by `scripts/09_make_auspice.py` (up to `v1.0.1`; now
+`wildphylo auspice dataset`), without Augur (see the scope note in §14). The two routes are
+kept as the plan that was considered.
 
 Two routes. Route A is the correct one for a time-calibrated Bayesian tree.
 
@@ -798,16 +803,16 @@ tip labels and metadata line up before running the pipeline.
 
 ## 13. Outstanding items checklist
 
-- [ ] Both BEAST chains complete; ESS > 200 for all parameters
-- [ ] Chains agree; combined in LogCombiner if needed
-- [ ] MCC tree annotated with host states
+- [x] Both BEAST chains complete; ESS > 200 for all parameters
+- [x] Chains agree; combined in LogCombiner if needed
+- [x] MCC tree annotated with host states
 - [ ] Date-randomisation test run and reported
 - [ ] Reference lineage sequences added; clade_3 formally identified
 - [ ] Denmark / *Meles meles* outliers resolved
 - [ ] 8 domestic dog sequences examined for spillback
 - [ ] Felid sequences confirmed as captive from source publications
 - [ ] Asymmetric-without-BSSVS attempt for directionality
-- [ ] Auspice build rendering correctly
+- [x] Auspice build rendering correctly
 - [ ] Software versions recorded exactly
 - [ ] Repository archived on Zenodo
 
