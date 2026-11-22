@@ -170,7 +170,7 @@ defines every coordinate in the annotation), and `data/processed/metadata_clean.
 - [ ] Asymmetric trait model without BSSVS, for directional transition rates
 - [ ] Investigation of the 4 Danish sequences and one *Meles meles* record
 - [ ] Verification of every lineage reference accession against its primary source
-- [x] Nextstrain/Auspice build, with H domain annotation in A75/17 coordinates
+- [x] Auspice dataset, served through Nextstrain Community, with H domain annotation in A75/17 coordinates
 
 ## Known limitations
 
